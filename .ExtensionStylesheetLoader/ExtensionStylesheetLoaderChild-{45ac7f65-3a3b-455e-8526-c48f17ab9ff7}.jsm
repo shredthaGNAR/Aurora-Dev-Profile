@@ -1,1 +1,0 @@
-"use strict";const EXPORTED_SYMBOLS=["ExtensionStylesheetLoaderChild"];const{WebExtensionPolicy}=Cu.getGlobalForObject(Cu);class ExtensionStylesheetLoaderChild extends JSWindowActorChild{handleEvent(e){let policy=WebExtensionPolicy.getByHostname(this.document.location.hostname);if(policy&&policy.id)this.document.documentElement.setAttribute("uc-extension-id",policy.id)}}

@@ -1,15 +1,18 @@
 /** @format */
 
 @import url(uc-globals.css);
+@import url(uc-variables.css);
 @import url(uc-panels.css);
 @import url(uc-app-menu.css);
 @import url(uc-findbar.css);
 @import url(uc-ctrl-tab.css);
+@import url(uc-navbar.css);
 @import url(uc-bookmarks.css);
 @import url(uc-fullscreen.css);
 @import url(resources/in-content/library.css);
 @import url(resources/in-content/downloads.css);
 @import url(uc-popups.css);
+@import url(uc-search-mode-icons.css);
 @import url(uc-extensions.css);
 @import url(uc-misc.css);
 @import url(custom-chrome.css);
@@ -37,7 +40,7 @@
 	--tab-min-height: 32px !important;
 	--tabs-shadow-size: 1px !important;
 	--tab-border-radius: 10px !important;
-	--tab-min-width: 40px !important;
+	--tab-min-width: 76px !important;
 	--arrowpanel-menuitem-padding: 4px !important;
 	--arrowpanel-padding: 0.8em !important;
 	--button-bgcolor: #393762 !important;
@@ -157,7 +160,7 @@ findbar,
 /* Gray out the favicon icon on the inactive tab */
 
 .tabbrowser-tab .tab-icon-image:not([selected="true"]):not([pinned]) {
-	filter: opacity(40%) saturate(30%) !important;
+	filter: opacity(70%) saturate(30%) !important;
 }
 
 /* Tab labels */
@@ -177,7 +180,7 @@ findbar,
 /* Tab labels */
 
 #main-window[lwthemetextcolor="bright"] tab {
-	color: #ccc !important;
+	color: rgb(150, 150, 150) !important;
 }
 
 #main-window[lwthemetextcolor="bright"] tab:hover {
@@ -866,7 +869,7 @@ browser[type="content"] {
 
 .tabbrowser-tab:not([selected="true"]):not([multiselected="true"])
 	.tab-background {
-	background-color: color-mix(in srgb, #2c2137 90%, transparent) !important;
+	background-color: color-mix(in srgb, #2c2137 50%, transparent) !important;
 	border: 1px solid color-mix(in srgb, currentColor 11%, transparent) !important;
 	border-radius: 10px !important;
 }
@@ -1038,7 +1041,7 @@ menupopup > menuitem {
 /* Dim discarded tabs*/
 
 .tabbrowser-tab[pending] .tab-content:not(:hover) .tab-label {
-	opacity: 0.7 !important;
+	opacity: 0.8 !important;
 }
 
 /* unloaded tab hover */
@@ -1053,7 +1056,7 @@ menupopup > menuitem {
 .tabbrowser-tab:-moz-lwtheme:hover {
 	/*filter: grayscale(25%) !important;*/
 	opacity: 1 !important;
-	filter: brightness(100%) grayscale(25%) !important;
+	/*filter: brightness(100%) grayscale(25%) !important;*/
 	backdrop-filter: blur(14px) !important;
 	border-radius: 10px !important;
 }
@@ -1062,7 +1065,7 @@ menupopup > menuitem {
 
 .tab-icon:not([selected="true"]),
 .tab-icon-image:not([selected="true"]) {
-	filter: brightness(1) contrast(.3) invert(0.1) blur(0.2px) opacity(1) !important;
+	filter: brightness(1) contrast(.3) invert(0.1) blur(12px) opacity(1) !important;
 }
 
 /*brightness(1) contrast(1) invert(0.5) blur(0.2px) opacity(0.7)*/
@@ -1154,12 +1157,6 @@ menupopup > menuitem {
 
 #main-window[lwthemetextcolor="dark"] tab[selected] {
 	color: #000 !important;
-}
-
-/* This is kinda weird, but it makes the horizontal line between tabs and nav-bar render "inside" nav-bar thus tabs are more visibily separated even if there is less space there */
-
-#nav-bar {
-	box-shadow: inset 0 var(--tabs-shadow-size) 0 var(--lwt-tabs-border-color) !important;
 }
 
 .private-browsing-indicator {
@@ -1313,10 +1310,10 @@ menupopup > menuitem {
 	> .tab-context-line {
 	background-image: linear-gradient(
 		to right,
-		transparent 5%,
-		var(--identity-tab-color) 5%,
-		var(--identity-tab-color) 95%,
-		transparent 95%
+		transparent 10%,
+		var(--identity-tab-color) 10%,
+		var(--identity-tab-color) 90%,
+		transparent 90%
 	) !important;
 	height: 2px !important;
 	margin-bottom: 0px !important;
@@ -1375,10 +1372,10 @@ menupopup > menuitem {
 .tabbrowser-tab[usercontextid] .tab-content > * {
 	margin-bottom: -2px !important;
 }
-/*
+
 tab .tab-icon,
 .tab-icon-image {
-	filter: grayscale(1) brightness(0.5) contrast(1) invert(1) !important;
+	filter: grayscale(1) brightness(0.5) contrast(1)  !important;
 } /* Remove invert(1) to make it dark */
 
 #toolbar-menubar[inactive="true"] ~ #TabsToolbar,
