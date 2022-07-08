@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".vscode/extensions.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1640240435321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1640240435321,
+            "name": "Commit-0",
+            "content": "{\n    \"recommendations\": [\n        \"tylerxwright.vscode-line-surfer\"\n    ]\n}"
+        }
+    ]
+}

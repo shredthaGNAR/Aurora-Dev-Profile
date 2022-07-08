@@ -1,0 +1,1133 @@
+/** @format */
+
+@import url(uc-globals.css);
+@import url(resources/in-content/root.css);
+@import url(resources/in-content/menus.css);
+@import url(resources/in-content/devtools.css);
+@import url(resources/in-content/picture-in-picture.css);
+@import url(resources/in-content/library.css);
+@import url(resources/in-content/downloads.css);
+@import url(resources/in-content/system.css);
+@import url(resources/in-content/ext-containers.css);
+@import url(resources/in-content/ext-darkreader.css);
+@import url(resources/in-content/ext-nordvpn.css);
+@import url(resources/in-content/ext-mdm.css);
+@import url(resources/in-content/ext-bitwarden.css);
+@import url(resources/in-content/ext-ublock.css);
+@import url(resources/in-content/ext-simpletranslate.css);
+@import url(resources/in-content/ext-tabnotes.css);
+@import url(resources/in-content/ext-firefoxnotes.css);
+@import url(resources/in-content/ext-sortbookmarks.css);
+@import url(resources/in-content/misc-content.css);
+@import url(parts/onetab-darktheme.css);
+@import url(addons.css);
+@import url(resources/in-content/site-mozilla.css);
+@import url(resources/in-content/site-google.css);
+@import url(resources/in-content/site-subscene.css);
+@import url(resources/in-content/site-wiki.css);
+
+/*
+@import url(resources/in-content/site-github.css);
+@import url(resources/in-content/site-reddit.css);
+@import url(resources/in-content/custom-content.css);
+@import url(resources/in-content/site-youtube.css);
+
+/* Removes the white loading page */
+
+
+/*url(about:newtab), url(about:home)*
+@-moz-document url(about:blank), url(about:newtab), url(about:home) {
+	html:not(#ublock0-epicker), html:not(#ublock0-epicker) body, #newtab-customize-overlay {
+		background: #30325e70,var(--bf-bg) !important;
+}*/
+
+::-moz-selection {
+    color: #fff !important;
+    /*Colour of text*/
+    background: #985effcc !important;
+    /*Highlighting colour*/
+}
+
+:root {
+    scrollbar-color: transparent transparent !important;
+}
+
+:host,
+:root {
+    /***Colors - about:addons & about:settings - Pages***/
+    --in-content-page-background: #1d1d3bfa !important;
+    /*Fondo general*/
+    --in-content-text-color: #fff !important;
+    /*Color general de label*/
+    --in-content-page-color: #fff !important;
+    /*color de texto general*/
+    --checkbox-unchecked-bgcolor: #36364f !important;
+    /*color de los checkbox vacíos*/
+    --checkbox-unchecked-hover-bgcolor: #4050ee !important;
+    /*color de los checkbox hover*/
+    --checkbox-unchecked-active-bgcolor: #26264f !important;
+    /*color de los checkbox al darle clic*/
+    --checkbox-checked-bgcolor: #1040bc !important;
+    /*color de los checkbox con check*/
+    --checkbox-checked-color: #fff !important;
+    /*color de la palomita check*/
+    --checkbox-checked-hover-bgcolor: #0099ff !important;
+    /*color de los checkbox con check hover*/
+    --in-content-primary-button-text-color: #192045 !important;
+    /*color de los radiobutton (circulo) con check*/
+    --in-content-primary-button-background-hover: #1080ff !important;
+    /*color de los radiobutton (fondo) :hover*/
+    --in-content-primary-button-background-active: #3399f0 !important;
+    /*color de los radiobutton (clic) con check*/
+    --in-content-box-background: #2b2a5f !important;
+    /*color de los textbox*/
+    --in-content-box-border-color: #6060f0 !important;
+    /*color del borde de los textbox*/
+    --in-content-box-background-odd: #35355f !important;
+    /*color destinción entre filas de una tabla-atajos de busqueda*/
+    --in-content-box-info-background: #30306f !important;
+    /*color de la caja de elementos que se sincronizan*/
+    --in-content-primary-button-background: #1050ff !important;
+    /*color de la label colorida y de enlaces*/
+    --in-content-deemphasized-text: #fff !important;
+    /*color de la descripción  de los temas y extensiones*/
+    --in-content-border-color: #253690 !important;
+    /*Linea separadora en la configuración*/
+    --in-content-button-background: #2b2a4f !important;
+    /*color de botones*/
+    --in-content-button-background-hover: #2d2db0 !important;
+    /*color de botones :hover*/
+    --in-content-button-background-active: #2d2db0 !important;
+    /*color de botones al darle clic*/
+    --in-content-link-color: #0099ff !important;
+    /*color de links*/
+    --in-content-link-color-hover: #00ccff !important;
+    /*color de links*/
+    --in-content-link-color-active: #0099ff !important;
+    /*color de links*/
+    --in-content-link-color-visited: #0099ff !important;
+    /*color de links*/
+    --in-content-accent-color: #4040fb !important;
+    /*color de label del menú izquiero seleccionado*/
+    --in-content-accent-color-active: #5089ff !important;
+    /*color de label del menú izquiero seleccionado (al dar clic)*/
+    --card-outline-color: #2d2de0 !important;
+    /*Color de borde al pasar por elementos de addons*/
+    --in-content-table-background: #131424 !important;
+    /*Color de fondo de tablas de "about:support"*/
+    --in-content-item-hover: #2d4db0 !important;
+    /*Color de fondo al pasar por los items de un combobox"*/
+    --in-content-item-hover-text: #ffffff !important;
+    /*Color de label del item hover del combobox"*/
+    --in-content-item-selected: #3d4df0 !important;
+    /*Color de fondo al pasar por los items de un combobox (teclas de direccion)"*/
+    --in-content-item-selected-text: #ffffff !important;
+    /*Color de label al pasar por los items de un combobox (teclas de direccion)"*/
+    --in-content-focus-outline-color: #3089ff !important;
+    /*color de focus de txt "buscar..."*/
+}
+
+
+/*url(chrome://browser/content/browser.xul)*/
+
+@-moz-document url(about:newtab),
+url(about:home) {
+    body {
+        --newtab-textbox-background-color: #2c2d77aa !important;
+        /*Search bar background*/
+        --newtab-topsites-background-color: #3c3d59aa !important;
+        /*Sites background set*/
+        --newtab-contextmenu-background-color: #262530 !important;
+        /*contextual menu de tres puntos pinned*/
+        --newtab-element-hover-color: #4e6bfd90 !important;
+        /*color al pasar el mouse sobre los items del menú tres puntos*/
+        --newtab-element-active-color: #4e6bfddd !important;
+        /*Color al hacer clic en el menú contextual de 3 puntos*/
+        --newtab-icon-primary-color: #eaeaea !important;
+        /*tres puntos hover*/
+        --newtab-border-secondary-color: #3d3762 !important;
+        /*Linea separadora de items de menú contextual*/
+        --newtab-section-header-text-color: #ffffff !important;
+        /*label principal al editar un sitio*/
+        --newtab-card-background-color: #292750 !important;
+        /*fondo de actividad reciente*/
+        --newtab-text-secondary-color: #25d0ff !important;
+        /*Label linea 1 de Actividad reciente*/
+        --newtab-text-primary-color: white !important;
+        /*label linea 2 de actividad reciente*/
+        --newtab-border-primary-color: #5c85d6 !important;
+        /*borde de boton de tres puntos en actividad reciente*/
+        --newtab-modal-color: #201f5080 !important;
+        /*fondo Al editar un sitio*/
+        --newtab-overlay-color: rgba(18, 18, 15, 0.8) !important;
+        /*fondo de editar, transparente*/
+        --newtab-textbox-border: #3350bf !important;
+        /*contorno de txt al editar un sitio*/
+        --customize-menu-seperator-line-color: #313182 !important;
+        /*Linea separadora en "personalizar"*/
+        --newtab-button-primary-color: #1050ff !important;
+        /*Color del botón "Guardar"*/
+        --newtab-button-secondary-color: #9165ff !important;
+        /*color del botón "cancelar"*/
+        --newtab-primary-action-background-off: #454670 !important;
+        /*color radiobutton no activo*/
+        --newtab-primary-action-background: #394fcc !important;
+        /*color radiobutton activo*/
+        --newtab-border-primary-color: #c0202000 !important;
+        /*borde del botón "Cancelar"*/
+    }
+    .outer-wrapper.newtab-experience .search-wrapper {
+        padding-bottom: 0px !important;
+    }
+    .button:not(.dismiss),
+    .button:focus:not(.dismiss),
+    .actions button:hover:not(.dismiss),
+    .actions button:focus:not(.dismiss) {
+        box-shadow: 0 0 0 5px #1330ff !important;
+    }
+    /*Radiobutton's edge color in "Customize"*/
+    .home-section .section .slider {
+        border: 1px solid #4546c0 !important;
+    }
+    /*Button colors "Customize"*/
+    .personalize-button {
+        background: linear-gradient(to bottom, #2f2f65, #202085);
+        box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 2px 2px 2px rgb(0 0 0 / 23%) !important;
+    }
+    .personalize-button:hover {
+        background: linear-gradient( 147deg, rgba(8, 142, 204, 0.7), rgba(95, 77, 77, 0) 71.71%), linear-gradient(247deg, rgba(100, 39, 255, 1), rgba(0, 255, 0, 0) 91.71%), linear-gradient(30deg, rgba(20, 32, 252, 1), rgba(0, 0, 255, 0) 71.71%) !important;
+    }
+    /*Colors of the interface to customize the newtab*/
+    .customize-menu {
+        color: #fff !important;
+        background-color: #292759 !important;
+    }
+    .home-section .section .selector {
+        background-color: #1d1d38 !important;
+        border: 1px solid #4a4a9b !important;
+    }
+    /*Button color "Close"*/
+    .customize-menu .close-button {
+        background: linear-gradient(to bottom, #3f3f95, #2020a5);
+        border: 0px !important;
+        box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 2px 2px 2px rgb(0 0 0 / 23%) !important;
+    }
+    .customize-menu .close-button:hover {
+        background: linear-gradient( 147deg, rgba(25, 179, 250, 0.7), rgba(0, 195, 255, 0) 71.71%), linear-gradient(247deg, rgba(100, 39, 255, 1), rgba(0, 255, 0, 0) 91.71%), linear-gradient(30deg, rgba(20, 32, 252, 1), rgba(0, 0, 255, 0) 71.71%) !important;
+    }
+    /*Colors of anchored sites*/
+    .outer-wrapper.newtab-experience .top-site-outer .tile:not(.active, :focus, :hover) {
+        background-image: linear-gradient( to right, rgb(144, 89, 255, 0.4), rgb(255, 74, 162, 0.6), #ffbd4f, rgb(255, 74, 162, 0.6), rgb(144, 89, 255, 0.4)) !important;
+        box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
+    }
+}
+
+
+/*Colors When passing the mouse over the sites anchored in: Hover*/
+
+.outer-wrapper.newtab-experience .top-site-outer:hover .tile {
+    box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
+    background: linear-gradient(140deg, #ff00ea, rgba(0, 119, 255, 0) 60.71%), linear-gradient(334deg, #2121c3, rgba(0, 0, 255, 0) 99.71%) !important;
+    border-radius: 7px !important;
+}
+
+
+/*Colors by passing the mouse over anchored sites (larger background)*/
+
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) {
+    box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 0px 0px 2px 1px rgb(0 0 0 / 23%) !important;
+    background: linear-gradient( to left, rgb(144, 89, 255, 1), rgb(255, 74, 162), #ffbd4f) !important;
+}
+
+
+/*Label Color The anchored site: Hover*
+
+.outer-wrapper.newtab-experience
+	.top-site-outer:is(.active, :focus, :hover)
+	.title {
+	color: #fff !important;
+}
+
+/* Color of the three-point menu background*/
+
+.context-menu {
+    background: #1d1d38 !important;
+}
+
+
+/* 3-point button*
+
+.outer-wrapper.newtab-experience .top-site-outer .context-menu-button {
+	fill: #ffffff !important;
+}
+
+/*Payment Management Favicon background from the anchored sites*
+
+.top-site-outer .top-site-icon {
+	background-color: #7171af40 !important;
+}
+
+/*Various colors of the accession interface and configuredn*/
+
+@-moz-document url("about:preferences"),
+url("about:addons") {
+    .dialogBox {
+        --in-content-page-background: #1d1d3bfa !important;
+    }
+    /*COlor de background de dialogWindow*/
+    button {
+        border-color: #7171af40 !important;
+        box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 0px 0px 2px 1px rgb(0 0 0 / 23%) !important;
+    }
+    /*color de botones */
+    #categories button {
+        box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 0px 0px 2px 1px rgb(0 0 0 / 23%) !important;
+    }
+    #categories>.category[selected]>.category-name {
+        background: linear-gradient( to right, #00bbff 0%, #6b6bff 22%, #fd4aa2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: -1px !important;
+    }
+    #categories>.category[selected] {
+        color: #23a9ff !important;
+    }
+    button.primary {
+        color: #cacaca !important;
+    }
+}
+
+
+/* Sets up minimal scrollbar */
+
+:root {
+    scrollbar-width: thin !important;
+    scrollbar-color: #38375580 transparent !important;
+}
+
+* {
+    scrollbar-width: thin !important;
+    scrollbar-color: #38375580 transparent !important;
+}
+
+
+/*  Sets up minimal incognito scrollbar */
+
+@-moz-document url"(about:privatebrowsing") {
+     :root {
+        scrollbar-width: thin !important;
+        scrollbar-color: #38375580 transparent !important;
+    }
+}
+
+@-moz-document url(about:home),
+url(about:newtab) {
+    .personalize-button {
+        background-color: #3c3d9970 !important;
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 1px 2px rgb(0 0 0 / 23%) !important;
+        color: #5c85d6 !important;
+    }
+    .personalize-button:hover {
+        background-color: #3c3d99b0 !important;
+    }
+    * {
+        scrollbar-width: thin !important;
+        scrollbar-color: transparent transparent !important;
+    }
+    .activity-stream {
+        background-color: #1d1d3bfa !important;
+    }
+    /*Shape of the Top Sites Container*/
+    .outer-wrapper.newtab-experience .top-site-outer .tile {
+        background-color: #3c3d8970 !important;
+        border-radius: 50% !important;
+    }
+    .outer-wrapper.newtab-experience .top-site-outer:hover .tile {
+        background-color: #3c3dbb00 !important;
+        background-image: linear-gradient( to right, rgb(144, 89, 255, 0.4), rgb(255, 74, 162, 0.6), #ffbd4f, rgb(255, 74, 162, 0.6), rgb(144, 89, 255, 0.4)) !important;
+        background: linear-gradient( to left, rgb(144, 89, 255, 1), rgb(255, 74, 162), #ffbd4f) !important;
+        box-shadow: none !important;
+        border-radius: 50% !important;
+    }
+    /*Colors when passing the mouse over anchored sites (larger background)*/
+    .outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer:is(.active,
+     :focus,
+     :hover) {
+        border-color: rgb(16, 16, 131) !important;
+        background: linear-gradient( to right, rgb(144, 89, 255, 0.4), rgb(255, 74, 162, 0.6), rgb(255, 74, 162, 0.6), rgb(144, 89, 255, 0.4)) !important;
+        box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
+    }
+}
+
+
+/*Interface colors to customize the newtab */
+
+.customize-menu {
+    color: white !important;
+    background-color: #292759 !important;
+}
+
+.home-section .section .selector {
+    background-color: #1d1d38 !important;
+    border: 1px solid #4a4a9b !important;
+}
+
+
+/*Button color "Close" */
+
+.customize-menu .close-button {
+    background: linear-gradient(to bottom, #3f3f95, #2020a5) !important;
+    border: 0px !important;
+    box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 2px 2px 2px rgb(0 0 0 / 23%) !important;
+}
+
+.customize-menu .close-button:hover {
+    background: linear-gradient( 147deg, rgba(25, 224, 250, 0.7), rgba(204, 0, 255, 0) 71.71%), linear-gradient(247deg, rgba(100, 39, 255, 1), rgba(0, 255, 0, 0) 91.71%), linear-gradient(30deg, rgba(20, 32, 252, 1), rgba(0, 0, 255, 0) 71.71%) !important;
+}
+
+
+/* Colors of anchored sites */
+
+.outer-wrapper.newtab-experience .top-site-outer .tile:not(.active,
+ :focus,
+ :hover) {
+    background: linear-gradient(to bottom, #2f2f65, #26255e, #202075) !important;
+}
+
+
+/* Colors by passing the mouse over the sites anchored in: Hover */
+
+.outer-wrapper.newtab-experience .top-site-outer:hover .tile {
+    background: linear-gradient( 147deg, rgba(25, 250, 194, 0.7), rgba(139, 2, 180, 0) 50.71%), linear-gradient(247deg, rgba(100, 39, 255, 0.8), rgba(0, 255, 0, 0) 91.71%), linear-gradient(30deg, rgba(20, 32, 252, 0.4), rgba(0, 0, 255, 0) 99.71%) !important;
+}
+
+
+/* Colors by passing the mouse over anchored sites (larger background) */
+
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer:is(.active,
+ :focus,
+ :hover) {
+    box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
+    background: linear-gradient(to bottom, #2f2f65, #26255e, #202075) !important;
+}
+
+
+/* Label Color The anchored site: Hover /
+
+.outer-wrapper.newtab-experience
+	.top-site-outer:is(.active, :focus, :hover)
+	.title {
+	color: #fff !important;
+}
+
+/* Various colors of the accession and configuration interface */
+
+@-moz-document url(about:preferences),
+url(about:addons) {
+    .dialogBox {
+        --in-content-page-background: #1d1d3bfa !important;
+    }
+}
+
+@-moz-document url(about:home),
+url(about:newtab) {
+    /* Customization of the NewTab page*/
+    body {
+        background-color: #1d1d3bfa !important;
+        background-repeat: no-repeat !important;
+        background-position: center top !important;
+        background-size: cover !important;
+    }
+    .logo-and-wordmark .logo {
+        background: none !important;
+        background-size: auto !important;
+        display: inline-block !important;
+    }
+    .search-wrapper .logo-and-wordmark {
+        margin-top: 28px !important;
+        margin-left: -80px !important;
+    }
+}
+
+.activity-stream {
+    background-color: #1d1d3bfa !important;
+}
+
+
+/*------ ONETAB ADDON ------*/
+
+@-moz-document url(moz-extension://230bbecf-4f03-ae44-b003-63054bbc7c0d/onetab.html) {
+    html,
+    body {
+        background: #1d1d3bfa !important;
+    }
+    #settingsDiv {
+        background: #444 !important;
+        border: 1px solid #666 !important;
+    }
+    #contentAreaDiv .clickable div[style^="box-shadow"] {
+        box-shadow: none !important;
+        background-color: #444 !important;
+        border: 1px solid #666 !important;
+    }
+    div {
+        color: #ccc !important;
+    }
+    #contentAreaDiv>div {
+        border-color: #666 !important;
+    }
+    a:link,
+    a,
+    a:visited,
+    .clickable {
+        color: #09f !important;
+    }
+    a:hover,
+    .clickable:hover {
+        color: #0ff !important;
+    }
+    a:active,
+    .clickable:active {
+        color: #0050aa !important;
+    }
+    img[src="images/cross.png"] {
+        filter: brightness(200%) !important;
+    }
+    textarea {
+        -moz-appearance: none !important;
+        background-color: #222 !important;
+        color: #aaa !important;
+        border: 1px solid #555 !important;
+    }
+    label::before {
+        filter: invert(81%) hue-rotate(170deg);
+    }
+}
+
+
+/*** ONETAB dark mode */
+
+@-moz-document url(moz-extension://3b404296-4156-1646-9241-115998b0d34b/onetab.html) {
+    html,
+    html[class],
+    html[id],
+    body,
+    body[class],
+    body[id],
+    input {
+        background: #1d1d3bfa !important;
+    }
+    div:last-child,
+     :not(span),
+     :not(a) {
+        border-color: #ffbd4f !important;
+        background-color: #1d1d3bfa !important;
+    }
+     :link,
+     :visited,
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    img,
+    video,
+    div,
+    span,
+    img~*,
+    img *,
+    video *,
+    video~*>*,
+    div[style*="text-align:"] *,
+    button,
+    button *,
+    div[style*="text-align:"],
+    [style*="background-image:"]~*,
+    div[style*="background-image:"] *,
+    [style*=".gif"],
+    [style*=".jpg"],
+    [style*=".png"] {
+        background-color: #1d1d3bfa !important;
+    }
+    a,
+    a[class] {
+        color: #0ff !important;
+    }
+    a:hover {
+        color: #4a4a9b !important;
+    }
+    li {
+        color: #8bf !important;
+    }
+    tr {
+        color: #f00 !important;
+    }
+    cite {
+        color: #268 !important;
+    }
+    input {
+        color: #5bf !important;
+    }
+    em {
+        color: #def !important;
+    }
+    ul {
+        color: #f00 !important;
+    }
+    nobr {
+        color: #f00 !important;
+    }
+    div {
+        color: #bdf !important;
+    }
+    strong {
+        color: #9cc !important;
+    }
+    s {
+        color: #f00 !important;
+    }
+    h1 {
+        color: #abc !important;
+    }
+    h2 {
+        color: #def !important;
+    }
+    h3 {
+        color: #cff !important;
+    }
+    * {
+        color: rgb(255, 74, 162) !important;
+    }
+    b {
+        color: #7af !important;
+    }
+    a,
+    span,
+    p,
+    div,
+    textarea,
+    i,
+    td {
+        color: #fff !important;
+        text-shadow: -1px -1px #0c0c0c, 1px -1px #0c0c0c, -1px 1px #0c0c0c, 1px 1px #0c0c0c !important;
+    }
+     ::-moz-selection {
+        color: #fff !important;
+        background-color: #4a4a9b !important;
+    }
+     ::selection {
+        color: #fff !important;
+        background-color: #4a4a9b !important;
+    }
+     ::-webkit-selection {
+        color: #fff !important;
+        background-color: #4a4a9b !important;
+    }
+    a>span.Sprite16 {
+        filter: invert(100%);
+        -webkit-filter: invert(100%);
+    }
+    .clickable {
+        cursor: pointer;
+        color: #0ff !important;
+    }
+    input[type="text"] {
+        padding: 4px 4px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-shadow: 2px 2px 3px #ddd;
+        -moz-box-shadow: 2px 2px 3px #ddd;
+        outline: 0;
+        -webkit-appearance: textfield;
+    }
+}
+
+
+/*  Sets up minimal incognito scrollbar */
+
+@-moz-document url(about:privatebrowsing) {
+     :root {
+        scrollbar-width: thin !important;
+        scrollbar-color: #8682fe transparent !important;
+    }
+}
+
+
+/* bitwarden */
+
+@-moz-document url-prefix("moz-extension://c1ea5f85-7682-4d41-86cf-4946657a717e/popup/index.html") {
+    @supports -moz-bool-pref("userChrome.css.mac-ui-fonts") {
+        body,
+        input {
+            font-family: SF Pro, Segoe UI, sans-serif !important;
+        }
+        header .search .fa {
+            top: 14px !important;
+        }
+    }
+}
+
+@-moz-document plain-text-document(),
+media-document(all) {
+     :root {
+        background-color: #1d1d3bfa !important;
+    }
+    body:not([style*="background"],
+    [class],
+    [id]) {
+        background-color: #1d1d3bfa !important;
+    }
+}
+
+
+/* Suppress "white flash" on showing sidebar in Dark color mode */
+
+@-moz-document regexp("moz-extension://.*/sidebar/sidebar.html.*") {
+     :root,
+    #background {
+        background-color: #1d1d3bfa !important;
+    }
+}
+
+@-moz-document url("about:blank") {
+    * {
+        background-color: #1d1d3bfa !important;
+    }
+}
+
+@-moz-document url("about:blank") {
+    html {
+        background-color: #1d1d3bfa !important;
+    }
+}
+
+@-moz-document url("about:home"),
+url("about:newtab") {
+    /* Rounded searchbar */
+    .search-wrapper input {
+        border-radius: 5px !important;
+    }
+}
+
+
+/* Tab notes background color change */
+
+@-moz-document url-prefix("moz-extension://5a05da5c-263b-488d-9559-cdc6d61d7654/newtab.html") {
+    #body,
+    #note-content {
+        background-color: #1d1d3bfa !important;
+    }
+    #list {
+        background-color: #1d1d3bfa !important;
+    }
+}
+
+::-moz-selection {
+    color: var(--lwt-toolbar-field-color) !important;
+    /*Colour of text*/
+    background: #4d4dfe77 !important;
+    /*Highlighting colour*/
+}
+
+@-moz-document regexp("(.*\.(apng|png|jpg|jpeg|gif|webp|avif|ico|bmp|APNG|PNG|JPG|JPEG|GIF|WEBP|AVIF|ICO|BMP)([\?#].*)*$)|(^data:image/.*)") {
+    @media not print {
+        /* set solid color background */
+        html {
+            background-color: #1d1d3bfa !important;
+        }
+        /* remove default background */
+        body {
+            background-image: none !important;
+        }
+        /* Position of the image, auto = default */
+        img:only-child {
+            margin: auto !important;
+            /* auto = center, 0 = top-left */
+        }
+        /* Checkerboard pattern for transparent images, slight blue hue */
+        img.transparent:only-child {
+            background: conic-gradient( #eef 0.25turn, #bbc 0.25turn 0.5turn, #eef 0.5turn 0.75turn, #bbc 0.75turn) top left / 24px 24px repeat !important;
+        }
+    }
+}
+
+@-moz-document regexp("http\\w*:\\/\\/w?w?w?\\.?google\\..+?\\/search\\?.*") {
+    #res h3,
+    #extrares h3 {
+        font-size: 18px !important;
+        line-height: 1.33 !important;
+    }
+    .iUh30 {
+        font-size: 14px !important;
+        padding-top: 1px !important;
+        line-height: 1.43 !important;
+        margin-top: 0px !important;
+        letter-spacing: 0px !important;
+    }
+    .r a.fl {
+        font-size: 14px !important;
+    }
+    .yuRUbf a.fl {
+        font-size: 14px !important;
+    }
+    .r {
+        line-height: 1.54 !important;
+    }
+    .yuRUbf {
+        line-height: 1.54 !important;
+    }
+    .g,
+    body,
+    html,
+    input,
+    .std,
+    h1 {
+        font-size: small !important;
+    }
+    .st {
+        line-height: 1.54 !important;
+    }
+    .mslg .l {
+        font-size: 18px !important;
+    }
+    .knowledge-panel.kp-blk .mod,
+    .c14z5c .mod {
+        line-height: 1.54 !important;
+    }
+    #rhs .kp-blk {
+        line-height: 1.54 !important;
+        margin: 6px -32px 0 2px !important;
+        margin: 6px -33px 0 1px !important;
+    }
+    #res h3,
+    #extrares h3 {
+        font-size: 18px !important;
+        line-height: 1.33 !important;
+    }
+    .LC20lb {
+        line-height: 1.33;
+        padding-top: 0px;
+        margin-bottom: 0px;
+        letter-spacing: 0px;
+    }
+    .knowledge-panel {
+        font-size: small;
+    }
+    .gL9Hy {
+        font-size: 18px;
+    }
+    .spell_orig {
+        font-size: 15px;
+    }
+    a:hover h3.LC20lb {
+        text-decoration: underline;
+    }
+    .TbwUpd {
+        padding-bottom: 1px;
+        padding-top: 1px;
+    }
+    #foot {
+        visibility: inherit;
+    }
+    .TbwUpd {
+        padding-bottom: 1px;
+        padding-top: 1px;
+        line-height: 1.54;
+    }
+    .rc .s {
+        line-height: 1.54;
+    }
+    .g {
+        margin-top: 0;
+        margin-bottom: 26px;
+    }
+    .Ss2Faf {
+        line-height: 1.33;
+        font-size: 18px;
+    }
+    .JolIg {
+        color: #808080;
+        font-size: 18px;
+        padding: 9px 16px;
+        line-height: 1.33;
+        font-weight: normal;
+        margin: 0;
+    }
+    .kcHZBe {
+        line-height: 1.375;
+    }
+    .kno-ecr-pt {
+        font-size: 24px;
+    }
+    .UDZeY,
+    .ILfuVd {
+        font-size: small;
+    }
+    .EvSmmb,
+    .hlcw0c {
+        margin-bottom: 0px;
+    }
+    .FxLDp {
+        padding-top: 0px;
+    }
+    div[data-hveid]>.g {
+        margin-bottom: 0px;
+    }
+    .ULSxyf {
+        margin-bottom: 26px;
+    }
+    .Jb0Zif .UiGGAb.ILfuVd,
+    .ILfuVd,
+    h3,
+    .yDYNvb {
+        letter-spacing: 0px;
+    }
+    .c8d6zd,
+    #result-stats,
+    .mfMhoc,
+    .XcVN5d {
+        font-family: arial !important;
+    }
+    .nkGKTb {
+        font-weight: bold !important;
+    }
+}
+
+
+/* Proton NewTab Page */
+
+@-moz-document url("about:newtab"),
+url("about:home") {
+    /* Lightmode Colours */
+    body:not([lwt-newtab],
+    [lwt-newtab-brighttext]) {
+        --newtab-background-color: #f5f5f5 !important;
+        --newtab-search-header-background-color: #f5f5f5f2 !important;
+        --newtab-seperator-line-color: #ddd !important;
+        --newtab-textbox-background-color: #fff !important;
+        --newtab-topsites-background-color: #fff !important;
+        --newtab-topsites-outer-card-hover: rgba(223, 233, 233, 0.3) !important;
+        --newtab-search-text-color: #262626 !important;
+        --newtab-text-primary-color: #262626 !important;
+        --newtab-background-primary-text-color: rgba(0, 0, 0, 0.83) !important;
+        --newtab-wordmark-color: #737373 !important;
+        --newtab-link-primary-color: #006cbe !important;
+        --newtab-card-background-color: #fff !important;
+        --newtab-text-secondary-color: #767676 !important;
+        --newtab-card-hairline-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    /* Darkmode Colours */
+    body[style*="--newtab-background-color:rgba(42, 42, 46, 1); --newtab-text-primary-color:rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
+    body[style*="--newtab-background-color: rgba(43, 42, 51, 1); --newtab-text-primary-color: rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
+    body:not([style*="color"])[lwt-newtab-brighttext] {
+        --newtab-background-color: #242424 !important;
+        --newtab-search-header-background-color: #242424f2 !important;
+        --newtab-seperator-line-color: #4c4c4c !important;
+        --newtab-textbox-background-color: #4a4a4a !important;
+        --newtab-topsites-background-color: #4a4a4a !important;
+        --newtab-topsites-outer-card-hover: rgba(0, 0, 0, 0.3) !important;
+        --newtab-search-text-color: #f5f5f5 !important;
+        --newtab-text-primary-color: #fff !important;
+        --newtab-background-primary-text-color: #fff !important;
+        --newtab-wordmark-color: #fff !important;
+        --newtab-link-primary-color: #49a6ec !important;
+        --newtab-card-background-color: #2b2b2b !important;
+        --newtab-text-secondary-color: #929292 !important;
+        --newtab-card-hairline-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    /* Search Textbox */
+    .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button,
+    .outer-wrapper.newtab-experience .search-wrapper input {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 4px !important;
+        font-weight: 400 !important;
+        border: 0 !important;
+    }
+    .fake-textbox {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .outer-wrapper.newtab-experience .search-wrapper .search-inner-wrapper {
+        min-height: 44px !important;
+    }
+    .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button .fake-caret {
+        top: 14px !important;
+    }
+    .search-wrapper.search-disabled .search-handoff-button {
+        opacity: 0 !important;
+    }
+    body:not(.inline-onboarding) .fixed-search .search-wrapper {
+        background-color: color-mix( in srgb, var(--newtab-background-color) 95%, transparent) !important;
+    }
+    /* Topsite Tiles */
+    .outer-wrapper.newtab-experience .top-site-outer .tile {
+        border-radius: 4px !important;
+    }
+    .outer-wrapper.newtab-experience .top-site-outer {
+        border-radius: 4px !important;
+    }
+    /* Topsite Tile Size Adjustments *
+    .outer-wrapper.newtab-experience .top-site-outer .tile {
+        height: 44px !important;
+        width: 44px !important;
+    }
+    .top-site-outer .tile .icon-wrapper,
+    .outer-wrapper.newtab-experience .top-site-outer .default-icon,
+    .outer-wrapper.newtab-experience .top-site-outer .search-topsite {
+        width: 24px !important;
+        height: 24px !important;
+        background-size: 24px !important;
+    }
+    .top-site-outer .tile .icon-wrapper.letter-fallback::before {
+        font-size: 32px !important;
+    }
+    .top-sites .section-body {
+        text-align: center !important;
+    }
+    .outer-wrapper.newtab-experience .top-site-outer {
+        width: 112px !important;
+        height: 84px !important;
+        padding: 10px 12px !important;
+        margin-bottom: 14px !important;
+    }
+    .outer-wrapper.newtab-experience .top-site-outer .context-menu-button {
+        border-radius: 2px !important;
+        height: 24px !important;
+        width: 24px !important;
+        inset-inline-end: -6px !important;
+        top: -4px !important;
+    }
+    .outer-wrapper.newtab-experience .top-site-outer .context-menu-button:is(:active,
+     :focus) {
+        fill: var(--newtab-icon-primary-color) !important;
+    }
+    */
+    .top-site-outer .title:not(.sponsored) .sponsored-label {
+        display: none !important;
+    }
+    /* Recommended by Pocket Cards */
+    .ds-card-grid {
+        gap: 12px !important;
+    }
+    .ds-card-grid .ds-card {
+        background-color: var(--newtab-card-background-color) !important;
+    }
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
+        border-radius: 6px !important;
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+    }
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
+        border-radius: 6px 6px 0 0 !important;
+    }
+    .ds-card .ds-card-link:hover .img-wrapper {
+        filter: brightness(0.9) !important;
+    }
+    .ds-card .meta .title {
+        font-size: 20px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+    }
+    .ds-card header {
+        color: var(--newtab-text-primary-color) !important;
+    }
+    .ds-card .ds-card-link:hover header {
+        text-decoration: underline !important;
+    }
+    .ds-card .meta .source {
+        font-weight: 400 !important;
+        line-height: 16px !important;
+        font-size: 12px !important;
+        color: var(--newtab-text-secondary-color) !important;
+    }
+    .ds-card .meta .excerpt {
+        margin-top: 2px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: var(--newtab-text-primary-color) !important;
+        opacity: 0.8 !important;
+    }
+    /* Recent Activity Cards */
+    .ds-highlights .section .section-list {
+        gap: 12px !important;
+    }
+    .outer-wrapper.newtab-experience .card-outer {
+        border-radius: 6px !important;
+    }
+    .outer-wrapper.newtab-experience .card-outer .card {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 6px !important;
+    }
+    .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
+        border-radius: 6px 6px 0 0 !important;
+    }
+    .card-outer:is(:hover,
+     :focus,
+    .active):not(.placeholder) .card-title {
+        color: var(--newtab-text-primary-color) !important;
+        text-decoration: underline !important;
+    }
+    .card-outer:is(:hover,
+     :focus,
+    .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
+        filter: brightness(0.99) !important;
+    }
+}
+
+
+/*
+@-moz-document url-prefix(about:newtab),
+url-prefix(about:home) {
+    .top-site-outer .tile .icon-wrapper {
+        height: 100% !important;
+        width: 100% !important;
+    }
+    .top-site-outer .default-icon,
+    .top-site-outer .search-topsite {
+        background-size: 100% !important;
+        height: 100% !important;
+        width: 100% !important;
+    }
+}
+
+
+/*colores al pasar el mouse sobre los sitios anclados en :hover*/
+
+.top-site-outer:is(.active,
+ :focus,
+ :hover) .tile {
+    box-shadow: -1px 0 var(--newtab-background-color), 1px 0 var(--newtab-background-color), 0 -1px var(--newtab-background-color), 0 1px var(--newtab-background-color) !important;
+    background-color: color-mix( in srgb, var(--newtab-background-color, Field) 65%, transparent) !important;
+}
+
+
+/*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
+
+.top-site-outer:is(.active,
+ :focus,
+ :hover) {
+    box-shadow: none !important;
+    background: linear-gradient(247deg, #3bbed05a, rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, #6c65ec90, rgba(0, 255, 0, 0) 70.71%), linear-gradient(370deg, #cb2fe15a, rgba(0, 0, 255, 0) 80.71%) !important;
+}
+
+
+/*Colores de la sidebar para Personalizar la NewTab*/
+
+.customize-menu {
+    color: var(--newtab-wordmark-color) !important;
+    background-color: color-mix( in srgb, var(--newtab-background-color) 95%, var(--newtab-wordmark-color)) !important;
+}
+
+.home-section .section .selector {
+    background-color: color-mix( in srgb, var(--newtab-background-color) 98%, white) !important;
+    border: 1px solid color-mix( in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color)) !important;
+    box-shadow: none !important;
+}
+
+.customize-menu.customize-animate-enter-done,
+.customize-menu.customize-animate-enter-active {
+    box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+}

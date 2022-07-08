@@ -1,0 +1,98 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1638603744161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1638603774493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n     \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n-    \"editor.fontSize\": 18\n+    \"editor.fontSize\": 16\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603797954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n     \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n-    \"editor.fontSize\": 16\n+    \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603814523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603824369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Fira Code, monospace\",\n+    \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603835207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603846548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603854815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603864052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"Hack Nerd Font, Operator Mono,\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603873135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Hack Nerd Font, Operator Mono,\",\n+    \"editor.fontFamily\": \"Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603881192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"JetBrains Mono Regular Medium,\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603888638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrains Mono Regular Medium,\",\n+    \"editor.fontFamily\": \"JetBrains Mono Regular Medium\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603894772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrains Mono Regular Medium\",\n+    \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603908675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n+    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospac\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603918538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospac\",\n+    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code,\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603925103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code,\",\n+    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono,\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603935389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono,\",\n+    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603944910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono\",\n+    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium,\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603964178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"JetBrainsMonoMedium Nerd Font Mono Medium,\",\n+    \"editor.fontFamily\": \"/* Default theme customization: Vibrant (transparent, dark) titlebar for mac */ :root:is([inFullscreen], [tabsintitlebar]) #TabsToolbar:not(:-moz-lwtheme) {   appearance: auto !important;   -moz-default-appearance: -moz-mac-vibrant-titlebar-dark !important;   -moz-font-smoothing-background-color: -moz-mac-vibrant-titlebar-dark !important;   background-color: #232323 !important;   color: hsl(240, 9%, 98%) !important;   text-shadow: none !important; }  #navigator-toolbox {   background-color: transparent !important; }  #new-tab-button > .toolbarbutton-icon, #tabs-newtab-button > .toolbarbutton-icon {   fill: rgb(249,249,250) !important; }\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638603978290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"/* Default theme customization: Vibrant (transparent, dark) titlebar for mac */ :root:is([inFullscreen], [tabsintitlebar]) #TabsToolbar:not(:-moz-lwtheme) {   appearance: auto !important;   -moz-default-appearance: -moz-mac-vibrant-titlebar-dark !important;   -moz-font-smoothing-background-color: -moz-mac-vibrant-titlebar-dark !important;   background-color: #232323 !important;   color: hsl(240, 9%, 98%) !important;   text-shadow: none !important; }  #navigator-toolbox {   background-color: transparent !important; }  #new-tab-button > .toolbarbutton-icon, #tabs-newtab-button > .toolbarbutton-icon {   fill: rgb(249,249,250) !important; }\",\n+    \"editor.fontFamily\": \"\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638604008360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"\",\n+    \"editor.fontFamily\": \"Victor Mono\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1638603744161,
+            "name": "Commit-0",
+            "content": "{\n    \"editor.fontFamily\": \"JetBrains Mono Regular Medium, JetBrainsMonoMedium Nerd Font Mono Medium, Victor Mono, Hack Nerd Font, Operator Mono, Fira Code, monospace\",\n    \"editor.fontSize\": 18\n}"
+        }
+    ]
+}
