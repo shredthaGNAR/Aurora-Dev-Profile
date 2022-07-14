@@ -12,7 +12,7 @@
 
 // You can set the delay you want for the hover tab to take effect before switching to another tab.
 // Use miliseconds (only the number). 1 second = 1000 miliseconds.
-var delayBeforeSwitch = 10000;
+var delayBeforeSwitch = 5000;
 
 function getParentByClass(el, className) {
   do {

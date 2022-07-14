@@ -48,7 +48,7 @@
 
     // by default, when you hit ctrl+tab it waits 200ms before opening the panel. if you replace
     // the 200 with another number, it will wait that long in milliseconds instead.
-    "Reduce ctrl+tab delay": 200,
+    "Reduce ctrl+tab delay": 0,
 
     // normally, firefox only animates the stop/reload button when it's in the main customizable
     // navbar. if you enter customize mode and move the button to the tabs toolbar, menu bar, or

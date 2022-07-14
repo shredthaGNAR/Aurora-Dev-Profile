@@ -10,9 +10,9 @@ var sheet = 'chrome://global/skin/icons/Portrait.png';
 var brand = 'chrome://branding/content/icon32.png';
 var globe = 'chrome://global/skin/icons/defaultFavicon.svg';
 
-var icon_for_pages_without_favicon = brand; // i_icon, sheet, globe or brand (colorized Fx channel icon)
+var icon_for_pages_without_favicon = i_icon; // i_icon, sheet, globe or brand (colorized Fx channel icon)
 
-var favicon_click_opens_page_info_window = false;
+var favicon_click_opens_page_info_window = true;
 
 var FaviconInUrlbar = {
  init: function() {
@@ -26,10 +26,10 @@ var FaviconInUrlbar = {
 	  
 	favimginurlbar.style.width = "16px";
 	favimginurlbar.style.height = "16px";
-	favimginurlbar.style.marginLeft = "3px";
-	favimginurlbar.style.marginRight = "3px";
-	favimginurlbar.style.marginTop = "3px";
-	favimginurlbar.style.marginBottom = "3px";
+	favimginurlbar.style.marginLeft = "4px";
+	favimginurlbar.style.marginRight = "4px";
+	favimginurlbar.style.marginTop = "4px";
+	favimginurlbar.style.marginBottom = "4px";
 	
 	//document.getElementById('identity-box').insertBefore(favimginurlbar,document.getElementById('identity-box').firstChild);
 	document.getElementById('identity-box').appendChild(favimginurlbar);

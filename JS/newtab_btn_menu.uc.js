@@ -13,7 +13,7 @@ function btn_newtab_w_url_click()
 {
     gBrowser.loadOneTab(btn_newtab_w_url_clipboard_str, {
         inBackground: false,
-        relatedToCurrent: false,
+        relatedToCurrent: true,
         triggeringPrincipal: Services.scriptSecurityManager.createNullPrincipal({}) //FF63
     });
 }
