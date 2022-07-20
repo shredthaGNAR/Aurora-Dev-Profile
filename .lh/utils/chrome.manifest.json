@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1648310359624,
@@ -12,6 +12,10 @@
                 {
                     "date": 1649575499775,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -125,5 +125,5 @@\n # XML document stylesheet. Used when opening an XML file or response.\n override chrome://global/content/xml/XMLPrettyPrint.css ../resources/layout/XMLPrettyPrint.css\n # The script for the searchbar on about:preferences.\n # Its highlight color doesn't match the theme, so I changed how it works.\n-override chrome://browser/content/preferences/findInPage.js ../resources/script-override/findInPage.js\n\\ No newline at end of file\n+override chrome://browser/content/preferences/findInPage.js ../resources/script-override/findInPage.js\n"
+                },
+                {
+                    "date": 1658307742122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n override chrome://global/skin/icons/security-broken.svg ../resources/connection-mixed-active-loaded.svg\n override chrome://global/skin/icons/security-warning.svg ../resources/connection-mixed-passive-loaded.svg\n override chrome://global/skin/icons/security.svg ../resources/skin/connection-secure.svg\n override chrome://global/skin/icons/print.svg ../resources/material/print.svg\n-override chrome://global/skin/icons/open-in-new.svg ../resources/open-in-new.svg\n+override chrome://global/skin/icons/open-in-new.svg ../resources/material/open-in-new.svg\n override chrome://global/skin/icons/chevron.svg ../resources/chevron.svg\n override chrome://global/skin/icons/close.svg ../resources/close.svg\n override chrome://global/skin/icons/delete.svg ../resources/material/delete.svg\n override chrome://global/skin/icons/add.svg ../resources/add.svg\n"
                 }
             ],
             "date": 1648310359624,
