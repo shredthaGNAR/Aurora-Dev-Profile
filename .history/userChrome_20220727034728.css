@@ -1977,7 +1977,7 @@ this theme in particular since we put the close button on the right, meaning it
 doesn't overlap with the right side of the label at all, which is where the
 overflowing mask is applied. so we make the mask size constant. *
 .tabbrowser-tab {
-  --tab-label-mask-size: 2em !important;
+  --tab-label-mask-size: .5em !important;
 }*/
 /* different tab shadows in various states. to produce the illusion of modulated depth */
 .tabbrowser-tab .tab-content {
@@ -2029,7 +2029,7 @@ else they'll end up being covered up or showing through things they shouldn't. *
 
 .tab-icon-stack {
   z-index: -1;
-}
+} /*
 .tabbrowser-tab:not([selected], [pinned]) {
   --tab-bg-current: var(--lwt-accent-color);
 }
@@ -2125,12 +2125,12 @@ cast in both directions, unless the neighboring tab is selected or something. */
   filter: drop-shadow(16px 16px 10px black) !important;
 }
 
-/* Favicon icon on pinned inactive tab grayscale(35%) *
+/* Favicon icon on pinned inactive tab grayscale(35%) */
 .tabbrowser-tab .tab-icon-image[pinned] {
   filter: contrast(175%) brightness(103%) !important;
 }
 
-/* Favicon icon when mouse over over inactive tab grayscale(15%) */
+/* Favicon icon when mouse over over inactive tab grayscale(15%) *
 
 .tabbrowser-tab:hover .tab-icon-image:not([selected="true"]):not([pinned]) {
   filter: drop-shadow(16px 16px 10px black) !important;
@@ -2140,13 +2140,14 @@ cast in both directions, unless the neighboring tab is selected or something. */
 
 .tabbrowser-tab .tab-icon-image:not([selected="true"]):not([pinned]) {
   filter: opacity(40%) saturate(30%) !important;
+  -webkit-filter: opacity(40%) saturate(30%) !important;
 }
 /***  Glowing line at bottom. */
 
 .tabbrowser-tab > .tab-stack > .tab-background > .tab-context-line {
   height: 2px !important;
   /*12px*/
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;
 }
 /*
@@ -2158,12 +2159,7 @@ More gradients to try out
   /* Active*/
   opacity: 0.6 !important;
 }
-/*improve border visiblity for selected tabs */
-
-.tab-background:is([selected], [multiselected]):-moz-lwtheme {
-  border: none !important;
-}
-
+/*
 #tabbrowser-tabs:not([noshadowfortests])
   .tab-background:is([selected], [multiselected]) {
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, 0.1),
@@ -2190,7 +2186,7 @@ More gradients to try out
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, 0.4) !important;
 }
 
-/* border between tab bar and navbar */
+/* border between tab bar and navbar *
 
 :root #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1),
@@ -2223,7 +2219,7 @@ More gradients to try out
 }
 
 :root[lwthemetextcolor="bright"] {
-  --lwt-tab-line-color: hsla(280, 30%, 80%, 0.9) !important;
+  --lwt-tab-line-color: transparent !important;
 }
 
 :root[lwthemetextcolor="bright"] #nav-bar {
@@ -2234,14 +2230,10 @@ More gradients to try out
 /* border between tab bar and navbar */
 
 :root #nav-bar {
-  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1),
-    0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
+  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.6),
+    0 -4px 4px -5px hsla(280, 6%, 0%, 0.9) !important;
 }
-/* De-emphasize tab icons and names when window is unfocused */
 
-:root:-moz-window-inactive .tab-content {
-  opacity: 0.6 !important;
-}
 /*Label de medios "Reproduciendo" modifiado*/
 
 .tab-secondarylabel-:is([soundplaying], [pictureinpicture]) {
@@ -2262,8 +2254,9 @@ More gradients to try out
   -moz-background-clip: text !important;
   -moz-text-fill-color: transparent !important;
   -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
-
+/*
 .tab-secondary-label:is([muted], [activemedia-blocked]) {
   display: none !important;
   animation-duration: 0s !important;
@@ -2307,7 +2300,7 @@ browser[type="content"] {
   font-style: italic !important;
   font-weight: thin !important;
 }
-
+/*
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
@@ -2324,7 +2317,7 @@ browser[type="content"] {
 /* url bar */
 #widget-overflow-mainView,
 #urlbar[open="true"] > #urlbar-background {
-  backdrop-filter: contrast(10%) blur(20px) saturate(25%) !important;
+  backdrop-filter: blur(20px) !important;
 }
 /*** URL BORDER ***/
 
@@ -2336,7 +2329,7 @@ browser[type="content"] {
     transparent
   ) !important;
   border: transparent !important;
-}
+}*/
 .urlbar-input::-moz-selection {
   color: var(--lwt-toolbar-field-color) !important;
   /*Colour of text*/
@@ -2354,13 +2347,14 @@ browser[type="content"] {
 /* Dim discarded tabs*/
 
 .tabbrowser-tab[pending] .tab-content:not(:hover) .tab-label {
-  opacity: 0.6 !important;
+  opacity: 0.7 !important;
 }
 
 /* unloaded tab hover */
 
 .tabbrowser-tab[pending="true"] .tab-text:hover {
-  filter: brightness(125%) !important;
+  filter: brightness(100%) !important;
+  -webkit-filter: brightness(100%) !important;
 }
 
 .tabbrowser-tab:hover .tab-close-button {
@@ -2374,14 +2368,16 @@ browser[type="content"] {
 
 .tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]):hover,
 .tabbrowser-tab:-moz-lwtheme:hover {
-  /*filter: grayscale(25%) !important;*/
+  /*filter: grayscale(25%) !important;
+  */
   opacity: 1 !important;
-  filter: brightness(125%) !important;
-  /*backdrop-filter: blur(14px) !important;*/
+  filter: brightness(100%) !important;
+  backdrop-filter: blur(26px) !important;
+  -webkit-filter: brightness(100%) !important;
 }
 
 #urlbar[open="true"] {
-  backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(26px) !important;
 }
 
 /** Multi selection **/
@@ -2391,7 +2387,7 @@ browser[type="content"] {
   --lwt-tab-line-color: transparent !important;
 }
 
-/*
+
 .tabbrowser-tab > .tab-stack > .tab-background:is([multiselected]),
 .tabbrowser-tab > .tab-stack > .tab-content:is([multiselected]) {
 	background: #4d4dfe !important;
@@ -2411,25 +2407,6 @@ browser[type="content"] {
 :root[italic-unread-tabs] .tabbrowser-tab[notselectedsinceload]:not([pending]),
 :root[italic-unread-tabs] .tabbrowser-tab[notselectedsinceload][pending][busy] {
   font-style: italic !important;
-}
-
-/* indicator for multiselected tabs */
-
-.tabbrowser-tab[multiselected="true"] .tab-stack .tab-content {
-  box-shadow: inset 2px 0 0 Highlight, inset -2px 0 0 Highlight,
-    inset 0 2px 0 Highlight, inset 0 -2px 0 Highlight !important;
-}
-
-#tabbrowser-tabs[overflow="true"]
-  .tabbrowser-tab[pinned]:is(.tab-background, .tab-stack) {
-  min-height: var(--tab-min-height) !important;
-  max-height: var(--tab-min-height) !important;
-}
-/* [Optional] Animation when hovering non-active/non-selected tabs */
-
-.tabbrowser-tab:not([selected], [multiselected]) .tab-background::before {
-  transform: scaleX(1);
-  transition: transform 100ms linear;
 }
 
 :root[privatebrowsingmode="temporary"] #urlbar-input-container:hover {
@@ -2481,7 +2458,8 @@ browser[type="content"] {
 .tab-text[selected] {
   font-weight: 500 !important;
 }
-*** URL Bar Fade Animation On Hover */ #urlbar-input-container:hover {
+/* URL Bar Fade Animation On Hover */
+#urlbar-input-container:hover {
   background-color: #322560 !important;
 }
 
@@ -2499,10 +2477,7 @@ browser[type="content"] {
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5) !important;
 }
-.tab-background:not([selected])[multiselected] {
-  background: color-mix(in srgb, currentColor 11%, transparent) !important;
-  margin-inline-start: -1px !important;
-} /* Unloaded Tab - Contents Opacity ******************************************/
+/* Unloaded Tab - Contents Opacity ******************************************/
 
 #tabbrowser-tabs .tabbrowser-tab[pending] .tab-content {
   opacity: 0.7 !important;

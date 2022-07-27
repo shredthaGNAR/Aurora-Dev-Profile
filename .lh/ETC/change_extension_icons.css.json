@@ -1,0 +1,18 @@
+{
+    "sourceFile": "ETC/change_extension_icons.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1658917976169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1658917976169,
+            "name": "Commit-0",
+            "content": "\n/* overflow button */\n#movable-overflow-button {\n    list-style-image: url(\"Symbol (8).png\") !important;\n    transform: scale(2)\n}\n\n/* Main Menu Button */\n#movable-PanelUI-button {\n    list-style-image: url(\"iron_cross_vector_by_arminius1871_dbb2oq4-fullview.png\") !important;\n    transform: scale(1.8);\n    padding-right: 8px !important;\n    padding-left: 4px !important;\n    margin-top: 3px !important;\n}\n\n/* Onetab */\n#extension_one-tab_com-browser-action {\n    list-style-image: url(\"pink.png\") !important;\n    transform: scale(2);\n    margin-bottom: -3px !important;\n}\n\n/* Dark BG Lite Text */\n#jid1-qofqdk4qzufgwq_jetpack-browser-action {\n    list-style-image: url(\"Grass.png\") !important;\n    transform: scale(2)\n}\n\n/* Bitwarden */\n#_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action {\n    list-style-image: url(\"sex-offender.png\") !important;\n    transform: scale(2)\n}\n\n/* Reload */\n#restart-button2a {\n    list-style-image: url(\"Go.png\") !important;\n    transform: scale(2);\n}\n\n/* Browser Toolbox */\n#browser-toolbox-button {\n    list-style-image: url(\"Monopoly1.png\") !important;\n    transform: scale(2)\n}\n\n/* Total Suspender */\n#_77497113-dd7f-4e91-b31f-9c1625e884c7_-browser-action {\n    list-style-image: url(\"cal128.png\") !important;\n    transform: scale(1.5)\n}\n\n/* Youtube Downloader */\n#_f73df109-8fb4-453e-8373-f59e61ca4da3_-browser-action {\n    list-style-image: url(\"IE.png\") !important;\n    transform: scale(1.5)\n}\n\n/* TabStash */\n#tab-stash_condordes_net-browser-action {\n    list-style-image: url(\"no-smoking.png\") !important;\n    transform: scale(2)\n}\n\n#about-button-gen{\n    list-style-image: url(\"Coda HDR.png\") !important;\n    transform: scale(2)\n}"
+        }
+    ]
+}

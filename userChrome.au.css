@@ -421,7 +421,9 @@ so of this stylesheet is dedicated to restoring pre-proton content. */
   :root[sessionrestored]
     #tabbrowser-tabs:not([movingtab])
     .tabbrowser-tab[pinned]:not([justmoved], [tab-grouping], [tabdrop-samewindow]) {
-    transition: min-width 200ms ease-out, max-width 150ms ease-out;
+    -moz-box-flex: 0;
+    transition: min-width 200ms ease-out, max-width 150ms ease-out,
+      -moz-box-flex 300ms var(--uc-smooth-timing-function);
   }
 
   :root[sessionrestored]
@@ -535,6 +537,8 @@ so of this stylesheet is dedicated to restoring pre-proton content. */
   #customizationPaletteItemContextMenu::part(content),
   #customizationPanelItemContextMenu[backdrop-color="gray"],
   #customizationPanelItemContextMenu[backdrop-color="gray"]::part(content),
+  #sidebarMenu-popup[backdrop-color="gray"],
+  #sidebarMenu-popup[backdrop-color="gray"]::part(content),
   window#alertNotification #alertSettings :is(menupopup, panel)::part(content) {
     --arrowpanel-dimmed: color-mix(in srgb, var(--uc-toolbar-color) 7%, transparent);
     --arrowpanel-dimmed-further: color-mix(in srgb, var(--uc-toolbar-color) 12%, transparent);

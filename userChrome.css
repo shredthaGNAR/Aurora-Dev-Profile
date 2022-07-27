@@ -1437,7 +1437,7 @@ tab .tab-icon,
 #urlbar[breakout][breakout-extend] > #urlbar-background {
   border-radius: 10px !important;
   background-image: url(/noise-512x512.png) !important;
-  background-color: transparent !important;
+  background-color:rgba(52, 44, 90, .4)!important;
   -webkit-backdrop-filter: blur(32px) !important;
   backdrop-filter: blur(32px) !important;
   --moz-backdrop-filter: blur(32px) !important;
@@ -1446,6 +1446,8 @@ tab .tab-icon,
 /* -------------------- Container Indicators -------------------- */
 .tabbrowser-tab:not([pinned]) .tab-context-line {
   border-radius: 10px !important;
+  margin-left:3px !important;
+  margin-right: 3px !important;
   /* margin-block: calc(var(--tab-min-height) - 2px) 0px !important;*/
 }
 
@@ -2119,13 +2121,13 @@ cast in both directions, unless the neighboring tab is selected or something. */
   border-color: var(--lwt-toolbar-field-focus) !important;
   box-shadow: 0px 1px 14px -3px #0009 !important;
 }
-/* Favicon icon when mouse over to pinned inactive tab grayscale(15%) /
+/* Favicon icon when mouse over to pinned inactive tab grayscale(15%) */
 
 .tabbrowser-tab:hover .tab-icon-image[pinned] {
   filter: drop-shadow(16px 16px 10px black) !important;
 }
 
-/* Favicon icon on pinned inactive tab grayscale(35%) *
+/* Favicon icon on pinned inactive tab grayscale(35%) */
 .tabbrowser-tab .tab-icon-image[pinned] {
   filter: contrast(175%) brightness(103%) !important;
 }
@@ -2136,10 +2138,11 @@ cast in both directions, unless the neighboring tab is selected or something. */
   filter: drop-shadow(16px 16px 10px black) !important;
 }
 
-/* Gray out the favicon icon on the inactive tab *
+/* Gray out the favicon icon on the inactive tab */
 
 .tabbrowser-tab .tab-icon-image:not([selected="true"]):not([pinned]) {
   filter: opacity(40%) saturate(30%) !important;
+  -webkit-filter: opacity(40%) saturate(30%) !important;
 }
 /***  Glowing line at bottom. */
 
@@ -2185,25 +2188,13 @@ More gradients to try out
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, 0.4) !important;
 }
 
-/* border between tab bar and navbar *
-
-:root #nav-bar {
-  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1),
-    0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
-}
-
-:root[lwthemetextcolor="bright"] #nav-bar {
-  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3),
-    0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
-}
-
 /* De-emphasize tab icons and names when window is unfocused */
 
 :root:-moz-window-inactive .tab-content {
   opacity: 0.6 !important;
 }
 
-/* make tabs toolbar translucent *
+/* make tabs toolbar translucent */
 
 :root:not(:-moz-window-inactive [lwthemetextcolor="dark"]) #TabsToolbar {
   -moz-appearance: -moz-mac-source-list !important;
@@ -2218,25 +2209,21 @@ More gradients to try out
 }
 
 :root[lwthemetextcolor="bright"] {
-  --lwt-tab-line-color: hsla(280, 30%, 80%, 0.9) !important;
+  --lwt-tab-line-color: transparent !important;
 }
 
 :root[lwthemetextcolor="bright"] #nav-bar {
-  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3),
-    0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
+  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.6),
+    0 -4px 4px -5px hsla(280, 6%, 0%, 0.4) !important;
 }
 
-/* border between tab bar and navbar *
+/* border between tab bar and navbar */
 
 :root #nav-bar {
-  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1),
-    0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
+  box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.6),
+    0 -4px 4px -5px hsla(280, 6%, 0%, 0.9) !important;
 }
-/* De-emphasize tab icons and names when window is unfocused */
 
-:root:-moz-window-inactive .tab-content {
-  opacity: 0.6 !important;
-}
 /*Label de medios "Reproduciendo" modifiado*/
 
 .tab-secondarylabel-:is([soundplaying], [pictureinpicture]) {
@@ -2259,7 +2246,7 @@ More gradients to try out
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
-
+/*
 .tab-secondary-label:is([muted], [activemedia-blocked]) {
   display: none !important;
   animation-duration: 0s !important;
@@ -2303,7 +2290,7 @@ browser[type="content"] {
   font-style: italic !important;
   font-weight: thin !important;
 }
-
+/*
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
@@ -2320,7 +2307,7 @@ browser[type="content"] {
 /* url bar */
 #widget-overflow-mainView,
 #urlbar[open="true"] > #urlbar-background {
-  backdrop-filter: contrast(10%) blur(20px) saturate(25%) !important;
+  backdrop-filter: blur(20px) !important;
 }
 /*** URL BORDER ***
 
@@ -2335,7 +2322,7 @@ browser[type="content"] {
 }*/
 .urlbar-input::-moz-selection {
   color: var(--lwt-toolbar-field-color) !important;
-  /*Colour of text*/
+  /*text color*/
   background: #4d4dfe77 !important;
   /*Highlighting colour*/
 }
@@ -2350,7 +2337,7 @@ browser[type="content"] {
 /* Dim discarded tabs*/
 
 .tabbrowser-tab[pending] .tab-content:not(:hover) .tab-label {
-  opacity: 0.6 !important;
+  opacity: 0.7 !important;
 }
 
 /* unloaded tab hover */
@@ -2375,22 +2362,22 @@ browser[type="content"] {
   */
   opacity: 1 !important;
   filter: brightness(100%) !important;
-  backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(26px) !important;
   -webkit-filter: brightness(100%) !important;
 }
 
 #urlbar[open="true"] {
-  backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(26px) !important;
 }
 
-/** Multi selection **
+/** Multi selection **/
 
 .tabbrowser-tab[multiselected]:-moz-lwtheme {
   color: var(--lwt-tab-text) !important;
   --lwt-tab-line-color: transparent !important;
 }
 
-/*
+
 .tabbrowser-tab > .tab-stack > .tab-background:is([multiselected]),
 .tabbrowser-tab > .tab-stack > .tab-content:is([multiselected]) {
 	background: #4d4dfe !important;
@@ -2411,13 +2398,6 @@ browser[type="content"] {
 :root[italic-unread-tabs] .tabbrowser-tab[notselectedsinceload][pending][busy] {
   font-style: italic !important;
 }
-
-/* [Optional] Animation when hovering non-active/non-selected tabs *
-
-.tabbrowser-tab:not([selected], [multiselected]) .tab-background::before {
-  transform: scaleX(1);
-  transition: transform 100ms linear;
-}*/
 
 :root[privatebrowsingmode="temporary"] #urlbar-input-container:hover {
   background-color: #1f1b36 !important;
