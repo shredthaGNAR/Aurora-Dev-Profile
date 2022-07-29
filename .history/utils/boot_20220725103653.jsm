@@ -106,7 +106,7 @@ class ScriptData {
     this.inbackground = this.isESM || /\/\/ @backgroundmodule\b/.test(headerText);
     this.ignoreCache = /\/\/ @ignorecache\b/.test(headerText);
     this.isRunning = false;
-
+    
     // Construct regular expression to use to match target document
     let match, rex = {
       include: [],
@@ -123,21 +123,21 @@ class ScriptData {
     }
     let exclude = rex.exclude.length ? `(?!${rex.exclude.join('$|')}$)` : '';
     this.regex = new RegExp(`^${exclude}(${rex.include.join('|') || '.*'})$`,'i');
-
+    
     if(this.inbackground){
       this.loadOrder = -1;
     }else{
       let loadOrder = headerText.match(/\/\/ @loadOrder\s+(\d+)\s*$/im)?.[1];
       this.loadOrder = Number.parseInt(loadOrder) || 10;
     }
-
+    
     Object.seal(this);
   }
   get isEnabled() {
     return (yPref.get(PREF_SCRIPTSDISABLED) || '')
            .split(',').indexOf(this.filename) === -1;
   }
-
+  
   tryLoadIntoWindow(win) {
     if (this.inbackground || !this.regex.test(win.location.href)) {
       return
@@ -157,22 +157,22 @@ class ScriptData {
           ignoreCache: this.ignoreCache
         }
       );
-
+      
       this.isRunning = true;
       this.startup && SHARED_GLOBAL[this.startup]._startup(win)
-
+      
     } catch (ex) {
       console.error(new Error(`@ ${this.filename}`,{cause:ex}));
     }
     return
   }
-
+  
   getInfo(){
     let info = {...this};
     info.regex = new RegExp(this.regex.source,this.regex.flags);
     return info;
   }
-
+  
   static fromFile(aFile){
     const headerText = utils.readFile(aFile,true)
     .match(/^\/\/ ==UserScript==\s*\n(?:.*\n)*?\/\/ ==\/UserScript==\s*\n/m);
@@ -188,7 +188,7 @@ function getDirEntry(filename,isLoader = false){
   let pathParts = ((filename.startsWith("..") ? "" : (isLoader ? SCRIPT_DIR : RESOURCE_DIR)) + "/" + filename)
                   .split("/").filter( (a) => (!!a && a != "..") );
   let entry = Services.dirsvc.get('UChrm',Ci.nsIFile);
-
+  
   for(let part of pathParts){
     entry.append(part)
   }
@@ -254,18 +254,18 @@ function updateStyleSheet(name,type) {
     }
     return all
   }
-
+  
   let sheets = recentWindow.InspectorUtils.getAllStyleSheets(recentWindow.document,false);
-
+  
   sheets = sheets.flatMap( x => recurseImports(x,[x]) );
-
+  
   // If a sheet is imported multiple times, then there will be
   // duplicates, because style system does create an object for
   // each instace but that's OK since sheets.find below will
   // only find the first instance and reload that which is
   // "probably" fine.
   let entryFilePath = `file:///${entry.path.replaceAll("\\","/")}`;
-
+  
   let target = sheets.find(sheet => sheet.href === entryFilePath);
   if(target){
     recentWindow.InspectorUtils.parseStyleSheet(target,utils.readFile(entry));
@@ -275,11 +275,11 @@ function updateStyleSheet(name,type) {
 }
 
 const utils = {
-
+  
   get sharedGlobal(){ return SHARED_GLOBAL },
-
+  
   get brandName(){ return AppConstants.MOZ_APP_DISPLAYNAME_DO_NOT_USE },
-
+  
   createElement: function(doc,tag,props,isHTML = false){
     let el = isHTML ? doc.createElement(tag) : doc.createXULElement(tag);
     for(let prop in props){
@@ -287,7 +287,7 @@ const utils = {
     }
     return el
   },
-
+  
   createWidget(desc){
     if(!desc || !desc.id ){
       console.error("custom widget description is missing 'id' property");
@@ -339,7 +339,7 @@ const utils = {
       }
     });
   },
-
+  
   readFile: function (aFile, metaOnly = false) {
     if(typeof aFile === "string"){
       aFile = getDirEntry(aFile);
@@ -368,7 +368,7 @@ const utils = {
     stream.close();
     return content.replace(/\r\n?/g, '\n');
   },
-
+  
   readFileAsync: function(path){
     if(typeof path !== "string"){
       return Promise.reject("readFileAsync: path is not a string")
@@ -379,16 +379,16 @@ const utils = {
       base.pop();
       parts.shift();
     }
-
+    
     return new Promise(resolve => {
       getProfileDir()
       .then((path) => PathUtils.join(path, ...base.concat(parts)))
       .then(IOUtils.readUTF8)
       .then(resolve)
     })
-
+    
   },
-
+  
   readJSON: async function(path){
     try{
       let content = await utils.readFileAsync(path);
@@ -398,7 +398,7 @@ const utils = {
     }
     return null
   },
-
+  
   writeFile: async function(path, content, options = {}){
     if(!path || typeof path !== "string"){
       throw "writeFile: path is invalid"
@@ -409,7 +409,7 @@ const utils = {
 
     let base = ["chrome",RESOURCE_DIR];
     let parts = path.split(/[\\\/]/);
-
+    
     // Normally, this API can only write into resources directory
     // Writing outside of resources can be enabled using following pref
     const disallowUnsafeWrites = !yPref.get("userChromeJS.allowUnsafeWrites");
@@ -422,19 +422,19 @@ const utils = {
       parts.shift();
     }
     const fileName = PathUtils.join( await getProfileDir(), ...base.concat(parts) );
-
+    
     if(!options.tmpPath){
       options.tmpPath = fileName + ".tmp";
     }
     return IOUtils.writeUTF8( fileName, content, options );
   },
-
+  
   createFileURI: (fileName = "") => {
     fileName = String(fileName);
     let u = resolveChromeURL(`chrome://userchrome/content/${fileName}`);
-    return fileName ? u : u.substr(0,u.lastIndexOf("/") + 1);
+    return fileName ? u : u.substr(0,u.lastIndexOf("/") + 1); 
   },
-
+  
   get chromeDir(){
     return {
       get files(){
@@ -444,9 +444,9 @@ const utils = {
       uri: BASE_FILEURI
     }
   },
-
+  
   getFSEntry: (fileName) => ( getDirEntry(fileName) ),
-
+  
   getScriptData: () => {
     let scripts = [];
     const disabledScripts = (yPref.get(PREF_SCRIPTSDISABLED) || '').split(",");
@@ -457,7 +457,7 @@ const utils = {
     }
     return scripts
   },
-
+  
   get windows(){
     return {
       get: function (onlyBrowsers = true) {
@@ -475,7 +475,7 @@ const utils = {
       }
     }
   },
-
+  
   toggleScript: function(el){
     let isElement = !!el.tagName;
     if(!isElement && typeof el != "string"){
@@ -496,11 +496,11 @@ const utils = {
     Services.appinfo.invalidateCachesOnRestart();
     return { script: name, enabled: newstate }
   },
-
+  
   updateStyleSheet: function(name = "../userChrome.css",type){
     return updateStyleSheet(name,type)
   },
-
+  
   updateMenuStatus: function(menu){
     if(!menu){
       return
@@ -514,7 +514,7 @@ const utils = {
       }
     }
   },
-
+  
   startupFinished: function(){
     return new Promise(resolve => {
       if(_ucjs.SESSION_RESTORED){
@@ -523,7 +523,7 @@ const utils = {
         const obs_topic = APP_VARIANT.FIREFOX
                     ? "sessionstore-windows-restored"
                     : "mail-delayed-startup-finished";
-
+                    
         let observer = (subject, topic, data) => {
           Services.obs.removeObserver(observer, obs_topic);
           resolve();
@@ -532,11 +532,11 @@ const utils = {
       }
     });
   },
-
+  
   windowIsReady: function(win){
     if(win && win.isChromeWindow){
       return new Promise(resolve => {
-
+        
         if(APP_VARIANT.FIREFOX){
           if(win.gBrowserInit.delayedStartupFinished){
             resolve();
@@ -551,7 +551,7 @@ const utils = {
         const obs_topic = APP_VARIANT.FIREFOX
                           ? "browser-delayed-startup-finished"
                           : "mail-delayed-startup-finished";
-
+                    
         let observer = (subject, topic, data) => {
           if(subject === win){
             Services.obs.removeObserver(observer, obs_topic);
@@ -565,24 +565,24 @@ const utils = {
       return Promise.reject(new Error("reference is not a window"))
     }
   },
-
+  
   registerHotkey: function(desc,func){
     const validMods = ["accel","alt","ctrl","meta","shift"];
     const validKey = (k)=>((/^[\w-]$/).test(k) ? 1 : (/^F(?:1[0,2]|[1-9])$/).test(k) ? 2 : 0);
     const NOK = (a) => (typeof a != "string");
     const eToO = (e) => ({"metaKey":e.metaKey,"ctrlKey":e.ctrlKey,"altKey":e.altKey,"shiftKey":e.shiftKey,"key":e.srcElement.getAttribute("key"),"id":e.srcElement.getAttribute("id")});
-
+    
     if(NOK(desc.id) || NOK(desc.key) || NOK(desc.modifiers)){
       return false
     }
-
+    
     try{
       let mods = desc.modifiers.toLowerCase().split(" ").filter((a)=>(validMods.includes(a)));
       let key = validKey(desc.key);
       if(!key || (mods.length === 0 && key === 1)){
         return false
       }
-
+      
       utils.windows.forEach((doc,win) => {
         if(doc.getElementById(desc.id)){
           return
@@ -595,7 +595,7 @@ const utils = {
         }
 
         let el = utils.createElement(doc,"key",details);
-
+        
         el.addEventListener("command",(ev) => {func(ev.target.ownerGlobal,eToO(ev))});
         let keyset = doc.getElementById("mainKeyset") || doc.body.appendChild(utils.createElement(doc,"keyset",{id:"ucKeys"}));
         keyset.insertBefore(el,keyset.firstChild);
@@ -612,8 +612,8 @@ const utils = {
       return false
     }
     if(    !win
-        || !desc
-        || !desc.url
+        || !desc 
+        || !desc.url 
         || typeof desc.url !== "string"
         || !(["tab","tabshifted","window","current"]).includes(desc.where)
       ){
@@ -773,11 +773,11 @@ function UserChrome_js() {
   this.scripts = [];
   this.SESSION_RESTORED = false;
   this.isInitialWindow = true;
-
+  
   const gBrowserHackRequired = yPref.get("userChromeJS.gBrowser_hack.required") ? 2 : 0;
   const gBrowserHackEnabled = yPref.get(PREF_GBROWSERHACKENABLED) ? 1 : 0;
   this.GBROWSERHACK_ENABLED = gBrowserHackRequired|gBrowserHackEnabled;
-
+  
   if(!yPref.get(PREF_ENABLED) || !(/^[\w_]*$/.test(SCRIPT_DIR))){
     console.log("Scripts are disabled or the given script directory name is invalid");
     return
@@ -804,7 +804,7 @@ function UserChrome_js() {
     }
   }
   this.scripts.sort((a,b) => a.loadOrder > b.loadOrder);
-
+  
   Services.obs.addObserver(this, 'domwindowopened', false);
 }
 
@@ -821,7 +821,7 @@ UserChrome_js.prototype = {
     if(regex.test(window.location.href)) {
       Object.defineProperty(window,"_ucUtils",{ get: () => utils });
       document.allowUnsafeHTML = false; // https://bugzilla.mozilla.org/show_bug.cgi?id=1432966
-
+      
       // This is a hack to make gBrowser available for scripts.
       // Without it, scripts would need to check if gBrowser exists and deal
       // with it somehow. See bug 1443849
@@ -840,7 +840,7 @@ UserChrome_js.prototype = {
         })
       }
       let isWindow = window.isChromeWindow;
-
+      
       // Inject scripts to window
       if(yPref.get(PREF_ENABLED)){
         const disabledScripts = (yPref.get(PREF_SCRIPTSDISABLED) || '').split(",");
@@ -853,7 +853,7 @@ UserChrome_js.prototype = {
           }
         }
       }
-
+      
       // Add simple script menu to menubar tools popup
       const menu = document.querySelector(
         APP_VARIANT.FIREFOX ? "#menu_openDownloads" : "menuitem#addressBook");
@@ -883,7 +883,7 @@ UserChrome_js.prototype = {
         }
         menuFragment.getElementById("menuUserScriptsPopup").prepend(itemsFragment);
         menu.parentNode.insertBefore(menuFragment,menu);
-
+        
         document.l10n.formatValues(["restart-button-label","clear-startup-cache-label"])
         .then(values => {
           let baseTitle = `${values[0]} ${utils.brandName}`;

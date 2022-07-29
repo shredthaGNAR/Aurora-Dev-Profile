@@ -381,7 +381,6 @@ url("about:home") {
         .outer-wrapper.newtab-experience .top-site-outer:hover .tile {
             background-color: #3c3dbb00 !important;
             background-image: linear-gradient(to right, rgb(144, 89, 255, 0.4), rgb(255, 74, 162, 0.6), #ffbd4f, rgb(255, 74, 162, 0.6), rgb(144, 89, 255, 0.4)) !important;
-            background: linear-gradient(to left, rgb(144, 89, 255, 1), rgb(255, 74, 162), #ffbd4f) !important;
             box-shadow: none !important;
             border-radius: 50% !important;
         }
@@ -390,7 +389,7 @@ url("about:home") {
         .outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer:is(.active,
             :focus,
             :hover) {
-            border-color: #3c3d9970 !important;
+            border: linear-gradient(to left, rgb(144, 89, 255, 1), rgb(255, 74, 162), #ffbd4f) !important;
             background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
             box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
         }
@@ -1025,12 +1024,12 @@ url("about:home") {
     }
 
 
-    /* Proton NewTab Page */
+    /* Proton NewTab Page *
 
     @-moz-document url("about:newtab"),
     url("about:home") {
 
-        /* Lightmode Colours */
+        /* Lightmode Colours *
         body:not([lwt-newtab],
             [lwt-newtab-brighttext]) {
             --newtab-background-color: #f5f5f5 !important;
@@ -1049,7 +1048,7 @@ url("about:home") {
             --newtab-card-hairline-color: rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* Darkmode Colours */
+        /* Darkmode Colours *
         body[style*="--newtab-background-color:rgba(42, 42, 46, 1); --newtab-text-primary-color:rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
         body[style*="--newtab-background-color: rgba(43, 42, 51, 1); --newtab-text-primary-color: rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
         body:not([style*="color"])[lwt-newtab-brighttext] {
@@ -1069,7 +1068,7 @@ url("about:home") {
             --newtab-card-hairline-color: rgba(0, 0, 0, 0.2) !important;
         }
 
-        /* Search Textbox */
+        /* Search Textbox *
         .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button,
         .outer-wrapper.newtab-experience .search-wrapper input {
             box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
@@ -1101,23 +1100,23 @@ url("about:home") {
         }
 
         /* Topsite Tiles */
-        .outer-wrapper.newtab-experience .top-site-outer .tile {
-            border-radius: 10px !important;
-            -webkit-border-radius: 10px !important;
-            -moz-border-radius: 10px !important;
-            -ms-border-radius: 10px !important;
-            -o-border-radius: 10px !important;
-        }
+    .outer-wrapper.newtab-experience .top-site-outer .tile {
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+    }
 
-        .outer-wrapper.newtab-experience .top-site-outer {
-            border-radius: 10px !important;
-            -webkit-border-radius: 10px !important;
-            -moz-border-radius: 10px !important;
-            -ms-border-radius: 10px !important;
-            -o-border-radius: 10px !important;
-        }
+    .outer-wrapper.newtab-experience .top-site-outer {
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+    }
 
-        /* Topsite Tile Size Adjustments *
+    /* Topsite Tile Size Adjustments *
     .outer-wrapper.newtab-experience .top-site-outer .tile {
         height: 44px !important;
         width: 44px !important;
@@ -1153,101 +1152,102 @@ url("about:home") {
         fill: var(--newtab-icon-primary-color) !important;
     }
     */
-        .top-site-outer .title:not(.sponsored) .sponsored-label {
-            display: none !important;
-        }
-
-        /* Recommended by Pocket Cards */
-        .ds-card-grid {
-            gap: 12px !important;
-        }
-
-        .ds-card-grid .ds-card {
-            background-color: var(--newtab-card-background-color) !important;
-        }
-
-        .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
-            border-radius: 6px !important;
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-        }
-
-        .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
-            border-radius: 6px 6px 0 0 !important;
-        }
-
-        .ds-card .ds-card-link:hover .img-wrapper {
-            filter: brightness(0.9) !important;
-        }
-
-        .ds-card .meta .title {
-            font-size: 20px !important;
-            line-height: 24px !important;
-            font-weight: 600 !important;
-        }
-
-        .ds-card header {
-            color: var(--newtab-text-primary-color) !important;
-        }
-
-        .ds-card .ds-card-link:hover header {
-            text-decoration: underline !important;
-        }
-
-        .ds-card .meta .source {
-            font-weight: 400 !important;
-            line-height: 16px !important;
-            font-size: 12px !important;
-            color: var(--newtab-text-secondary-color) !important;
-        }
-
-        .ds-card .meta .excerpt {
-            margin-top: 2px !important;
-            font-size: 14px !important;
-            line-height: 20px !important;
-            color: var(--newtab-text-primary-color) !important;
-            opacity: 0.8 !important;
-        }
-
-        /* Recent Activity Cards */
-        .ds-highlights .section .section-list {
-            gap: 12px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer {
-            border-radius: 6px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer .card {
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-            border-radius: 6px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
-            border-radius: 6px 6px 0 0 !important;
-        }
-
-        .card-outer:is(:hover,
-            :focus,
-            .active):not(.placeholder) .card-title {
-            color: var(--newtab-text-primary-color) !important;
-            text-decoration: underline !important;
-        }
-
-        .card-outer:is(:hover,
-            :focus,
-            .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
-            filter: brightness(0.99) !important;
-        }
+    .top-site-outer .title:not(.sponsored) .sponsored-label {
+        display: none !important;
     }
 
+    /* Recommended by Pocket Cards */
+    .ds-card-grid {
+        gap: 12px !important;
+    }
 
-    /*
+    .ds-card-grid .ds-card {
+        background-color: var(--newtab-card-background-color) !important;
+    }
+
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
+        border-radius: 6px !important;
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .ds-card .ds-card-link:hover .img-wrapper {
+        filter: brightness(0.9) !important;
+    }
+
+    .ds-card .meta .title {
+        font-size: 20px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+    }
+
+    .ds-card header {
+        color: var(--newtab-text-primary-color) !important;
+    }
+
+    .ds-card .ds-card-link:hover header {
+        text-decoration: underline !important;
+    }
+
+    .ds-card .meta .source {
+        font-weight: 400 !important;
+        line-height: 16px !important;
+        font-size: 12px !important;
+        color: var(--newtab-text-secondary-color) !important;
+    }
+
+    .ds-card .meta .excerpt {
+        margin-top: 2px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: var(--newtab-text-primary-color) !important;
+        opacity: 0.8 !important;
+    }
+
+    /* Recent Activity Cards */
+    .ds-highlights .section .section-list {
+        gap: 12px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer {
+        border-radius: 6px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer .card {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 6px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .card-outer:is(:hover,
+        :focus,
+        .active):not(.placeholder) .card-title {
+        color: var(--newtab-text-primary-color) !important;
+        text-decoration: underline !important;
+    }
+
+    .card-outer:is(:hover,
+        :focus,
+        .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
+        filter: brightness(0.99) !important;
+    }
+}
+
+
+
 @-moz-document url-prefix(about:newtab),
 url-prefix(about:home) {
     .top-site-outer .tile .icon-wrapper {
         height: 100% !important;
         width: 100% !important;
     }
+
     .top-site-outer .default-icon,
     .top-site-outer .search-topsite {
         background-size: 100% !important;
@@ -1259,39 +1259,38 @@ url-prefix(about:home) {
 
 /*colores al pasar el mouse sobre los sitios anclados en :hover*/
 
-    .top-site-outer:is(.active,
-        :focus,
-        :hover) .tile {
-        box-shadow: -1px 0 var(--newtab-background-color), 1px 0 var(--newtab-background-color), 0 -1px var(--newtab-background-color), 0 1px var(--newtab-background-color) !important;
-        background-color: color-mix(in srgb, var(--newtab-background-color, Field) 65%, transparent) !important;
-    }
+.top-site-outer:is(.active,
+    :focus,
+    :hover) .tile {
+    box-shadow: -1px 0 var(--newtab-background-color), 1px 0 var(--newtab-background-color), 0 -1px var(--newtab-background-color), 0 1px var(--newtab-background-color) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color, Field) 65%, transparent) !important;
+}
 
 
-    /*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
+/*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
 
-    .top-site-outer:is(.active,
-        :focus,
-        :hover) {
-        box-shadow: none !important;
-        background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
-    }
+.top-site-outer:is(.active,
+    :focus,
+    :hover) {
+    box-shadow: none !important;
+    background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+}
 
 
-    /*Colores de la sidebar para Personalizar la NewTab*
+/*Colores de la sidebar para Personalizar la NewTab*/
 
 .customize-menu {
     color: var(--newtab-wordmark-color) !important;
-    background-color: color-mix( in srgb, var(--newtab-background-color) 95%, var(--newtab-wordmark-color)) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color) 95%, var(--newtab-wordmark-color)) !important;
 }
 
 .home-section .section .selector {
-    background-color: color-mix( in srgb, var(--newtab-background-color) 98%, white) !important;
-    border: 1px solid color-mix( in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color)) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color) 98%, white) !important;
+    border: 1px solid color-mix(in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color)) !important;
     box-shadow: none !important;
 }
 
 .customize-menu.customize-animate-enter-done,
 .customize-menu.customize-animate-enter-active {
     box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
-}*/
 }

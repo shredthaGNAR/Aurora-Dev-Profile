@@ -229,7 +229,7 @@ url("about:home") {
         }
 
         .customize-menu .close-button:hover {
-            background: linear-gradient(90deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) !important;
+            background: linear-gradient(147deg, rgba(25, 179, 250, 0.7), rgba(0, 195, 255, 0) 71.71%), linear-gradient(247deg, rgba(100, 39, 255, 1), rgba(0, 255, 0, 0) 91.71%), linear-gradient(30deg, rgba(20, 32, 252, 1), rgba(0, 0, 255, 0) 71.71%) !important;
         }
 
         /*Colors of anchored sites*/
@@ -244,12 +244,8 @@ url("about:home") {
 
     .outer-wrapper.newtab-experience .top-site-outer:hover .tile {
         box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
-        background: linear-gradient(90deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) !important;
-        border-radius: 10px !important;
-        -webkit-border-radius: 10px !important;
-        -moz-border-radius: 10px !important;
-        -ms-border-radius: 10px !important;
-        -o-border-radius: 10px !important;
+        background: linear-gradient(140deg, #ff00ea, rgba(0, 119, 255, 0) 60.71%), linear-gradient(334deg, #2121c3, rgba(0, 0, 255, 0) 99.71%) !important;
+        border-radius: 7px !important;
     }
 
 
@@ -257,7 +253,7 @@ url("about:home") {
 
     .outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) {
         box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 0px 0px 2px 1px rgb(0 0 0 / 23%) !important;
-        background: linear-gradient(to bottom, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) !important;
+        background: linear-gradient(to left, rgb(144, 89, 255, 1), rgb(255, 74, 162), #ffbd4f) !important;
     }
 
 
@@ -308,7 +304,7 @@ url("about:home") {
         }
 
         #categories>.category[selected]>.category-name {
-            background: linear-gradient(90deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) !important;
+            background: linear-gradient(to right, #00bbff 0%, #6b6bff 22%, #fd4aa2 100%) !important;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -316,7 +312,7 @@ url("about:home") {
         }
 
         #categories>.category[selected] {
-            color: transparent !important;
+            color: #23a9ff !important;
         }
 
         button.primary {
@@ -370,12 +366,8 @@ url("about:home") {
 
         /*Shape of the Top Sites Container*/
         .outer-wrapper.newtab-experience .top-site-outer .tile {
-            background-color: #3c3dbb00 !important;
+            background-color: #3c3d8970 !important;
             border-radius: 50% !important;
-            -webkit-border-radius: 50% !important;
-            -moz-border-radius: 50% !important;
-            -ms-border-radius: 50% !important;
-            -o-border-radius: 50% !important;
         }
 
         .outer-wrapper.newtab-experience .top-site-outer:hover .tile {
@@ -390,8 +382,8 @@ url("about:home") {
         .outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer:is(.active,
             :focus,
             :hover) {
-            border-color: #3c3d9970 !important;
-            background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+            border-color: rgb(16, 16, 131) !important;
+            background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%);
             box-shadow: 5px 3px 6px rgb(1 1 1 / 16%), 4px 4px 2px rgb(0 0 0 / 23%) !important;
         }
     }
