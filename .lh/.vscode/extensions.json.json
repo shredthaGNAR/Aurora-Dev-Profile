@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1640240435321,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1661588228763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n {\n-    \"recommendations\": [\n-        \"tylerxwright.vscode-line-surfer\"\n-    ]\n-}\n\\ No newline at end of file\n+  \"recommendations\": [\n+    \"tylerxwright.vscode-line-surfer\",\n+    \"eyhn.vscode-vibrancy\",\n+    \"waleedj1699.css-dictionary\",\n+    \"oderwat.indent-rainbow\"\n+  ]\n+}\n"
+                },
+                {
+                    "date": 1661588311874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n   \"recommendations\": [\n     \"tylerxwright.vscode-line-surfer\",\n     \"eyhn.vscode-vibrancy\",\n     \"waleedj1699.css-dictionary\",\n-    \"oderwat.indent-rainbow\"\n+    \"oderwat.indent-rainbow\",\n+    \"mechatroner.rainbow-csv\"\n   ]\n }\n"
+                },
+                {
+                    "date": 1661588371905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,8 @@\n     \"tylerxwright.vscode-line-surfer\",\n     \"eyhn.vscode-vibrancy\",\n     \"waleedj1699.css-dictionary\",\n     \"oderwat.indent-rainbow\",\n-    \"mechatroner.rainbow-csv\"\n+    \"mechatroner.rainbow-csv\",\n+    \"kamikillerto.vscode-colorize\"\n   ]\n }\n"
                 }
             ],
             "date": 1640240435321,

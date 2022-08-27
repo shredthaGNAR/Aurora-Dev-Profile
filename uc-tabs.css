@@ -83,19 +83,6 @@
   box-shadow: 0px 0px 25px 3px rgba(0, 0, 0, 0.1), 0px 0px 15px 0px hsla(0, 0%, 0%, 0.35) !important;
 }
 
-/* colored lines on container tabs */
-.tabbrowser-tab[usercontextid] .tab-context-line {
-  background: var(--identity-tab-color) !important;
-  height: 1px !important;
-  margin-bottom: 0 !important;
-}
-
-/* purple line on multiselected tabs */
-#TabsToolbar .tabbrowser-tab[multiselected="true"] .tab-context-line {
-  min-height: 1px !important;
-  background-color: var(--multiselected-color) !important;
-}
-
 .tabbrowser-tab .tab-context-line {
   display: -moz-box !important;
   -moz-box-ordinal-group: 2 !important;
@@ -105,8 +92,30 @@
   transition: none !important;
 }
 
+/* colored lines on container tabs */
+.tabbrowser-tab[usercontextid] .tab-context-line {
+  background-color: var(--identity-tab-color) !important;
+}
+
+/* purple line on multiselected tabs */
+.tabbrowser-tab[multiselected="true"] .tab-context-line {
+  background-color: var(--multiselected-color) !important;
+}
+
 .tabbrowser-tab:not([usercontextid], [multiselected]) .tab-context-line {
   display: none !important;
+}
+
+.tabbrowser-tab.identity-icon-on-multiselect[usercontextid][multiselected="true"]
+  .tab-content::after {
+  content: "";
+  display: -moz-box;
+  height: 12px;
+  width: 12px;
+  margin-inline: 3px;
+  background: var(--identity-icon) center/contain no-repeat;
+  fill: var(--identity-icon-color);
+  -moz-context-properties: fill;
 }
 
 .tab-label-container {
@@ -718,16 +727,41 @@ hover the general area of the tabs, but will show if audio is muted. */
   transform: translateX(25px) scale(0.5) !important;
 }
 
+.tab-throbber[busy] {
+  fill: var(--busy-throbber-fill) !important;
+}
+
+.tab-throbber[progress] {
+  fill: var(--loading-throbber-fill) !important;
+}
+
 .tab-throbber[busy]::before {
   opacity: 0.8 !important;
-  fill: var(--busy-throbber-fill) !important;
 }
 
 .tab-throbber[progress]::before {
   opacity: 1 !important;
-  fill: var(--loading-throbber-fill) !important;
 }
 
+:root[sessionrestored] .tab-throbber[fadein] {
+  display: block !important;
+  position: relative !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[sessionrestored] .tab-throbber[fadein] {
+    background-image: url("chrome://browser/skin/tabbrowser/hourglass.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-context-properties: fill, fill-opacity !important;
+  }
+
+  .tab-throbber[busy] {
+    opacity: 0.8 !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
 /* tabLoadingSpinner.uc.js enables a special loading throbber animation
 that spins instead of bouncing horizontally */
 @keyframes uc-tab-throbber-spinner-css {
@@ -754,10 +788,6 @@ that spins instead of bouncing horizontally */
   }
 }
 
-:root[sessionrestored] .tab-throbber[fadein] {
-  display: block !important;
-  position: relative !important;
-}
 
 /* I made different versions of this animation to circumvent an SVG issue. if
 you update Firefox and the throbber animation stops working, uncomment one of
@@ -772,6 +802,7 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
   animation: none !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
+  fill: inherit !important;
 
   /* ANIMATION METHOD #1: this version of the animation is implemented by an
      <animateTransform> tag. it's the most efficient method but it has broken
@@ -845,6 +876,7 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
 :root[uc-loading-spinner] .tab-throbber-tabslist[progress] {
   opacity: 1 !important;
   fill: var(--loading-throbber-fill) !important;
+}
 }
 
 /* hide the close button for pinned tabs. if the last visible tab is pinned, it

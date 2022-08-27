@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Urlbar Mods
-// @version        1.7.1
+// @version        1.7.3
 // @author         aminomancer
 // @homepage       https://github.com/aminomancer/uc.css.js
 // @description    Make some minor modifications to the urlbar. See the code
@@ -132,12 +132,14 @@ class UrlbarMods {
     "underline whitespace results": true,
   };
   constructor() {
-    if (UrlbarMods.config["add new tooltips and classes for identity icon"])
+    if (UrlbarMods.config["add new tooltips and classes for identity icon"]) {
       this.extendIdentityIcons();
+    }
     if (UrlbarMods.config["style identity icon drag box"]) this.styleIdentityIconDragBox();
     if (UrlbarMods.config["restore one-offs context menu"]) this.restoreOneOffsContextMenu();
-    if (UrlbarMods.config["show detailed icons in urlbar results"])
+    if (UrlbarMods.config["show detailed icons in urlbar results"]) {
       this.urlbarResultsDetailedIcons();
+    }
     if (UrlbarMods.config["disable urlbar intervention tips"]) this.disableUrlbarInterventions();
     if (UrlbarMods.config["sort urlbar results consistently"]) this.urlbarResultsSorting();
     if (UrlbarMods.config["underline whitespace results"]) this.underlineSpaceResults();
@@ -190,7 +192,7 @@ class UrlbarMods {
       aboutNetErrorPage,
       httpsOnlyErrorPage,
     };
-    gIdentityHandler._localPDF = function () {
+    gIdentityHandler._localPDF = function() {
       if (!this._isPDFViewer) return false;
       switch (gBrowser.selectedBrowser.documentURI?.scheme) {
         case "chrome":
@@ -203,7 +205,7 @@ class UrlbarMods {
       }
     };
     // Extend the built-in method that sets the identity icon's tooltip and class.
-    gIdentityHandler._refreshIdentityIcons = function () {
+    gIdentityHandler._refreshIdentityIcons = function() {
       let icon_label = "";
       let tooltip = "";
       if (this._isSecureInternalUI) {
@@ -222,10 +224,11 @@ class UrlbarMods {
         if (this._isMixedActiveContentBlocked) {
           this._identityBox.classList.add("mixedActiveBlocked");
           tooltip = this._fluentStrings.mixedDisplayContentLoadedActiveBlocked;
-        } else if (!this._isCertUserOverridden)
+        } else if (!this._isCertUserOverridden) {
           tooltip = gNavigatorBundle.getFormattedString("identity.identified.verifier", [
             this.getIdentityData().caOrg,
           ]);
+        }
       } else if (this._isBrokenConnection) {
         this._identityBox.className = "unknownIdentity";
         if (this._isMixedActiveContentLoaded) {
@@ -262,8 +265,9 @@ class UrlbarMods {
       } else if (this._isPotentiallyTrustworthy || this._localPDF()) {
         this._identityBox.className = isInitialPage(this._uri) ? "initialPage" : "localResource";
         tooltip = this._fluentStrings.localResource;
-        if (this._uri.spec.startsWith("about:reader?"))
+        if (this._uri.spec.startsWith("about:reader?")) {
           this._identityBox.classList.add("readerMode");
+        }
       } else {
         let warnOnInsecure =
           this._insecureConnectionIconEnabled ||
@@ -323,8 +327,9 @@ class UrlbarMods {
     }
     // draw a rectangle with rounded corners
     function roundRect(ctx, x, y, width, height, radius = 5, fill, stroke) {
-      if (typeof radius === "number") radius = { tl: radius, tr: radius, br: radius, bl: radius };
-      else {
+      if (typeof radius === "number") {
+        radius = { tl: radius, tr: radius, br: radius, bl: radius };
+      } else {
         let defaultRadius = { tl: 0, tr: 0, br: 0, bl: 0 };
         for (let side in defaultRadius) radius[side] = radius[side] || defaultRadius[side];
       }
@@ -354,7 +359,7 @@ class UrlbarMods {
     }
     // override the internal dragstart callback so that
     // it uses variables instead of "white" and "black"
-    gIdentityHandler.onDragStart = function (event) {
+    gIdentityHandler.onDragStart = function(event) {
       const inputStyle = getComputedStyle(gURLBar.inputField);
       const identityStyle = getComputedStyle(gURLBar._identityBox);
       const iconStyle = getComputedStyle(document.getElementById("identity-icon"));
@@ -461,8 +466,10 @@ class UrlbarMods {
       "services.sync.syncedTabs.showRemoteIcons",
       true
     );
-    const { UrlbarResult } = ChromeUtils.import("resource:///modules/UrlbarResult.jsm");
-    const { UrlbarSearchUtils } = ChromeUtils.import("resource:///modules/UrlbarSearchUtils.jsm");
+    const { UrlbarResult } = ChromeUtils.importESModule("resource:///modules/UrlbarResult.sys.mjs");
+    const { UrlbarSearchUtils } = ChromeUtils.importESModule(
+      "resource:///modules/UrlbarSearchUtils.sys.mjs"
+    );
     const UrlbarProvidersManager = gURLBar.view.controller.manager;
     const UrlbarProviderAutofill = UrlbarProvidersManager.getProvider("Autofill");
     // these variables look unused but they're for the functions that will be modified
@@ -531,15 +538,16 @@ class UrlbarMods {
     let src3 = TabToSearch.startQuery.toSource();
     if (!src1.includes("client.clientType")) {
       const lazy = {};
-      XPCOMUtils.defineLazyModuleGetters(lazy, {
-        SyncedTabs: "resource://services-sync/SyncedTabs.jsm",
-        UrlbarPrefs: "resource:///modules/UrlbarPrefs.jsm",
-        UrlbarResult: "resource:///modules/UrlbarResult.jsm",
-        UrlbarTokenizer: "resource:///modules/UrlbarTokenizer.jsm",
-      });
       ChromeUtils.defineESModuleGetters(lazy, {
         PlacesUtils: "resource://gre/modules/PlacesUtils.sys.mjs",
+        UrlbarPrefs: "resource:///modules/UrlbarPrefs.sys.mjs",
+        UrlbarResult: "resource:///modules/UrlbarResult.sys.mjs",
+        UrlbarTokenizer: "resource:///modules/UrlbarTokenizer.sys.mjs",
       });
+      XPCOMUtils.defineLazyModuleGetters(lazy, {
+        SyncedTabs: "resource://services-sync/SyncedTabs.jsm",
+      });
+      const { UrlbarUtils } = ChromeUtils.importESModule("resource:///modules/UrlbarUtils.sys.mjs");
       eval(
         `RemoteTabs.startQuery = async function ` +
           src1
@@ -549,32 +557,18 @@ class UrlbarMods {
     }
     if (!src2.includes("result.payload.clientType")) {
       const lazy = {};
+      ChromeUtils.defineESModuleGetters(lazy, {
+        L10nCache: "resource:///modules/UrlbarUtils.sys.mjs",
+        UrlbarPrefs: "resource:///modules/UrlbarPrefs.sys.mjs",
+        UrlbarProviderTopSites: "resource:///modules/UrlbarProviderTopSites.sys.mjs",
+        UrlbarProvidersManager: "resource:///modules/UrlbarProvidersManager.sys.mjs",
+        UrlbarSearchOneOffs: "resource:///modules/UrlbarSearchOneOffs.sys.mjs",
+        UrlbarTokenizer: "resource:///modules/UrlbarTokenizer.sys.mjs",
+        UrlbarUtils: "resource:///modules/UrlbarUtils.sys.mjs",
+      });
       XPCOMUtils.defineLazyModuleGetters(lazy, {
         BrowserWindowTracker: "resource:///modules/BrowserWindowTracker.jsm",
-        L10nCache: "resource:///modules/UrlbarUtils.jsm",
         ObjectUtils: "resource://gre/modules/ObjectUtils.jsm",
-        UrlbarPrefs: "resource:///modules/UrlbarPrefs.jsm",
-        UrlbarProvidersManager: "resource:///modules/UrlbarProvidersManager.jsm",
-        UrlbarProviderTopSites: "resource:///modules/UrlbarProviderTopSites.jsm",
-        UrlbarSearchOneOffs: "resource:///modules/UrlbarSearchOneOffs.jsm",
-        UrlbarTokenizer: "resource:///modules/UrlbarTokenizer.jsm",
-        UrlbarUtils: "resource:///modules/UrlbarUtils.jsm",
-        BrowserSearchTelemetry: "resource:///modules/BrowserSearchTelemetry.jsm",
-        BrowserUIUtils: "resource:///modules/BrowserUIUtils.jsm",
-        CONTEXTUAL_SERVICES_PING_TYPES: "resource:///modules/PartnerLinkAttribution.jsm",
-        ExtensionSearchHandler: "resource://gre/modules/ExtensionSearchHandler.jsm",
-        PrivateBrowsingUtils: "resource://gre/modules/PrivateBrowsingUtils.jsm",
-        PromiseUtils: "resource://gre/modules/PromiseUtils.jsm",
-        ReaderMode: "resource://gre/modules/ReaderMode.jsm",
-        PartnerLinkAttribution: "resource:///modules/PartnerLinkAttribution.jsm",
-        SearchUIUtils: "resource:///modules/SearchUIUtils.jsm",
-        SearchUtils: "resource://gre/modules/SearchUtils.jsm",
-        UrlbarController: "resource:///modules/UrlbarController.jsm",
-        UrlbarEventBufferer: "resource:///modules/UrlbarEventBufferer.jsm",
-        UrlbarQueryContext: "resource:///modules/UrlbarUtils.jsm",
-        UrlbarSearchUtils: "resource:///modules/UrlbarSearchUtils.jsm",
-        UrlbarValueFormatter: "resource:///modules/UrlbarValueFormatter.jsm",
-        UrlbarView: "resource:///modules/UrlbarView.jsm",
       });
       eval(
         `gURLBar.view._updateRow = function ` +
@@ -592,7 +586,7 @@ class UrlbarMods {
               `$1 if (result.payload.engine) item.setAttribute("engine", result.payload.engine);`
             )
             .replace(
-              /(item\.setAttribute\(\"type\", \"tabtosearch\"\);)\n    } else/,
+              /(item\.setAttribute\(\"type\", \"tabtosearch\"\);)\n {4}} else/,
               `$1 if (result.payload.engine) item.setAttribute("engine", result.payload.engine);\n    } else if (result.providerName == "TokenAliasEngines") {\n      item.setAttribute("type", "tokenaliasengine");\n      if (result.payload.engine) item.setAttribute("engine", result.payload.engine);\n    } else`
             )
             .replace(
@@ -603,14 +597,15 @@ class UrlbarMods {
     }
     if (!src3.includes("uc_startQuery")) {
       const lazy = {};
-      XPCOMUtils.defineLazyModuleGetters(lazy, {
-        UrlbarView: "resource:///modules/UrlbarView.jsm",
-        UrlbarPrefs: "resource:///modules/UrlbarPrefs.jsm",
-        UrlbarProviderAutofill: "resource:///modules/UrlbarProviderAutofill.jsm",
-        UrlbarResult: "resource:///modules/UrlbarResult.jsm",
-        UrlbarSearchUtils: "resource:///modules/UrlbarSearchUtils.jsm",
-        UrlbarTokenizer: "resource:///modules/UrlbarTokenizer.jsm",
+      ChromeUtils.defineESModuleGetters(lazy, {
+        UrlbarView: "resource:///modules/UrlbarView.sys.mjs",
+        UrlbarPrefs: "resource:///modules/UrlbarPrefs.sys.mjs",
+        UrlbarProviderAutofill: "resource:///modules/UrlbarProviderAutofill.sys.mjs",
+        UrlbarResult: "resource:///modules/UrlbarResult.sys.mjs",
+        UrlbarSearchUtils: "resource:///modules/UrlbarSearchUtils.sys.mjs",
+        UrlbarTokenizer: "resource:///modules/UrlbarTokenizer.sys.mjs",
       });
+      const { UrlbarUtils } = ChromeUtils.importESModule("resource:///modules/UrlbarUtils.sys.mjs");
       eval(
         `TabToSearch.startQuery = async function uc_startQuery` +
           src3
@@ -654,12 +649,13 @@ class UrlbarMods {
     let sortSrc = UnifiedComplete.sort.toSource();
     if (!sortSrc.includes(`UrlbarPrefs.get("showSearchSuggestionsFirst")`)) {
       const lazy = {};
-      XPCOMUtils.defineLazyModuleGetters(lazy, {
-        UrlbarPrefs: "resource:///modules/UrlbarPrefs.jsm",
-        UrlbarProviderQuickSuggest: "resource:///modules/UrlbarProviderQuickSuggest.jsm",
-        UrlbarProviderTabToSearch: "resource:///modules/UrlbarProviderTabToSearch.jsm",
-        UrlbarSearchUtils: "resource:///modules/UrlbarSearchUtils.jsm",
+      ChromeUtils.defineESModuleGetters(lazy, {
+        UrlbarPrefs: "resource:///modules/UrlbarPrefs.sys.mjs",
+        UrlbarProviderQuickSuggest: "resource:///modules/UrlbarProviderQuickSuggest.sys.mjs",
+        UrlbarProviderTabToSearch: "resource:///modules/UrlbarProviderTabToSearch.sys.mjs",
+        UrlbarSearchUtils: "resource:///modules/UrlbarSearchUtils.sys.mjs",
       });
+      const { UrlbarUtils } = ChromeUtils.importESModule("resource:///modules/UrlbarUtils.sys.mjs");
       XPCOMUtils.defineLazyGetter(lazy, "logger", () =>
         UrlbarUtils.getLogger({ prefix: "MuxerUnifiedComplete" })
       );
@@ -675,7 +671,7 @@ class UrlbarMods {
     }
   }
   underlineSpaceResults() {
-    gURLBar.view._addTextContentWithHighlights = function (node, text, highlights) {
+    gURLBar.view._addTextContentWithHighlights = function(node, text, highlights) {
       node.textContent = "";
       node.removeAttribute("no-highlights");
       if (!text) return;
@@ -700,12 +696,15 @@ class UrlbarMods {
       if (/^\s{2,}$/.test(text) && !highlights.length) {
         text = text.replace(/\s/g, `\u00A0`);
         node.setAttribute("all-whitespace", true);
-      } else node.removeAttribute("all-whitespace");
+      } else {
+        node.removeAttribute("all-whitespace");
+      }
       highlights = (highlights || []).concat([[text.length, 0]]);
       let index = 0;
       for (let [highlightIndex, highlightLength] of highlights) {
-        if (highlightIndex - index > 0)
+        if (highlightIndex - index > 0) {
           node.appendChild(this.document.createTextNode(text.substring(index, highlightIndex)));
+        }
         if (highlightLength > 0) {
           let strong = this._createElement("strong");
           strong.textContent = text.substring(highlightIndex, highlightIndex + highlightLength);
@@ -717,8 +716,9 @@ class UrlbarMods {
   }
 }
 
-if (gBrowserInit.delayedStartupFinished) new UrlbarMods();
-else {
+if (gBrowserInit.delayedStartupFinished) {
+  new UrlbarMods();
+} else {
   let delayedListener = (subject, topic) => {
     if (topic == "browser-delayed-startup-finished" && subject == window) {
       Services.obs.removeObserver(delayedListener, topic);

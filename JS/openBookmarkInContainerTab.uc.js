@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Open Bookmark in Container Tab (context menu)
-// @version        1.2.1
+// @version        1.2.3
 // @author         aminomancer
 // @homepage       https://github.com/aminomancer/uc.css.js
 // @description    Adds a new menu to context menus prompted by right-clicking
@@ -27,8 +27,6 @@ class OpenPlacesInContainerTabMenu {
     l10n: {
       // Appears when right-clicking a container/folder in bookmarks or history.
       openAll: `Open All in Container Tabs`,
-      // Appears when right-clicking a tab in the synced tabs sidebar.
-      openSyncedTab: `Open in a New Container Tab`,
       // All of the menu items use a predefined access key. Access keys are
       // underlined in the menu item's label, and pressing them on your keyboard
       // automatically selects the menu item. They serve as hotkeys while the
@@ -39,7 +37,7 @@ class OpenPlacesInContainerTabMenu {
       // though. If the chosen access key is not present in the menu item's
       // label, instead of being underlined in the label, it will be shown after
       // the label in parentheses, e.g. "Open All in Container Tabs (G)"
-      accessKey: `c`,
+      accessKey: `i`,
     },
   };
   constructor() {
@@ -100,20 +98,6 @@ class OpenPlacesInContainerTabMenu {
       );
       popups.push(syncedOpenAllPopup);
 
-      this.syncedMenuOpenInContainer = this.create(document, "menu", {
-        id: "syncedTabsOpenInContainer",
-        label: l10n.openSyncedTab,
-        accesskey: l10n.accessKey,
-        disabled: true,
-        hidden: true,
-      });
-      this.syncedMenuOpenTab.after(this.syncedMenuOpenInContainer);
-      let syncedOpenPopup = this.syncedMenuOpenInContainer.appendChild(
-        document.createXULElement("menupopup")
-      );
-      syncedOpenPopup.addEventListener("command", e => this.openSyncedTab(e, syncedOpenPopup));
-      popups.push(syncedOpenPopup);
-
       this.syncedContextMenu.addEventListener("popupshowing", this);
       this.syncedFilterContextMenu.addEventListener("popupshowing", this, { once: true });
     }
@@ -147,7 +131,7 @@ class OpenPlacesInContainerTabMenu {
     );
   }
   get syncedTabsStore() {
-    return sidebar.syncedTabsDeckComponent._syncedTabsListStore;
+    return document.getElementById("sidebar")?.syncedTabsDeckComponent._syncedTabsListStore;
   }
   get selectedSyncedRow() {
     return this.syncedTabsStore.data[this.syncedTabsStore._selectedRow[0]];
@@ -200,14 +184,6 @@ class OpenPlacesInContainerTabMenu {
       (this._syncedMenuOpenAll = this.syncedContextMenu.querySelector("#syncedTabsOpenAllInTabs"))
     );
   }
-  get syncedMenuOpenTab() {
-    return (
-      this._syncedMenuOpenTab ||
-      (this._syncedMenuOpenTab = this.syncedContextMenu.querySelector(
-        "#syncedTabsOpenSelectedInTab"
-      ))
-    );
-  }
   get syncedMenuCopy() {
     return (
       this._syncedMenuCopy ||
@@ -257,8 +233,6 @@ class OpenPlacesInContainerTabMenu {
     this.syncedContextMenuInited = true;
     this.syncedMenuOpenAllInContainer.disabled = this.syncedMenuOpenAll?.disabled;
     this.syncedMenuOpenAllInContainer.hidden = this.syncedMenuOpenAll?.hidden;
-    this.syncedMenuOpenInContainer.disabled = this.syncedMenuOpenTab?.disabled;
-    this.syncedMenuOpenInContainer.hidden = this.syncedMenuOpenTab?.hidden;
   }
   openLinkInContainer(e, popup, item) {
     let win = window.gBrowser ? window : BrowserWindowTracker.getTopWindow();
@@ -270,12 +244,14 @@ class OpenPlacesInContainerTabMenu {
       if (!view) return;
       item = view.selectedNode;
     }
-    if (item instanceof Array)
+    if (item instanceof Array) {
       item.forEach(node => {
         let url = typeof node === "object" ? node.url || node.uri : node;
         urls.push(url);
       });
-    else urls = [typeof item === "object" ? item.url || item.uri : item];
+    } else {
+      urls = [typeof item === "object" ? item.url || item.uri : item];
+    }
     gBrowser.loadTabs(urls, {
       userContextId: parseInt(e.target.getAttribute("data-usercontextid")),
       inBackground: Services.prefs.getBoolPref("browser.tabs.loadBookmarksInBackground"),
@@ -306,18 +282,16 @@ class OpenPlacesInContainerTabMenu {
         root.containerOpen = false;
         if (!didSuppressNotifications) result.suppressNotifications = false;
       }
-    } else items = folder;
+    } else {
+      items = folder;
+    }
     this.openLinkInContainer(e, popup, items);
-  }
-  openSyncedTab(e, popup) {
-    if (!this.syncedContextMenuInited) return;
-    if (popup.triggerNode?.closest(".tabs-container"))
-      this.openLinkInContainer(e, popup, this.selectedSyncedTab);
   }
   openAllSyncedFromDevice(e, popup) {
     if (!this.syncedContextMenuInited) return;
-    if (popup.triggerNode?.closest(".tabs-container"))
+    if (popup.triggerNode?.closest(".tabs-container")) {
       this.openLinkInContainer(e, popup, this.selectedSyncedRow.tabs);
+    }
   }
   loadSheet() {
     const css = `.identity-color-blue{--identity-tab-color:#37adff;--identity-icon-color:#37adff;}.identity-color-turquoise{--identity-tab-color:#00c79a;--identity-icon-color:#00c79a;}.identity-color-green{--identity-tab-color:#51cd00;--identity-icon-color:#51cd00;}.identity-color-yellow{--identity-tab-color:#ffcb00;--identity-icon-color:#ffcb00;}.identity-color-orange{--identity-tab-color:#ff9f00;--identity-icon-color:#ff9f00;}.identity-color-red{--identity-tab-color:#ff613d;--identity-icon-color:#ff613d;}.identity-color-pink{--identity-tab-color:#ff4bda;--identity-icon-color:#ff4bda;}.identity-color-purple{--identity-tab-color:#af51f5;--identity-icon-color:#af51f5;}.identity-color-toolbar{--identity-tab-color:var(--lwt-toolbar-field-color,FieldText);--identity-icon-color:var(--lwt-toolbar-field-color,FieldText);}.identity-icon-fence{--identity-icon:url("resource://usercontext-content/fence.svg");}.identity-icon-fingerprint{--identity-icon:url("resource://usercontext-content/fingerprint.svg");}.identity-icon-briefcase{--identity-icon:url("resource://usercontext-content/briefcase.svg");}.identity-icon-dollar{--identity-icon:url("resource://usercontext-content/dollar.svg");}.identity-icon-cart{--identity-icon:url("resource://usercontext-content/cart.svg");}.identity-icon-circle{--identity-icon:url("resource://usercontext-content/circle.svg");}.identity-icon-vacation{--identity-icon:url("resource://usercontext-content/vacation.svg");}.identity-icon-gift{--identity-icon:url("resource://usercontext-content/gift.svg");}.identity-icon-food{--identity-icon:url("resource://usercontext-content/food.svg");}.identity-icon-fruit{--identity-icon:url("resource://usercontext-content/fruit.svg");}.identity-icon-pet{--identity-icon:url("resource://usercontext-content/pet.svg");}.identity-icon-tree{--identity-icon:url("resource://usercontext-content/tree.svg");}.identity-icon-chill{--identity-icon:url("resource://usercontext-content/chill.svg");}.menuitem-iconic[data-usercontextid]{list-style-image:var(--identity-icon);-moz-context-properties:fill;fill:var(--identity-icon-color);}`;
@@ -327,12 +301,13 @@ class OpenPlacesInContainerTabMenu {
     sss.loadAndRegisterSheet(uri, sss.AUTHOR_SHEET);
   }
 }
+
 if (
   location.href !== `chrome://browser/content/browser.xhtml` ||
   gBrowserInit.delayedStartupFinished
-)
+) {
   new OpenPlacesInContainerTabMenu();
-else {
+} else {
   let delayedListener = (subject, topic) => {
     if (topic == "browser-delayed-startup-finished" && subject == window) {
       Services.obs.removeObserver(delayedListener, topic);

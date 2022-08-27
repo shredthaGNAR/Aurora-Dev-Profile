@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Extension Stylesheet Loader
-// @version        1.1.0
+// @version        1.1.2
 // @author         aminomancer
 // @homepage       https://github.com/aminomancer
 // @description    Allows users to share stylesheets for webextensions without
@@ -41,8 +41,7 @@ class ExtensionStylesheetLoader {
     // hide the temp dir on windows so it doesn't get in the way of user
     // activities or prevent its eventual deletion.
     if (AppConstants.platform === "win") {
-      if ("setWindowsAttributes" in IOUtils)
-        await IOUtils.setWindowsAttributes(path, { hidden: true });
+      await IOUtils.setWindowsAttributes?.(path, { hidden: true });
     }
     this.tempPath = path;
 
@@ -53,7 +52,7 @@ class ExtensionStylesheetLoader {
       type: "manifest",
     });
     this.childFile = await this.createTempFile(
-      `"use strict";const{WebExtensionPolicy}=Cu.getGlobalForObject(Cu);export class ExtensionStylesheetLoaderChild extends JSWindowActorChild{handleEvent(e){let policy=WebExtensionPolicy.getByHostname(this.document.location.hostname);if(policy&&policy.id)this.document.documentElement.setAttribute("uc-extension-id",policy.id)}}`,
+      `"use strict";const{WebExtensionPolicy}=Cu.getGlobalForObject(Services);export class ExtensionStylesheetLoaderChild extends JSWindowActorChild{handleEvent(e){let policy=WebExtensionPolicy.getByHostname(this.document.location.hostname);if(policy&&policy.id)this.document.documentElement.setAttribute("uc-extension-id",policy.id)}}`,
       { name: "ExtensionStylesheetLoaderChild", type: "sys.mjs" }
     );
 
@@ -86,10 +85,7 @@ class ExtensionStylesheetLoader {
    */
   async createTempFile(contents, options = {}) {
     let { path = null, name = "uc-temp", type = "txt" } = options;
-    const uuid = Cc["@mozilla.org/uuid-generator;1"]
-      .getService(Ci.nsIUUIDGenerator)
-      .generateUUID()
-      .toString();
+    const uuid = Services.uuid.generateUUID().toString();
     name += "-" + uuid + "." + type;
     if (!path) {
       let dir = Services.dirsvc.get("UChrm", Ci.nsIFile);

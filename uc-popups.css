@@ -18,6 +18,7 @@ tabmodalprompt {
   --in-content-button-background-hover: var(--arrowpanel-dimmed-further) !important;
   --in-content-button-background-active: var(--arrowpanel-dimmed-even-further) !important;
   --in-content-item-selected: var(--purple-40) !important;
+  --in-content-border-color: var(--dialog-box-border-color) !important;
   --in-content-border-hover: var(--dialog-box-border-hover) !important;
   --in-content-link-color: var(--purple-35) !important;
   --in-content-link-color-hover: var(--purple-30) !important;
@@ -642,7 +643,7 @@ panel[type="autocomplete-richlistbox"]
   z-index: 0 !important;
 }
 
-:is(.tab-prompt-dialog, #window-modal-dialog) .dialogBox {
+:is(.tab-prompt-dialog, #window-modal-dialog) .dialogBox:not(.fullScreen) {
   /* tab-prompt-dialogs are anchored to the top of the browser content area.
   this makes them look like they emerge from under the navbar. */
   margin-top: 0px !important;
@@ -682,20 +683,6 @@ rtl languages. adjust the border radius accordingly */
   border-bottom-right-radius: 5px !important;
 }
 
-/* blur backdrop filter */
-.content-prompt-dialog > .dialogOverlay[style] .dialogFrame {
-  /* temporarily disabled due to backdrop-filter being disabled.
-  see https://bugzilla.mozilla.org/show_bug.cgi?id=1741779 */
-
-  /* background-color: var(--dialog-bgcolor) !important;
-  background-image: var(--acrylic-texture) !important;
-  backdrop-filter: var(--acrylic-blur) !important;
-  border: 1px solid var(--blurred-dialog-border-color); */
-
-  background-color: var(--ui-quaternary-bg) !important;
-  border: 1px solid var(--arrowpanel-border-color);
-}
-
 /* hide the background overlay */
 .dialogOverlay[topmost="true"],
 #window-modal-dialog::backdrop {
@@ -703,7 +690,7 @@ rtl languages. adjust the border radius accordingly */
 }
 
 /* make the box shadow even, i hate offset drop shadows */
-:is(.content-prompt-dialog, .tab-prompt-dialog, #window-modal-dialog) .dialogBox {
+:is(.content-prompt-dialog, .tab-prompt-dialog, #window-modal-dialog) .dialogBox:not(.fullScreen) {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1), 0 0 8px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
@@ -713,10 +700,6 @@ rtl languages. adjust the border radius accordingly */
     0.5px + var(--urlbar-container-height, 40px) + var(--tab-min-height, 36px)
   ) !important;
   clip-path: inset(0 -100% -100% -100%);
-}
-
-:is(#window-modal-dialog, .tab-prompt-dialog) > .dialogOverlay[style] .dialogFrame {
-  background-color: var(--ui-quaternary-bg) !important;
 }
 
 /* center text in any dialog box */
@@ -749,7 +732,7 @@ rtl languages. adjust the border radius accordingly */
   #commonDialogWindow[dialogroot],
   #commonDialogWindow[dialogroot] *,
   .dialog-button-box {
-    --in-content-page-background: transparent !important;
+    --in-content-page-background: var(--ui-quaternary-bg) !important;
     --in-content-page-color: var(--uc-parent-page-color) !important;
     --in-content-box-background: var(--dialog-box-bgcolor) !important;
     --in-content-box-background-dim: var(--dialog-box-bgcolor-dim) !important;
@@ -758,6 +741,7 @@ rtl languages. adjust the border radius accordingly */
     --in-content-button-background-hover: var(--arrowpanel-dimmed-further) !important;
     --in-content-button-background-active: var(--arrowpanel-dimmed-even-further) !important;
     --in-content-item-selected: var(--purple-40) !important;
+    --in-content-border-color: var(--dialog-box-border-color) !important;
     --in-content-border-hover: var(--dialog-box-border-hover) !important;
     --in-content-link-color: var(--purple-35) !important;
     --in-content-link-color-hover: var(--purple-30) !important;
@@ -782,6 +766,10 @@ rtl languages. adjust the border radius accordingly */
     --dropdown-bgcolor: var(--arrowpanel-background) !important;
     --in-content-button-border-radius: var(--general-button-border-radius) !important;
     --in-content-button-vertical-padding: 5px !important;
+  }
+
+  :root:not(.system-font-size) {
+    font-size: 12px !important;
   }
 
   dialog[subdialog] .dialogRow {
@@ -827,7 +815,7 @@ rtl languages. adjust the border radius accordingly */
   }
 
   .dialog-button-box > button:not([disabled="true"]):focus-visible {
-    outline: var(--default-focusring) !important;
+    outline: var(--default-focusring, auto) !important;
   }
 
   .dialog-button-box > button:not([disabled="true"]):hover:active,
@@ -863,7 +851,6 @@ rtl languages. adjust the border radius accordingly */
   dialog input:-moz-focusring,
   button:-moz-focusring {
     box-shadow: none !important;
-    outline: var(--default-focusring);
   }
 
   #checkboxContainer checkbox {
@@ -1051,6 +1038,7 @@ rtl languages. adjust the border radius accordingly */
     --in-content-button-background-active: var(--uc-content-button-background-active) !important;
     --in-content-button-background-solid: var(--uc-content-button-background-solid);
     --in-content-item-selected: var(--purple-40) !important;
+    --in-content-border-color: var(--uc-content-border-color) !important;
     --in-content-border-hover: var(--uc-content-border-hover) !important;
     --in-content-link-color: var(--purple-30) !important;
     --in-content-link-color-hover: var(--purple-25) !important;
@@ -1130,8 +1118,10 @@ rtl languages. adjust the border radius accordingly */
 {
   :root[dialogroot],
   :root[dialogroot] dialog,
-  :root[dialogroot] richlistbox[id]:not(#categories) > richlistitem[selected] {
-    --in-content-page-background: transparent !important;
+  :root[dialogroot] richlistbox[id]:not(#categories) > richlistitem[selected],
+  :root[dialogroot] .onboardingContainer,
+  :root[dialogroot] .onboardingContainer .screen {
+    --in-content-page-background: var(--ui-quaternary-bg) !important;
     --in-content-page-color: var(--uc-parent-page-color) !important;
     --in-content-box-background: var(--dialog-box-bgcolor) !important;
     --in-content-box-background-dim: var(--dialog-box-bgcolor-dim) !important;
@@ -1141,6 +1131,7 @@ rtl languages. adjust the border radius accordingly */
     --in-content-button-background-active: var(--arrowpanel-dimmed-even-further) !important;
     --in-content-item-selected: var(--purple-40) !important;
     --in-content-item-hover: var(--arrowpanel-dimmed) !important;
+    --in-content-border-color: var(--dialog-box-border-color) !important;
     --in-content-border-hover: var(--dialog-box-border-hover) !important;
     --in-content-link-color: var(--purple-35) !important;
     --in-content-link-color-hover: var(--purple-30) !important;
@@ -1164,6 +1155,27 @@ rtl languages. adjust the border radius accordingly */
     --dropdown-bgcolor: var(--arrowpanel-background) !important;
     --in-content-button-border-radius: var(--general-button-border-radius) !important;
     --in-content-button-vertical-padding: 5px !important;
+    --mr-welcome-background-color: var(--in-content-page-background) !important;
+  }
+  
+  .onboardingContainer .screen.light-text {
+    --in-content-page-color: var(--ui-text-100) !important;
+    --in-content-primary-button-text-color: var(--ui-text-100) !important;
+    --in-content-primary-button-text-color-hover: var(--ui-text-100) !important;
+  }
+
+  :root:not(.system-font-size) {
+    font-size: 12px !important;
+  }
+
+  /* remove spotlight backdrop overlay */
+  .onboardingContainer .screen[pos="center"] {
+    background-color: transparent !important;
+  }
+
+  .onboardingContainer .main-content {
+    border: 1px solid var(--arrowpanel-border-color);
+    background-color: var(--in-content-page-background) !important;
   }
 
   :root[dialogroot] input[type="checkbox"]:checked {
@@ -1217,6 +1229,7 @@ rtl languages. adjust the border radius accordingly */
   :root[dialogroot] textarea:where(:focus, :focus-visible),
   :root[dialogroot] search-textbox[focused] {
     border-color: transparent !important;
+    outline: var(--in-content-focus-outline) !important;
     outline-offset: 0 !important;
   }
 

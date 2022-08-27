@@ -244,11 +244,6 @@ toolbarpaletteitem[place="palette"] > #search-container {
   fill-opacity: 1 !important;
 }
 
-#PopupSearchAutoComplete {
-  border-bottom-right-radius: 4px !important;
-  border-bottom-left-radius: 4px !important;
-}
-
 #urlbar-input-container,
 #searchbar {
   background-color: var(--urlbar-input-bgcolor) !important;
@@ -535,7 +530,6 @@ the NTP/home page hasn't opened yet. */
 #tracking-protection-icon-container {
   color: var(--lwt-toolbarbutton-icon-fill) !important;
   fill-opacity: var(--urlbar-icon-fill-opacity) !important;
-  height: var(--urlbar-height) !important;
 }
 
 #identity-box {
@@ -978,6 +972,11 @@ urlbarMods.uc.js assigns them custom classes .aboutBlockedPage and
 
 :root[customizing] #wrapper-urlbar-container[removable="false"] {
   opacity: revert !important;
+}
+
+#wrapper-urlbar-container,
+#wrapper-search-container {
+  -moz-box-flex: 1 !important;
 }
 
 :root[customizing]

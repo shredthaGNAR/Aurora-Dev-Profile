@@ -1,7 +1,10 @@
 {
-    "recommendations": [
-        "tylerxwright.vscode-line-surfer",
-        "eyhn.vscode-vibrancy",
-        "waleedj1699.css-dictionary"
-    ]
+  "recommendations": [
+    "tylerxwright.vscode-line-surfer",
+    "eyhn.vscode-vibrancy",
+    "waleedj1699.css-dictionary",
+    "oderwat.indent-rainbow",
+    "mechatroner.rainbow-csv",
+    "kamikillerto.vscode-colorize"
+  ]
 }

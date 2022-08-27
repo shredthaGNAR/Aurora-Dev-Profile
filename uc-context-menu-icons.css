@@ -17,7 +17,7 @@ menupopup
 #context-viewbgimage .menu-text,
 #context-savepage .menu-text,
 menu#pageStyleMenu > .menu-text,
-#addon_darkreader_org-menuitem-_DarkReader-addSite:not(.menuitem-iconic) .menu-text,
+#addon_darkreader_org-menuitem-_addSite:not(.menuitem-iconic) .menu-text,
 #viewFullZoomMenu > .menu-text,
 :is(#menu_zoomEnlarge, #menu_zoomReduce, #menu_zoomReset) .menu-text,
 #viewToolbarsMenu > .menu-text,
@@ -83,10 +83,10 @@ menuitem#sanitizeItem > .menu-text,
 #placesContext_new\:separator .menu-text,
 :is(#placesContext_open\:container, #placesContext_openContainer\:container, #placesContext_openLinks\:container, #placesContext_open\:newcontainertab)
   > .menu-text,
-:is(#syncedTabsOpenAllInContainer, #syncedTabsOpenInContainer) > .menu-text,
+:is(#syncedTabsOpenAllInContainer, #syncedTabsOpenSelectedInContainerTab) > .menu-text,
 #bookmark-menu-container_robwu_nl-menuitem-_bookmark-menu-item:not(.menuitem-iconic) > .menu-text,
 #placesContext
-  > :is(menu, menuitem)[label="Open in a New Container Tab"]:not(.menuitem-iconic)
+  > :is(menu, menuitem)[label="Open in New Container Tab"]:not(.menuitem-iconic)
   > .menu-text,
 #menu_FileQuitItem .menu-text,
 #context_openANewTab .menu-text,
@@ -135,7 +135,7 @@ menuitem#repair-text-encoding .menu-text,
 #context-viewframeinfo .menu-text,
 menuitem#menu_openDownloads .menu-text,
 menuitem#menu_openAddons .menu-text,
-#addon_darkreader_org-menuitem-_DarkReader-toggle:not(.menuitem-iconic) .menu-text,
+#addon_darkreader_org-menuitem-_toggle:not(.menuitem-iconic) .menu-text,
 #private-relay_firefox_com-menuitem-_fx-private-relay-generate-alias:not(.menuitem-iconic)
   > .menu-text,
 #private-relay_firefox_com-menuitem-_fx-private-relay-use-existing-aliases:not(.menuitem-iconic)
@@ -276,7 +276,17 @@ menuitem#enableDeveloperTools .menu-text,
 #recently-closed-remove-from-history > .menu-text,
 #recently-closed-bookmark > .menu-text,
 :is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
-  .sendtab-target[clientType]
+  .sendtab-target[clientType]:not([clientType=""])
+  .menu-text,
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target.signintosync
+  .menu-text,
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target[clientType=""][clientId=""]
+  .menu-text,
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target[clientType=""][clientId=""]
+  + .sendtab-target:not([clientType], [clientId])
   .menu-text,
 #userScriptsMenu > .menu-text,
 #toggle_PersonalToolbar > .menu-text,
@@ -294,6 +304,10 @@ menuitem#fill-login-generated-password > .menu-text,
 :is(#contentAreaContextMenu, #toolbar-context-menu)
   menu[label="Bitwarden"]
   :is(menu, menuitem)[id$="-menuitem-_copy-password"]
+  > .menu-text,
+:is(#contentAreaContextMenu, #toolbar-context-menu)
+  menu[label="Bitwarden"]
+  :is(menu, menuitem)[id$="-menuitem-_copy-totp"]
   > .menu-text,
 :is(#contentAreaContextMenu, #toolbar-context-menu)
   menu[label="Bitwarden"]
@@ -326,7 +340,7 @@ menu[label="Bitwarden"]:not(.menuitem-iconic, .menu-iconic) > .menu-text,
   > .menu-text,
 #menu_customizeToolbars .menu-text,
 menuitem.viewCustomizeToolbar > .menu-text,
-#addon_darkreader_org-menuitem-_DarkReader-switchEngine:not(.menuitem-iconic) .menu-text,
+#addon_darkreader_org-menuitem-_switchEngine:not(.menuitem-iconic) .menu-text,
 menupopup:not(#contentAreaContextMenu)
   > #addon_darkreader_org-menuitem-_DarkReader-top:not(.menuitem-iconic, .menu-iconic)
   > .menu-text,
@@ -386,7 +400,7 @@ menuitem:not(.menuitem-iconic)[oncommand="_ucUtils.restart(true)"]::before,
 #context-viewframeinfo::before,
 menuitem#menu_openDownloads::before,
 menuitem#menu_openAddons::before,
-#addon_darkreader_org-menuitem-_DarkReader-toggle:not(.menuitem-iconic)::before,
+#addon_darkreader_org-menuitem-_toggle:not(.menuitem-iconic)::before,
 #private-relay_firefox_com-menuitem-_fx-private-relay-generate-alias:not(.menuitem-iconic)::before,
 #private-relay_firefox_com-menuitem-_fx-private-relay-use-existing-aliases:not(.menuitem-iconic)::before,
 #private-relay_firefox_com-menuitem-_fx-private-relay-manage-aliases:not(.menuitem-iconic)::before,
@@ -409,7 +423,7 @@ menuitem#helpPolicySupport::before,
 :is(#new-tab-button-popup, .new-tab-popup) menuitem[command="Browser:OpenAboutContainers"]::before,
 #context-viewbgimage::before,
 #context-setDesktopBackground::before,
-:is(#context-savepage, menu#pageStyleMenu, #addon_darkreader_org-menuitem-_DarkReader-addSite:not(.menuitem-iconic))::before,
+:is(#context-savepage, menu#pageStyleMenu, #addon_darkreader_org-menuitem-_addSite:not(.menuitem-iconic))::before,
 #viewFullZoomMenu::before,
 :is(#menu_zoomEnlarge, #menu_zoomReduce, #menu_zoomReset)::before,
 #viewToolbarsMenu::before,
@@ -526,10 +540,10 @@ menuitem#repair-text-encoding::before,
 #placesContext_new\:folder::before,
 #placesContext_new\:separator::before,
 :is(#placesContext_open\:container, #placesContext_openContainer\:container, #placesContext_openLinks\:container, #placesContext_open\:newcontainertab)::before,
-:is(#syncedTabsOpenAllInContainer, #syncedTabsOpenInContainer)::before,
+:is(#syncedTabsOpenAllInContainer, #syncedTabsOpenSelectedInContainerTab)::before,
 #bookmark-menu-container_robwu_nl-menuitem-_bookmark-menu-item:not(.menuitem-iconic)::before,
 #placesContext
-  > :is(menu, menuitem)[label="Open in a New Container Tab"]:not(.menuitem-iconic)::before,
+  > :is(menu, menuitem)[label="Open in New Container Tab"]:not(.menuitem-iconic)::before,
 #context-markAsRead::before,
 #context-markAsUnread::before,
 :is(#context_bookmarkTab, #context_bookmarkSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs)::before,
@@ -570,7 +584,14 @@ menuitem#enableDeveloperTools::before,
 #recently-closed-remove-from-history::before,
 #recently-closed-bookmark::before,
 :is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
-  .sendtab-target[clientType]::before,
+  .sendtab-target[clientType]:not([clientType=""])::before,
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target.signintosync::before,
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target[clientType=""][clientId=""]::before,
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target[clientType=""][clientId=""]
+  + .sendtab-target:not([clientType], [clientId])::before,
 :is(#spell-add-to-dictionary, #spell-add-dictionaries, #spell-add-dictionaries-main, #spell-dictionaries)::before,
 #context-showonlythisframe::before,
 #contentAreaContextMenu #frame::before,
@@ -610,6 +631,9 @@ menuitem#fill-login-generated-password::before,
   :is(menu, menuitem)[id$="-menuitem-_copy-password"]::before,
 :is(#contentAreaContextMenu, #toolbar-context-menu)
   menu[label="Bitwarden"]
+  :is(menu, menuitem)[id$="-menuitem-_copy-totp"]::before,
+:is(#contentAreaContextMenu, #toolbar-context-menu)
+  menu[label="Bitwarden"]
   :is(menu, menuitem)[id$="-menuitem-_generate-password"]::before,
 :is(#contentAreaContextMenu, #toolbar-context-menu)
   menu[label="Bitwarden"]
@@ -629,7 +653,7 @@ menu[label="Bitwarden"]:not(.menuitem-iconic, .menu-iconic)::before,
 :is(menu, menuitem)[id^="multithreaded-download-manager"]:is([label="Open in new tab"], [label="Open in new window"], [label="Open in sidebar"])::before,
 #menu_customizeToolbars::before,
 menuitem.viewCustomizeToolbar::before,
-#addon_darkreader_org-menuitem-_DarkReader-switchEngine:not(.menuitem-iconic)::before,
+#addon_darkreader_org-menuitem-_switchEngine:not(.menuitem-iconic)::before,
 menupopup:not(#contentAreaContextMenu)
   > #addon_darkreader_org-menuitem-_DarkReader-top:not(.menuitem-iconic, .menu-iconic)::before,
 #_testpilot-containers-menuitem-_hide-container:not(.menuitem-iconic, .menu-iconic)::before,
@@ -831,7 +855,7 @@ menuitem#menu_openDownloads::before {
 }
 
 menuitem#menu_openAddons::before,
-#addon_darkreader_org-menuitem-_DarkReader-toggle:not(.menuitem-iconic)::before {
+#addon_darkreader_org-menuitem-_toggle:not(.menuitem-iconic)::before {
   background-image: url(chrome://mozapps/skin/extensions/extension.svg);
 }
 
@@ -920,7 +944,7 @@ menuitem#helpPolicySupport::before {
   background-image: url(chrome://userchrome/content/notifications/canvas.svg);
 }
 
-:is(#context-savepage, menu#pageStyleMenu, #addon_darkreader_org-menuitem-_DarkReader-addSite:not(.menuitem-iconic))::before {
+:is(#context-savepage, menu#pageStyleMenu, #addon_darkreader_org-menuitem-_addSite:not(.menuitem-iconic))::before {
   background-image: url(chrome://userchrome/content/document.svg);
 }
 
@@ -1112,10 +1136,10 @@ menuitem.customize-context-CopyID::before {
 }
 
 :is(#placesContext_open\:container, #placesContext_openContainer\:container, #placesContext_openLinks\:container, #placesContext_open\:newcontainertab)::before,
-:is(#syncedTabsOpenAllInContainer, #syncedTabsOpenInContainer)::before,
+:is(#syncedTabsOpenAllInContainer, #syncedTabsOpenSelectedInContainerTab)::before,
 #bookmark-menu-container_robwu_nl-menuitem-_bookmark-menu-item:not(.menuitem-iconic)::before,
 #placesContext
-  > :is(menu, menuitem)[label="Open in a New Container Tab"]:not(.menuitem-iconic)::before,
+  > :is(menu, menuitem)[label="Open in New Container Tab"]:not(.menuitem-iconic)::before,
 #context-openlinkincontainertab::before {
   background-image: url(chrome://userchrome/content/skin/container-go.svg);
 }
@@ -1403,6 +1427,22 @@ menuitem#enableDeveloperTools::before {
   background-image: url(chrome://userchrome/content/skin/device-vr.svg);
 }
 
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target.signintosync::before {
+  background-image: url(chrome://userchrome/content/skin/sync.svg);
+}
+
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target[clientType=""][clientId=""]::before {
+  background-image: url(chrome://userchrome/content/chevron.svg);
+}
+
+:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup, #context-sendlinktodevice)
+  .sendtab-target[clientType=""][clientId=""]
+  + .sendtab-target:not([clientType], [clientId])::before {
+  background-image: url(chrome://userchrome/content/fxa/add-device.svg);
+}
+
 :is(#contentAreaContextMenu, #toolbar-context-menu)
   menu[label="Bitwarden"]
   :is(menu, menuitem)[id$="-menuitem-_autofill"]::before {
@@ -1421,6 +1461,12 @@ menu#fill-login::before,
   menu[label="Bitwarden"]
   :is(menu, menuitem)[id$="-menuitem-_copy-password"]::before {
   background-image: url(chrome://userchrome/content/skin/login.svg);
+}
+
+:is(#contentAreaContextMenu, #toolbar-context-menu)
+  menu[label="Bitwarden"]
+  :is(menu, menuitem)[id$="-menuitem-_copy-totp"]::before {
+  background-image: url(chrome://userchrome/content/material/lock-clock.svg);
 }
 
 menuitem#fill-login-generated-password::before,
@@ -1471,7 +1517,7 @@ menuitem#fill-login-generated-password::before,
 
 #menu_customizeToolbars::before,
 menuitem.viewCustomizeToolbar::before,
-#addon_darkreader_org-menuitem-_DarkReader-switchEngine:not(.menuitem-iconic)::before {
+#addon_darkreader_org-menuitem-_switchEngine:not(.menuitem-iconic)::before {
   background-image: url(chrome://browser/skin/customize.svg);
 }
 

@@ -68,7 +68,7 @@
   html:not([role="dialog"]) *,
   html:not([role="dialog"]) body.activity-stream,
   window:not([chromehidden]),
-  window:not([chromehidden])>dialog,
+  window:not([chromehidden]) > dialog,
   #downloadsListBox richlistitem,
   info-item,
   info-group,
@@ -77,6 +77,7 @@
     --in-content-page-color: var(--uc-content-page-color) !important;
     --in-content-text-color: var(--in-content-page-color) !important;
     --in-content-accent-color: var(--purple-35) !important;
+    --in-content-border-color: var(--uc-content-border-color) !important;
     --in-content-border-hover: var(--uc-content-border-hover) !important;
     --in-content-box-background: var(--uc-content-box-background) !important;
     --in-content-box-background-odd: var(--uc-content-box-background-odd) !important;
@@ -101,6 +102,7 @@
     --in-content-primary-button-background-hover: var(--purple-35) !important;
     --in-content-primary-button-background-active: var(--purple-30) !important;
     --in-content-primary-button-text-color: var(--light-on-dark-button-text-color) !important;
+    --in-content-primary-button-text-color-hover: var(--light-on-dark-button-text-color) !important;
     --in-content-button-border-radius: var(--general-button-border-radius) !important;
     --in-content-item-selected: var(--purple-40) !important;
     --in-content-item-hover: color-mix(in srgb, var(--purple-30) 45%, transparent) !important;
@@ -111,12 +113,16 @@
     --newtab-text-primary-color: var(--in-content-page-color) !important;
     --lwt-sidebar-background-color: var(--in-content-box-background) !important;
     --lwt-sidebar-text-color: var(--in-content-page-color) !important;
-    --newtab-search-header-background-color: color-mix(in srgb,
-        var(--uc-content-page-background) 70%,
-        transparent) !important;
-    --newtab-search-header-background-intermediate: color-mix(in srgb,
-        var(--uc-content-page-background) 80%,
-        transparent) !important;
+    --newtab-search-header-background-color: color-mix(
+      in srgb,
+      var(--uc-content-page-background) 70%,
+      transparent
+    ) !important;
+    --newtab-search-header-background-intermediate: color-mix(
+      in srgb,
+      var(--uc-content-page-background) 80%,
+      transparent
+    ) !important;
     --newtab-seperator-line-color: var(--in-content-button-background-hover) !important;
     --newtab-modal-color: var(--in-content-box-background) !important;
     --newtab-focus-outline: var(--purple-40-a50) !important;
@@ -124,21 +130,31 @@
     --newtab-focus-border-selected: var(--purple-30) !important;
     --newtab-textbox-background-color: var(--in-content-button-background) !important;
     --newtab-textbox-focus-color: var(--purple-40) !important;
-    --newtab-primary-action-background: var(--in-content-primary-button-background-hover) !important;
-    --newtab-primary-action-background-hover: color-mix(in srgb,
-        var(--purple-30) 60%,
-        var(--newtab-primary-action-background)) !important;
-    --newtab-primary-action-background-active: color-mix(in srgb,
-        var(--purple-25) 60%,
-        var(--newtab-primary-action-background)) !important;
+    --newtab-primary-action-background: var(
+      --in-content-primary-button-background-hover
+    ) !important;
+    --newtab-primary-action-background-hover: color-mix(
+      in srgb,
+      var(--purple-30) 60%,
+      var(--newtab-primary-action-background)
+    ) !important;
+    --newtab-primary-action-background-active: color-mix(
+      in srgb,
+      var(--purple-25) 60%,
+      var(--newtab-primary-action-background)
+    ) !important;
     --newtab-primary-element-text-color: var(--ui-text-80) !important;
     --newtab-element-secondary-color: var(--in-content-button-background-hover) !important;
-    --newtab-element-secondary-color-hover: color-mix(in srgb,
-        var(--ui-text-40) 50%,
-        var(--in-content-button-background-solid)) !important;
-    --newtab-element-secondary-color-active: color-mix(in srgb,
-        var(--ui-text-50) 50%,
-        var(--in-content-button-background-solid)) !important;
+    --newtab-element-secondary-color-hover: color-mix(
+      in srgb,
+      var(--ui-text-40) 50%,
+      var(--in-content-button-background-solid)
+    ) !important;
+    --newtab-element-secondary-color-active: color-mix(
+      in srgb,
+      var(--ui-text-50) 50%,
+      var(--in-content-button-background-solid)
+    ) !important;
     --newtab-button-primary-color: var(--in-content-primary-button-background-hover) !important;
     --newtab-border-primary-color: var(--in-content-button-background-active) !important;
     --newtab-background-color-secondary: var(--in-content-button-background-solid) !important;
@@ -148,8 +164,12 @@
     --newtab-topsites-background-color: var(--in-content-button-background) !important;
     --customize-menu-background: var(--in-content-box-background) !important;
     --customize-menu-secondary-action-background: var(--in-content-button-background) !important;
-    --customize-menu-secondary-action-background-hover: var(--in-content-button-background-hover) !important;
-    --customize-menu-secondary-action-background-active: var(--in-content-button-background-active) !important;
+    --customize-menu-secondary-action-background-hover: var(
+      --in-content-button-background-hover
+    ) !important;
+    --customize-menu-secondary-action-background-active: var(
+      --in-content-button-background-active
+    ) !important;
     --customize-menu-first-shadow: hsla(250, 3%, 2%, 0.2) !important;
     --customize-menu-second-shadow: hsla(250, 3%, 2%, 0.4) !important;
     --newtab-contextmenu-background-color: var(--in-content-table-background) !important;
@@ -177,23 +197,29 @@
     outline: none !important;
   }
 
-  window:not([chromehidden])>dialog richlistbox[seltype="multiple"]:focus>richlistitem[current="true"],
-  window:not([chromehidden])>dialog richlistbox.theme-listbox:focus>richlistitem[current="true"] {
+  window:not([chromehidden])
+    > dialog
+    richlistbox[seltype="multiple"]:focus
+    > richlistitem[current="true"],
+  window:not([chromehidden])
+    > dialog
+    richlistbox.theme-listbox:focus
+    > richlistitem[current="true"] {
     outline: none !important;
   }
 
   body:not(.inline-onboarding) .fixed-search .search-wrapper {
     /* temporarily disabled due to backdrop-filter being disabled. see https://bugzilla.mozilla.org/show_bug.cgi?id=1741779 */
 
-    background-image: linear-gradient(180deg,
-        var(--in-content-page-background) 0%,
-        var(--newtab-search-header-background-intermediate) 50%,
-        var(--newtab-search-header-background-color) 100%) !important;
+    /* background-image: linear-gradient(
+      180deg,
+      var(--in-content-page-background) 0%,
+      var(--newtab-search-header-background-intermediate) 50%,
+      var(--newtab-search-header-background-color) 100%
+    ) !important;
     background-color: transparent !important;
-    backdrop-filter: blur(12px) !important;
-  }
+    backdrop-filter: blur(12px); */
 
-  /*
     background-image: linear-gradient(
       180deg,
       var(--in-content-page-background) 0%,
@@ -203,7 +229,7 @@
         100%
     ) !important;
     background-color: transparent !important;
-  }*/
+  }
 
   body:not(.inline-onboarding) .fixed-search.newtab-experience .search-handoff-button {
     background-color: var(--in-content-button-background-solid) !important;
@@ -226,11 +252,11 @@
     color: var(--in-content-link-color-active) !important;
   }
 
-  radio[focused="true"]>.radio-label-box {
+  radio[focused="true"] > .radio-label-box {
     outline: none !important;
   }
 
-  #category-experimental>.category-icon {
+  #category-experimental > .category-icon {
     list-style-image: url(chrome://userchrome/content/material/test-tube-45-large.svg) !important;
   }
 
@@ -309,12 +335,14 @@
     margin-inline: -15.5px !important;
   }
 
-  link[rel="stylesheet"][href="chrome://global/content/elements/message-bar.css"]~.container {
+  link[rel="stylesheet"][href="chrome://global/content/elements/message-bar.css"] ~ .container
+  {
     padding: 8px !important;
     border-radius: 0 !important;
   }
 
-  link[rel="stylesheet"][href="chrome://global/content/elements/message-bar.css"]~.container .content {
+  link[rel="stylesheet"][href="chrome://global/content/elements/message-bar.css"] ~ .container .content
+  {
     display: flex !important;
     flex-flow: row nowrap;
     justify-content: space-between !important;
@@ -322,7 +350,7 @@
     margin-inline: 8px 0 !important;
   }
 
-  message-bar>span {
+  message-bar > span {
     white-space: break-spaces !important;
     flex-shrink: 1;
     flex-grow: 1;
@@ -331,7 +359,7 @@
     text-overflow: ellipsis !important;
   }
 
-  message-bar>button {
+  message-bar > button {
     display: inline-block !important;
     flex-shrink: 0;
     margin: 0 !important;
@@ -349,16 +377,20 @@
   }
 
   message-bar[type="error"]:not([message-bar-type="infobar"]) {
-    --message-bar-background-color: color-mix(in srgb,
-        transparent 15%,
-        var(--uc-warning-background)) !important;
+    --message-bar-background-color: color-mix(
+      in srgb,
+      transparent 15%,
+      var(--uc-warning-background)
+    ) !important;
     --message-bar-text-color: var(--text-color) !important;
   }
 
   message-bar[type="critical"]:not([message-bar-type="infobar"]) {
-    --message-bar-background-color: color-mix(in srgb,
-        hsla(-2, 100%, 60%, 0.5) 45%,
-        var(--uc-warning-background)) !important;
+    --message-bar-background-color: color-mix(
+      in srgb,
+      hsla(-2, 100%, 60%, 0.5) 45%,
+      var(--uc-warning-background)
+    ) !important;
     --message-bar-text-color: var(--text-color) !important;
   }
 
@@ -378,16 +410,16 @@
   }
 
   .home-section .section .sponsored-checkbox:checked:is(:hover, :focus-visible),
-  .home-section .section input:checked+.slider:is(:hover, :focus-visible) {
+  .home-section .section input:checked + .slider:is(:hover, :focus-visible) {
     background-color: var(--newtab-primary-action-background-hover) !important;
   }
 
   .home-section .section .sponsored-checkbox:checked:active,
-  .home-section .section input:checked+.slider:active {
+  .home-section .section input:checked + .slider:active {
     background-color: var(--newtab-primary-action-background-active) !important;
   }
 
-  .info-box-container> :is(.sync-engines-list, label) {
+  .info-box-container > :is(.sync-engines-list, label) {
     padding-inline: 4px;
   }
 
@@ -400,7 +432,7 @@
     outline-offset: revert !important;
   }
 
-  :is(listheader, treecols)>treecol {
+  :is(listheader, treecols) > treecol {
     box-shadow: none !important;
   }
 
@@ -413,7 +445,6 @@
   }
 
   @-moz-document regexp("^about:blocked.*") {
-
     html:root,
     html:root * {
       --in-content-button-background: transparent !important;
@@ -458,7 +489,6 @@
   }
 
   @-moz-document url-prefix("about:pocket") {
-
     html,
     body {
       background-color: var(--uc-arrowpanel-background) !important;
@@ -586,7 +616,7 @@
       align-items: center;
     }
 
-    .stp_article_list_meta>* {
+    .stp_article_list_meta > * {
       margin-block: 0 !important;
     }
 
@@ -816,12 +846,16 @@
     }
 
     .message--level-error {
-      --message-background-color: color-mix(in srgb,
-          transparent 15%,
-          var(--uc-warning-background)) !important;
-      --message-border-color: color-mix(in srgb,
-          transparent 30%,
-          var(--uc-warning-background)) !important;
+      --message-background-color: color-mix(
+        in srgb,
+        transparent 15%,
+        var(--uc-warning-background)
+      ) !important;
+      --message-border-color: color-mix(
+        in srgb,
+        transparent 30%,
+        var(--uc-warning-background)
+      ) !important;
       --message-color: var(--text-color) !important;
       --message-icon-color: var(--warning-color) !important;
     }
@@ -837,8 +871,10 @@
     --link-foreground: var(--in-content-link-color) !important;
     --visited-link-foreground: #823afc !important;
     --proportional-width: calc(100% - (122.5em - (var(--content-width, 60em) * 2)));
-    --final-content-width: max(var(--content-width, 60em),
-        var(--proportional-width, var(--content-width, 60em)));
+    --final-content-width: max(
+      var(--content-width, 60em),
+      var(--proportional-width, var(--content-width, 60em))
+    );
   }
 
   .container {
@@ -868,12 +904,12 @@
     background-color: var(--in-content-box-background-dim) !important;
   }
 
-  body>.container>.header>.domain {
+  body > .container > .header > .domain {
     border: none !important;
   }
 
   body.dark hr,
-  body.dark>.container>.header>.domain {
+  body.dark > .container > .header > .domain {
     border-color: var(--in-content-button-background-active) !important;
     border-block-width: 0 1px !important;
   }
@@ -923,7 +959,8 @@
 }
 
 /* firefox screenshots addon overlay */
-@-moz-document regexp("^moz-extension://.*/blank.html.*") {
+@-moz-document regexp("^moz-extension://.*/blank.html.*")
+{
   :root[uc-extension-id="screenshots@mozilla.org"] .all-buttons-container {
     background-color: var(--uc-content-box-background) !important;
     height: 88px !important;
@@ -970,7 +1007,6 @@
 
 @-moz-document regexp("^(about:|chrome:\/\/).*") {
   @supports -moz-bool-pref("userChrome.css.hide-promotion") {
-
     .promo,
     .vpn-banner {
       display: none !important;

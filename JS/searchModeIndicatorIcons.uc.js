@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Search Mode Indicator Icons
-// @version        1.4.2
+// @version        1.4.4
 // @author         aminomancer
 // @homepage       https://github.com/aminomancer
 // @description    Automatically replace the urlbar's identity icon with the
@@ -129,7 +129,7 @@
       if (sss.sheetRegistered(uri, sss.AUTHOR_SHEET)) return;
       sss.loadAndRegisterSheet(uri, sss.AUTHOR_SHEET);
     }
-    window.findEngineIcon = function (name) {
+    window.findEngineIcon = function(name) {
       let files = _ucUtils.getFSEntry("engines");
       if (!files) return false;
       let nameParts = name
@@ -174,10 +174,12 @@
       }
       if (config["Show engine name in placeholder"]) {
         let placeholderString = `engine`;
-        if (config["Engine name character limit"] > 0)
+        if (config["Engine name character limit"] > 0) {
           placeholderString += ` && engineName.length <= config["Engine name character limit"]`;
-        if (config["Engine name word limit"] > 0)
+        }
+        if (config["Engine name word limit"] > 0) {
           placeholderString += ` && engineName.split(" ").length <= config["Engine name word limit"]`;
+        }
         eval(
           "BrowserSearch._updateURLBarPlaceholder = function " +
             BrowserSearch._updateURLBarPlaceholder
@@ -215,10 +217,11 @@
           // modifier key. for any other case, we just remove the engine
           // attribute, which can be styled by :not([engine]).
           let switchTab;
-          if (!engineStr)
+          if (!engineStr) {
             switchTab =
               urlbar.getAttribute("actiontype") === "switchtab" &&
               urlbar.getAttribute("actionoverride") !== "true";
+          }
           if (switchTab) engineStr = "Tabs";
 
           // now actually set the attribute equal to the temporary string
@@ -227,12 +230,14 @@
 
           let url;
           // in switchtab mode we'll use the tab icon
-          if (switchTab) url = `chrome://browser/skin/tab.svg`;
+          if (switchTab) {
+            url = `chrome://browser/skin/tab.svg`;
+          }
           // built-in engines don't have icons or engine names, they just have
           // integer sources. the icons are defined in browser.css so we'll use
           // those icons.
           else if (gURLBar.searchMode?.source) {
-            let { BOOKMARKS, HISTORY, TABS } = UrlbarUtils.RESULT_SOURCE;
+            let { BOOKMARKS, HISTORY, TABS, ACTIONS } = UrlbarUtils.RESULT_SOURCE;
             switch (gURLBar.searchMode.source) {
               case BOOKMARKS:
                 url = `chrome://browser/skin/bookmark.svg`;
@@ -242,6 +247,9 @@
                 break;
               case TABS:
                 url = `chrome://browser/skin/tab.svg`;
+                break;
+              case ACTIONS:
+                url = `chrome://browser/skin/quickactions.svg`;
                 break;
             }
           }

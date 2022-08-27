@@ -1295,3 +1295,23 @@ url-prefix(about:home) {
     box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
 }*/
 }
+
+@-moz-document url("about:blank") {
+
+    html:not(#ublock0-epicker),
+    html:not(#ublock0-epicker) body,
+    #newtab-customize-overlay {
+        background-color: #232324 !important;
+        /*#232324*/
+    }
+}
+
+@-moz-document url("about:home"),
+url("about:newtab") {
+
+    html:not(#ublock0-epicker),
+    html:not(#ublock0-epicker) body,
+    #newtab-customize-overlay {
+        background-color: #232324 !important;
+    }
+}

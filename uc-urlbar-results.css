@@ -105,6 +105,14 @@ by underlining them (requires urlbarMods.uc.js) */
 .urlbarView-row[dynamicType="quickactions"] > .urlbarView-row-inner {
   gap: 4px calc(var(--urlbar-icon-padding) + 2px) !important;
   padding-inline: 2px !important;
+  min-height: revert !important;
+  align-items: start !important;
+}
+
+.urlbarView-row[dynamicType="quickactions"] .urlbarView-dynamic-quickactions-buttons {
+  gap: calc(var(--urlbar-icon-padding) + 2px) !important;
+  padding-block: 2px !important;
+  align-items: center !important;
 }
 
 .urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row {
@@ -116,6 +124,7 @@ by underlining them (requires urlbarMods.uc.js) */
   height: 24px !important;
   box-sizing: border-box !important;
   border: 1px solid var(--panel-separator-color) !important;
+  box-shadow: none !important;
   outline: none !important;
   margin: 0 !important;
   gap: 4px !important;
@@ -123,15 +132,14 @@ by underlining them (requires urlbarMods.uc.js) */
   color: var(--panel-description-color) !important;
 }
 
-.urlbarView-row[dynamicType="quickactions"]
-  .urlbarView-quickaction-row:hover {
+.urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row:hover:not([disabled]) {
   background: var(--uc-arrowpanel-dimmed) !important;
   color: var(--panel-shortcut-focus) !important;
   fill-opacity: 1 !important;
 }
 
 .urlbarView-row[dynamicType="quickactions"]
-  .urlbarView-quickaction-row:is(:focus-visible, [selected]) {
+  .urlbarView-quickaction-row:is(:focus-visible, [selected]):not([disabled]) {
   background: var(--uc-arrowpanel-dimmed-further) !important;
   border-color: transparent !important;
   color: var(--panel-shortcut-focus) !important;
@@ -145,7 +153,7 @@ by underlining them (requires urlbarMods.uc.js) */
 }
 
 .urlbarView-row[dynamicType="quickactions"]
-  .urlbarView-quickaction-row:is(:hover, :focus-visible, [selected])
+  .urlbarView-quickaction-row:is(:hover, :focus-visible, [selected]):not([disabled])
   .urlbarView-label {
   opacity: 1;
 }
@@ -158,6 +166,32 @@ by underlining them (requires urlbarMods.uc.js) */
 .urlbarView-row[dynamicType="quickactions"] :where(.urlbarView-favicon, .urlbarView-favicon-img) {
   width: 14px !important;
   height: 14px !important;
+}
+
+.urlbarView-tip-button,
+.urlbarView-row:is([type="tip"], [dynamicType="quickactions"])
+  > .urlbarView-row-inner
+  > .urlbarView-button-help {
+  min-width: var(--urlbar-one-offs-engine-width) !important;
+  height: var(--urlbar-one-offs-engine-width) !important;
+  padding: 0 !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+.urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-favicon,
+.urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-title,
+.urlbarView-row:is([type="tip"], [dynamicType="quickactions"])
+  > .urlbarView-row-inner
+  > .urlbarView-button-help,
+.urlbarView-tip-button {
+  margin: revert !important;
+}
+
+.urlbarView-row:is([type="tip"], [dynamicType="quickactions"])
+  > .urlbarView-row-inner
+  > .urlbarView-button-help:is([selected], :focus-visible):not([disabled]) {
+  background-color: var(--button-hover-bgcolor) !important;
+  outline: revert !important;
 }
 
 .urlbarView-favicon {
@@ -346,17 +380,26 @@ by underlining them (requires urlbarMods.uc.js) */
   flex-shrink: 1 !important;
 }
 
-.urlbarView-url,
-.urlbarView[actionoverride]
+.urlbar-results:not([wrap]) .urlbarView-url,
+.urlbar-results:not([wrap])
+  .urlbarView[actionoverride]
   .urlbarView-row[type="switchtab"]
   > .urlbarView-row-inner
   > .urlbarView-url {
   flex-shrink: 3 !important;
 }
 
-.urlbarView[actionoverride] .urlbarView-row[has-url] > .urlbarView-row-inner > .urlbarView-no-wrap,
-.urlbarView-row[has-url]:not([type$="tab"]) > .urlbarView-row-inner > .urlbarView-no-wrap,
-.urlbarView-row[has-url]:is([type="remotetab"], [sponsored]):is(:hover, [selected])
+.urlbarView[actionoverride]
+  .urlbar-results:not([wrap])
+  .urlbarView-row[has-url]
+  > .urlbarView-row-inner
+  > .urlbarView-no-wrap,
+.urlbar-results:not([wrap])
+  .urlbarView-row[has-url]:not([type$="tab"])
+  > .urlbarView-row-inner
+  > .urlbarView-no-wrap,
+.urlbar-results:not([wrap])
+  .urlbarView-row[has-url]:is([type="remotetab"], [sponsored]):is(:hover, [selected])
   > .urlbarView-row-inner
   > .urlbarView-no-wrap {
   flex-shrink: 0 !important;
@@ -836,7 +879,7 @@ so you might wanna turn the animation off. I might even make it off by default. 
 }
 
 #nav-bar:not([overflowing="true"]) .urlbarView[noresults="true"],
-#nav-bar:not([overflowing="true"]) .urlbarView[noresults="true"] #urlbar-results {
+#nav-bar:not([overflowing="true"]) .urlbarView[noresults="true"] .urlbar-results {
   padding-block: 0 !important;
   box-shadow: none !important;
 }
@@ -862,7 +905,7 @@ so you might wanna turn the animation off. I might even make it off by default. 
 }
 
 .urlbarView-row-inner {
-  padding-block: 2px !important;
+  padding-block: 3px !important;
   box-sizing: border-box !important;
   min-height: 34px !important;
   border-radius: var(--arrowpanel-menuitem-border-radius) !important;
@@ -943,6 +986,14 @@ so you might wanna turn the animation off. I might even make it off by default. 
   padding: 2px !important;
 }
 
+.urlbarView-results[wrap] > .urlbarView-row > .urlbarView-row-inner {
+  flex-wrap: revert !important;
+}
+
+.urlbarView-results[wrap] > .urlbarView-row[has-url] > .urlbarView-row-inner {
+  flex-wrap: wrap !important;
+}
+
 .urlbarView-results[wrap]
   > .urlbarView-row[has-url]
   > .urlbarView-row-inner
@@ -963,6 +1014,16 @@ so you might wanna turn the animation off. I might even make it off by default. 
     var(--urlbarView-item-inline-padding) + 0.5px + 16px + calc(var(--urlbar-icon-padding) + 2px) +
       16px
   ) !important; */
+}
+
+.urlbarView-results[wrap] > .urlbarView-row[has-url] > .urlbarView-row-inner > .urlbarView-url,
+.urlbarView-results[wrap]
+  > .urlbarView-row[type="bestmatch"]
+  > .urlbarView-row-inner
+  > .urlbarView-row-body
+  > .urlbarView-row-body-top
+  > .urlbarView-url {
+  margin-top: revert !important;
 }
 
 .urlbarView-results[wrap]
