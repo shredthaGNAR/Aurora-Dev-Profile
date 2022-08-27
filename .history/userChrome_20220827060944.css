@@ -1054,15 +1054,16 @@ menupopup>menuitem {
   color: #000 !important;
 }
 
+/*
 .private-browsing-indicator {
   display: none !important;
 }
-
+*/
 .accessibility-indicator {
   display: none !important;
 }
 
-/* Small fix for Firefox complete themes */
+/* Small fix for Firefox complete themes *
 
 .private-browsing-indicator,
 #private-browsing-indicator-titlebar,
@@ -1957,18 +1958,19 @@ cast in both directions, unless the neighboring tab is selected or something. */
   z-index: 11 !important;
 }
 
-/* focused state - use shadow and remove outline *
+/* focused state - use shadow and remove outline */
 
-#urlbar:is([focused="true"]):not([open="true"]) > #urlbar-background,
+#urlbar:is([focused="true"]):not([open="true"])>#urlbar-background,
 #searchbar:focus-within {
   outline: none !important;
   box-shadow: 0px 0px 8px -2px #0004 !important;
 }
 
-#urlbar[focused="true"] > #urlbar-background {
+#urlbar[focused="true"]>#urlbar-background {
   border-color: var(--lwt-toolbar-field-focus) !important;
   box-shadow: 0px 1px 14px -3px #0009 !important;
 }
+
 /* Favicon icon when mouse over to pinned inactive tab grayscale(15%) */
 
 .tabbrowser-tab:hover .tab-icon-image[pinned] {
@@ -2096,7 +2098,6 @@ More gradients to try out
   background-clip: text !important;
 }
 
-/*
 .tab-secondary-label:is([muted], [activemedia-blocked]) {
   display: none !important;
   animation-duration: 0s !important;
@@ -2141,7 +2142,7 @@ browser[type="content"] {
   font-weight: thin !important;
 }
 
-/*
+
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
