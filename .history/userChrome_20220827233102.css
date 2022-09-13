@@ -497,7 +497,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
   border-radius: 10px !important;
   margin-top: 3px !important;
   height: 30px !important;
-  /*backdrop-filter: saturate(35%) brightness(10%) !important;*/
+  backdrop-filter: saturate(35%) brightness(10%) !important;
 }
 
 /*Close Tab Button*/
@@ -832,7 +832,7 @@ menupopup>menuitem {
 
 .tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]):not(:hover) .tab-icon-image {
   opacity: 0.8 !important;
-  /*filter: grayscale(0.8), brightness(100%), contrast(20%) !important;*/
+  filter: grayscale(0.8), brightness(100%), contrast(20%) !important;
 }
 
 .tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]) {
@@ -1081,12 +1081,13 @@ menupopup>menuitem {
   margin-inline-end: 6px !important;
 }
 
-/* dark theme header */
+/* dark theme header *
 
 :root[lwthemetextcolor="bright"] #navigator-toolbox,
 :root[lwt-default-theme-in-dark-mode] #navigator-toolbox {
-  -moz-appearance: -moz-mac-source-list-dark !important;
+    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
 }
+
 
 /***inactive*/
 
@@ -1315,7 +1316,7 @@ tab .tab-icon,
 #urlbar[breakout][breakout-extend]>#urlbar-background {
   border-radius: 10px !important;
   background-image: url(/noise-512x512.png) !important;
-  background-color: rgba(52, 44, 90, 0.4) !important;
+  background-color: rgba(52, 44, 90, .4) !important;
   -webkit-backdrop-filter: blur(32px) !important;
   backdrop-filter: blur(32px) !important;
   --moz-backdrop-filter: blur(32px) !important;
@@ -2141,6 +2142,7 @@ browser[type="content"] {
   font-weight: thin !important;
 }
 
+
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
@@ -2228,6 +2230,7 @@ browser[type="content"] {
   color: var(--lwt-tab-text) !important;
   --lwt-tab-line-color: transparent !important;
 }
+
 
 .tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]),
 .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
@@ -2322,23 +2325,8 @@ browser[type="content"] {
   opacity: 0.7 !important;
 }
 
-/* Pastel purple titlebar when in private browsing mode. */
+/* Pastel purple titlebar when in private browsing mode. *
 window[privatebrowsingmode="temporary"] #navigator-toolbox {
-  background: #650c7071 !important;
-}
-
-/* Purple titlebar when in private browsing mode. 25003e8*/
-window[privatebrowsingmode="temporary"] #navigator-toolbox,
-window[privatebrowsingmode="temporary"] #titlebar,
-window[privatebrowsingmode="temporary"] #TabsToolbar,
-window[privatebrowsingmode="temporary"] #tabbrowser-tabs {
-  background: #2017267a !important;
-}
-
-/* Addon Buttons + Bookmark Buttons */
-toolbar toolbarbutton,
-toolbar toolbarbutton .toolbarbutton-badge-stack,
-toolbar toolbarbutton .toolbarbutton-icon {
-  transition: background 0.4s, background-color 0.4s, background-image 0.4s,
-    fill 0.4s, fill-opacity 0.4s;
-}
+  background:
+    #c8a9c8 !important;
+}*/
