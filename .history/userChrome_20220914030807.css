@@ -21,9 +21,6 @@
 @import url(integrated_searchbar_popup.css);
 @import url(compact-bookmarks.css);
 @import url(sliding-bookmarks-bar.css);
-@import url(etc/more_visible_tab_icon.css);
-@import url(etc/combined_favicon_and_tab_close_button.css);
-@import url(etc/macos-native-tabbar.css);
 
 :root {
   --panel-separator-zap-gradient: linear-gradient(to left,
@@ -274,12 +271,11 @@ findbar,
 #main-window[lwthemetextcolor="bright"] .table-widget-empty-text,
 #main-window[lwthemetextcolor="bright"] findbar,
 #main-window[lwthemetextcolor="bright"] #PersonalToolbar {
-  -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+  -moz-appearance: -moz-mac-source-list !important;
 }
 
 #main-window[lwthemetextcolor="bright"][lwt-popup-darktext="true"] #nav-bar {
-  -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
-  color: #000 !important;
+  -moz-appearance: -moz-mac-source-list !important;
 }
 
 /** Auto-Hide Bookmarks Toolbar **/
@@ -500,7 +496,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
   border-radius: 10px !important;
   margin-top: 3px !important;
   height: 30px !important;
-  backdrop-filter: saturate(35%) brightness(10%) !important;
+  /*backdrop-filter: saturate(35%) brightness(10%) !important;*/
 }
 
 /*Close Tab Button*/
@@ -559,7 +555,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
   box-shadow: 2px 0 0 0 rgba(0, 0, 0, 0.2) !important;
 }
 
-/** Tabs background color when using a lightweight theme*/
+/** Tabs background color when using a lightweight theme*
 
 #main-window:not([lwt-default-theme-in-dark-mode]) #tabbrowser-tabs:not([movingtab]) .tab-background[selected="true"]:-moz-lwtheme {
   background-color: var(--lwt-selected-tab-background-color) !important;
@@ -835,7 +831,7 @@ menupopup>menuitem {
 
 .tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]):not(:hover) .tab-icon-image {
   opacity: 0.8 !important;
-  filter: grayscale(0.8), brightness(100%), contrast(20%) !important;
+  /*filter: grayscale(0.8), brightness(100%), contrast(20%) !important;*/
 }
 
 .tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]) {
@@ -1057,16 +1053,16 @@ menupopup>menuitem {
   color: #000 !important;
 }
 
-/*
+
 .private-browsing-indicator {
   display: none !important;
 }
-*/
+
 .accessibility-indicator {
   display: none !important;
 }
 
-/* Small fix for Firefox complete themes *
+/* Small fix for Firefox complete themes */
 
 .private-browsing-indicator,
 #private-browsing-indicator-titlebar,
@@ -1084,13 +1080,12 @@ menupopup>menuitem {
   margin-inline-end: 6px !important;
 }
 
-/* dark theme header *
+/* dark theme header */
 
 :root[lwthemetextcolor="bright"] #navigator-toolbox,
 :root[lwt-default-theme-in-dark-mode] #navigator-toolbox {
-    -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+  -moz-appearance: -moz-mac-source-list !important;
 }
-
 
 /***inactive*/
 
@@ -1240,7 +1235,7 @@ menupopup>menuitem {
 /* Bookmarks bar with BLUR need layout.css.backdrop-filter.enabled = true rgba(50, 50, 52, 0.85)*/
 
 #PersonalToolbar {
-  background-image: url(./noise-512x512.png) !important;
+  background-image: url(noise-512x512.png) !important;
   background-color: #5b5b5b2f !important;
   -webkit-backdrop-filter: blur(32px) !important;
   backdrop-filter: blur(32px) !important;
@@ -1295,7 +1290,7 @@ tab .tab-icon,
   display: none !important;
 }
 
-/* Full width tabs *
+/* Full width tabs */
 .tabbrowser-tab:not([style^="max-width"]):not([pinned]),
 .tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]) {
   max-width: 100% !important;
@@ -1318,8 +1313,8 @@ tab .tab-icon,
 
 #urlbar[breakout][breakout-extend]>#urlbar-background {
   border-radius: 10px !important;
-  background-image: url(/noise-512x512.png) !important;
-  background-color: rgba(52, 44, 90, .4) !important;
+  background-image: url(noise-512x512.png) !important;
+  background-color: rgba(52, 44, 90, 0.4) !important;
   -webkit-backdrop-filter: blur(32px) !important;
   backdrop-filter: blur(32px) !important;
   --moz-backdrop-filter: blur(32px) !important;
@@ -1827,10 +1822,11 @@ gets bigger when you hover the tab, apparently because the close button gains a
 background in that condition. this is ugly in general imo but it's useless with
 this theme in particular since we put the close button on the right, meaning it
 doesn't overlap with the right side of the label at all, which is where the
-overflowing mask is applied. so we make the mask size constant. *
+overflowing mask is applied. so we make the mask size constant. */
 .tabbrowser-tab {
   --tab-label-mask-size: .5em !important;
-}*/
+}
+
 /* different tab shadows in various states. to produce the illusion of modulated depth */
 .tabbrowser-tab .tab-content {
   box-shadow: 0px 0px 15px 0px hsla(0, 0%, 0%, 0.2),
@@ -2145,7 +2141,6 @@ browser[type="content"] {
   font-weight: thin !important;
 }
 
-
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
@@ -2233,7 +2228,6 @@ browser[type="content"] {
   color: var(--lwt-tab-text) !important;
   --lwt-tab-line-color: transparent !important;
 }
-
 
 .tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]),
 .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
@@ -2326,4 +2320,25 @@ browser[type="content"] {
 
 #tabbrowser-tabs .tabbrowser-tab[pending] .tab-content {
   opacity: 0.7 !important;
+}
+
+/* Pastel purple titlebar when in private browsing mode. */
+window[privatebrowsingmode="temporary"] #navigator-toolbox {
+  background: #650c7071 !important;
+}
+
+/* Purple titlebar when in private browsing mode. 25003e8*/
+window[privatebrowsingmode="temporary"] #navigator-toolbox,
+window[privatebrowsingmode="temporary"] #titlebar,
+window[privatebrowsingmode="temporary"] #TabsToolbar,
+window[privatebrowsingmode="temporary"] #tabbrowser-tabs {
+  background: #2017267a !important;
+}
+
+/* Addon Buttons + Bookmark Buttons */
+toolbar toolbarbutton,
+toolbar toolbarbutton .toolbarbutton-badge-stack,
+toolbar toolbarbutton .toolbarbutton-icon {
+  transition: background 0.4s, background-color 0.4s, background-image 0.4s,
+    fill 0.4s, fill-opacity 0.4s;
 }
