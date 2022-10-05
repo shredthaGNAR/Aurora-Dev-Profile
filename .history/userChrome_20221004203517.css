@@ -970,7 +970,7 @@ menupopup>menuitem {
 .tabbrowser-tab:-moz-lwtheme:hover {
   /*filter: grayscale(25%) !important;*/
   opacity: 1 !important;
-  filter: brightness(100%) grayscale(25%) !important;
+  /*filter: brightness(100%) grayscale(25%) !important;*/
   backdrop-filter: blur(14px) !important;
   border-radius: 10px !important;
 }
@@ -997,7 +997,6 @@ menupopup>menuitem {
 
 .tabbrowser-tab[usercontextid] .tab-background::before {
   background: var(--identity-tab-color) !important;
-  /* box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;*/
 }
 
 .tabbrowser-tab:not([visuallyselected="true"], [multiselected]):hover .tab-icon-image {
@@ -1160,7 +1159,7 @@ menupopup>menuitem {
   margin-left: -1px !important;
 }
 
-/*Nuevos margenes - CargandoPágina*
+/*Nuevos margenes - CargandoPágina*/
 
 .tab-throbber[busy]:not([pinned]) {
   border-radius: 0px !important;
@@ -1338,7 +1337,7 @@ tab .tab-icon,
   border-radius: 10px !important;
   margin-left: 3px !important;
   margin-right: 3px !important;
-  /* margin-block: calc(var(--tab-min-height) - 2px) 0px !important;*/
+  margin-block: calc(var(--tab-min-height) - 2px) 0px !important;
 }
 
 .tabbrowser-tab[pinned] .tab-context-line {
@@ -1429,7 +1428,7 @@ tab .tab-icon,
   margin: auto !important;
 }
 
-/*
+
 .tab-content[pinned] {
   width: 40px !important;
   padding: 0px !important;
@@ -1437,7 +1436,6 @@ tab .tab-icon,
   padding-inline-end: 0 !important;
 }
 
-*/
 .tab-label-container[pinned],
 .tab-close-button[pinned] {
   visibility: hidden !important;
@@ -1590,7 +1588,7 @@ toolbar:not([brighttext]) .webextension-browser-action:-moz-lwtheme {
   margin-right: -16px !important;
 }
 
-#tabbrowser-tabs:not(:hover, :focus-within, :focus) .tabbrowser-tab[visuallyselected] .tab-content>.tab-icon-sound:not([pictureinpicture], [muted]),
+/* #tabbrowser-tabs:not(:hover, :focus-within, :focus) .tabbrowser-tab[visuallyselected] .tab-content > .tab-icon-sound:not([pictureinpicture], [muted]), */
 #tabbrowser-tabs:not(:hover, :focus-within, :focus) .tabbrowser-tab:not([open]) .tab-content>.tab-icon-sound:not([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]) {
   opacity: 0 !important;
   pointer-events: none !important;
@@ -1839,7 +1837,7 @@ this theme in particular since we put the close button on the right, meaning it
 doesn't overlap with the right side of the label at all, which is where the
 overflowing mask is applied. so we make the mask size constant. */
 .tabbrowser-tab {
-  --tab-label-mask-size: .5em !important;
+  --tab-label-mask-size: 1em !important;
 }
 
 /* different tab shadows in various states. to produce the illusion of modulated depth */
@@ -2013,7 +2011,7 @@ cast in both directions, unless the neighboring tab is selected or something. */
 /***  Glowing line at bottom. */
 
 .tabbrowser-tab>.tab-stack>.tab-background>.tab-context-line {
-  height: 2px !important;
+  height: 12px !important;
   /*12px*/
   border-radius: 10px !important;
   box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;
@@ -2137,7 +2135,6 @@ browser[type="content"] {
   /*#222355*/
 }
 
-/*
 .tab-content[pinned] {
   padding-inline: 11px !important;
 }
@@ -2171,7 +2168,7 @@ browser[type="content"] {
   backdrop-filter: blur(20px) !important;
 }
 
-/*** URL BORDER ***
+/*** URL BORDER ***/
 
 #urlbar-background,
 #urlbar {
@@ -2180,7 +2177,7 @@ browser[type="content"] {
       transparent) !important;
   border: transparent !important;
 }
-*/
+
 .urlbar-input::-moz-selection {
   color: var(--lwt-toolbar-field-color) !important;
   /*text color*/
@@ -2305,15 +2302,14 @@ browser[type="content"] {
   font-weight: 500 !important;
 }
 
-/* URL Bar Fade Animation On Hover */
+/* URL Bar Fade Animation On Hover *
 #urlbar-input-container:hover {
-  background-color: #3225606b !important;
+  background-color: #322560 !important;
 }
 
 #urlbar-input-container {
   transition: background-color 0.3s ease-in;
 }
-
 /* change urlbar highlight text color */
 
 #urlbar-input::-moz-selection {
@@ -2403,7 +2399,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   --tab-line-color: hsla(280, 30%, 80%, 0.9) !important;
 }
 
-/* improve border visiblity for selected tab*/
+/* improve border visiblity for selected tabs
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
   border: none !important;
 }
@@ -2424,12 +2420,12 @@ toolbar toolbarbutton .toolbarbutton-icon {
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .4) !important;
 }
 
-/* border between tab bar and navbar */
+/* border between tab bar and navbar *
 :root #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
-}
+}*/
 
-*/:root[lwt-default-theme-in-dark-mode] #nav-bar {
+:root[lwt-default-theme-in-dark-mode] #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
 }
 

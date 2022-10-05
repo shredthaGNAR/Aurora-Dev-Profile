@@ -1338,7 +1338,7 @@ tab .tab-icon,
   border-radius: 10px !important;
   margin-left: 3px !important;
   margin-right: 3px !important;
-  /* margin-block: calc(var(--tab-min-height) - 2px) 0px !important;*/
+  margin-block: calc(var(--tab-min-height) - 2px) 0px !important;
 }
 
 .tabbrowser-tab[pinned] .tab-context-line {
@@ -2403,7 +2403,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   --tab-line-color: hsla(280, 30%, 80%, 0.9) !important;
 }
 
-/* improve border visiblity for selected tab*/
+/* improve border visiblity for selected tabs
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
   border: none !important;
 }
@@ -2424,12 +2424,12 @@ toolbar toolbarbutton .toolbarbutton-icon {
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .4) !important;
 }
 
-/* border between tab bar and navbar */
+/* border between tab bar and navbar *
 :root #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
-}
+}*/
 
-*/:root[lwt-default-theme-in-dark-mode] #nav-bar {
+:root[lwt-default-theme-in-dark-mode] #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
 }
 

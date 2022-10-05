@@ -970,7 +970,7 @@ menupopup>menuitem {
 .tabbrowser-tab:-moz-lwtheme:hover {
   /*filter: grayscale(25%) !important;*/
   opacity: 1 !important;
-  filter: brightness(100%) grayscale(25%) !important;
+  /*filter: brightness(100%) grayscale(25%) !important;*/
   backdrop-filter: blur(14px) !important;
   border-radius: 10px !important;
 }
@@ -990,14 +990,13 @@ menupopup>menuitem {
   background-color: color-mix(in srgb,
       var(--identity-tab-color) 80%,
       transparent) !important;
-  filter: brightness(30%) !important;
+  filter: brightness(70%) !important;
 }
 
 /* Container tabs */
 
 .tabbrowser-tab[usercontextid] .tab-background::before {
   background: var(--identity-tab-color) !important;
-  /* box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;*/
 }
 
 .tabbrowser-tab:not([visuallyselected="true"], [multiselected]):hover .tab-icon-image {
@@ -1160,7 +1159,7 @@ menupopup>menuitem {
   margin-left: -1px !important;
 }
 
-/*Nuevos margenes - CargandoPágina*
+/*Nuevos margenes - CargandoPágina*/
 
 .tab-throbber[busy]:not([pinned]) {
   border-radius: 0px !important;
@@ -1429,7 +1428,7 @@ tab .tab-icon,
   margin: auto !important;
 }
 
-/*
+
 .tab-content[pinned] {
   width: 40px !important;
   padding: 0px !important;
@@ -1437,7 +1436,6 @@ tab .tab-icon,
   padding-inline-end: 0 !important;
 }
 
-*/
 .tab-label-container[pinned],
 .tab-close-button[pinned] {
   visibility: hidden !important;
@@ -1590,7 +1588,7 @@ toolbar:not([brighttext]) .webextension-browser-action:-moz-lwtheme {
   margin-right: -16px !important;
 }
 
-#tabbrowser-tabs:not(:hover, :focus-within, :focus) .tabbrowser-tab[visuallyselected] .tab-content>.tab-icon-sound:not([pictureinpicture], [muted]),
+/* #tabbrowser-tabs:not(:hover, :focus-within, :focus) .tabbrowser-tab[visuallyselected] .tab-content > .tab-icon-sound:not([pictureinpicture], [muted]), */
 #tabbrowser-tabs:not(:hover, :focus-within, :focus) .tabbrowser-tab:not([open]) .tab-content>.tab-icon-sound:not([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]) {
   opacity: 0 !important;
   pointer-events: none !important;
@@ -1773,10 +1771,10 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
      animation is basically running 24/7 even when the spinner isn't visible,
      because the spinner technically is always visible in order to support the
      sliding tab-hover transitions. you can't see it but it's not hidden in
-     the DOM sense. so I think that makes this method a last resort.
+     the DOM sense. so I think that makes this method a last resort. */
 
-   background-image: url(chrome://userchrome/content/loading-spinner-static.svg) !important;
-  animation: 0.85s steps(12, end) uc-tab-throbber-spinner-css infinite !important;
+  /* background-image: url(chrome://userchrome/content/loading-spinner-static.svg) !important;
+  animation: 0.85s steps(12, end) uc-tab-throbber-spinner-css infinite !important; */
 
   /* ANIMATION METHOD #4: this version of the animation is implemented in CSS on
      a sprite sheet. it's like method #3 except it eliminates an issue with the
@@ -1894,7 +1892,7 @@ else they'll end up being covered up or showing through things they shouldn't. *
   z-index: -1;
 }
 
-/*
+
 .tabbrowser-tab:not([selected], [pinned]) {
   --tab-bg-current: var(--lwt-accent-color);
 }
@@ -2137,7 +2135,6 @@ browser[type="content"] {
   /*#222355*/
 }
 
-/*
 .tab-content[pinned] {
   padding-inline: 11px !important;
 }
@@ -2175,12 +2172,13 @@ browser[type="content"] {
 
 #urlbar-background,
 #urlbar {
-  background: color-mix(in srgb,
-      var(--lwt-accent-color) 90%,
-      transparent) !important;
+  background: color-mix(
+    in srgb,
+    var(--lwt-accent-color) 90%,
+    transparent
+  ) !important;
   border: transparent !important;
-}
-*/
+}*/
 .urlbar-input::-moz-selection {
   color: var(--lwt-toolbar-field-color) !important;
   /*text color*/
@@ -2305,15 +2303,14 @@ browser[type="content"] {
   font-weight: 500 !important;
 }
 
-/* URL Bar Fade Animation On Hover */
+/* URL Bar Fade Animation On Hover *
 #urlbar-input-container:hover {
-  background-color: #3225606b !important;
+  background-color: #322560 !important;
 }
 
 #urlbar-input-container {
   transition: background-color 0.3s ease-in;
 }
-
 /* change urlbar highlight text color */
 
 #urlbar-input::-moz-selection {
@@ -2403,7 +2400,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   --tab-line-color: hsla(280, 30%, 80%, 0.9) !important;
 }
 
-/* improve border visiblity for selected tab*/
+/* improve border visiblity for selected tabs */
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
   border: none !important;
 }
@@ -2429,7 +2426,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
 }
 
-*/:root[lwt-default-theme-in-dark-mode] #nav-bar {
+:root[lwt-default-theme-in-dark-mode] #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.3), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.05) !important;
 }
 
@@ -2464,15 +2461,15 @@ toolbar toolbarbutton .toolbarbutton-icon {
 }
 
 #allTabsMenu-containerTabsButton {
-  list-style-image: url(chrome://userchrome/content/skin/container-plus.svg) !important;
+  list-style-image: url(chrome://userchrome/content/skin/container-plus.svg);
 }
 
 #allTabsMenu-hiddenTabsButton {
-  list-style-image: url(chrome://userchrome/content/hide-password.svg) !important;
+  list-style-image: url(chrome://userchrome/content/hide-password.svg);
 }
 
 :is(#allTabsMenu-containerTabsButton, #allTabsMenu-searchTabs, #allTabsMenu-hiddenTabsButton) .toolbarbutton-text {
-  padding-inline-start: var(--arrowpanel-subviewbutton-iconic-gap, 8px) !important;
+  padding-inline-start: var(--arrowpanel-subviewbutton-iconic-gap, 8px);
 }
 
 .all-tabs-item:is([selected], [multiselected], [usercontextid]) .all-tabs-button {
@@ -2514,7 +2511,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
 }
 
 .all-tabs-item[pending]>.all-tabs-button {
-  opacity: 0.6 !important;
+  opacity: 0.6;
 }
 
 :root[italic-unread-tabs] .all-tabs-item[notselectedsinceload]:not([pending])>.all-tabs-button,
@@ -2704,7 +2701,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   width: auto !important;
   padding: 0 var(--toolbarbutton-outer-padding) !important;
   margin: 0 !important;
-  background: none !important;
+  /*  background: none !important;*/
   border: 0 !important;
   outline: 0;
   fill: currentColor !important;
@@ -2713,10 +2710,11 @@ toolbar toolbarbutton .toolbarbutton-icon {
   -moz-box-pack: center !important;
 }
 
+/*
 .private-browsing-indicator {
   background: none !important;
 }
-
+*/
 :root[privatebrowsingmode="temporary"] .private-browsing-indicator {
   display: revert !important;
 }
@@ -2756,7 +2754,6 @@ toolbar toolbarbutton .toolbarbutton-icon {
   width: 20px !important;
 }
 
-/*
 #tabbrowser-tabs::after {
   position: relative;
   display: block;
@@ -2768,7 +2765,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   height: var(--tab-min-height);
   z-index: 11;
   clip-path: inset(-100% 20px -100% -100%);
-}*/
+}
 
 #tabs-newtab-button {
   padding-left: 4px !important;
