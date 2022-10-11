@@ -10,7 +10,6 @@
 @import url(resources/in-content/system.css);
 @import url(resources/in-content/ext-containers.css);
 @import url(resources/in-content/ext-darkreader.css);
-@import url(resources/in-content/ext-nordvpn.css);
 @import url(resources/in-content/ext-mdm.css);
 @import url(resources/in-content/ext-bitwarden.css);
 @import url(resources/in-content/ext-ublock.css);
@@ -18,18 +17,20 @@
 @import url(resources/in-content/ext-tabnotes.css);
 @import url(resources/in-content/ext-firefoxnotes.css);
 @import url(resources/in-content/ext-sortbookmarks.css);
+@import url(resources/in-content/ext-privatebookmarks.css);
+@import url(resources/in-content/ext-rss.css);
+@import url(resources/in-content/site-google.css);
+@import url(resources/in-content/site-wiki.css);
+@import url(resources/in-content/site-mozilla.css);
+@import url(resources/in-content/site-subscene.css);
 @import url(resources/in-content/misc-content.css);
+@import url(resources/in-content/custom-content.css);
 @import url(parts/onetab-darktheme.css);
 @import url(addons.css);
-@import url(resources/in-content/site-mozilla.css);
-@import url(resources/in-content/site-google.css);
-@import url(resources/in-content/site-subscene.css);
-@import url(resources/in-content/site-wiki.css);
 
 /*
 @import url(resources/in-content/site-github.css);
 @import url(resources/in-content/site-reddit.css);
-@import url(resources/in-content/custom-content.css);
 @import url(resources/in-content/site-youtube.css);
 
 /* Removes the white loading page /

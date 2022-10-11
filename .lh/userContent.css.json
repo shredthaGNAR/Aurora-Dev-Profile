@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 28,
+            "activePatchIndex": 29,
             "patches": [
                 {
                     "date": 1639491057687,
@@ -120,6 +120,10 @@
                 {
                     "date": 1661587593971,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1293,5 +1293,25 @@\n .customize-menu.customize-animate-enter-done,\n .customize-menu.customize-animate-enter-active {\n     box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;\n }*/\n+}\n+\n+@-moz-document url(\"about:blank\") {\n+\n+    html:not(#ublock0-epicker),\n+    html:not(#ublock0-epicker) body,\n+    #newtab-customize-overlay {\n+        background-color: #232324 !important;\n+        /*#232324*/\n+    }\n+}\n+\n+@-moz-document url(\"about:home\"),\n+url(\"about:newtab\") {\n+\n+    html:not(#ublock0-epicker),\n+    html:not(#ublock0-epicker) body,\n+    #newtab-customize-overlay {\n+        background-color: #232324 !important;\n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1665446953730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,28 +9,29 @@\n @import url(resources/in-content/downloads.css);\n @import url(resources/in-content/system.css);\n @import url(resources/in-content/ext-containers.css);\n @import url(resources/in-content/ext-darkreader.css);\n-@import url(resources/in-content/ext-nordvpn.css);\n @import url(resources/in-content/ext-mdm.css);\n @import url(resources/in-content/ext-bitwarden.css);\n @import url(resources/in-content/ext-ublock.css);\n @import url(resources/in-content/ext-simpletranslate.css);\n @import url(resources/in-content/ext-tabnotes.css);\n @import url(resources/in-content/ext-firefoxnotes.css);\n @import url(resources/in-content/ext-sortbookmarks.css);\n+@import url(resources/in-content/ext-privatebookmarks.css);\n+@import url(resources/in-content/ext-rss.css);\n+@import url(resources/in-content/site-google.css);\n+@import url(resources/in-content/site-wiki.css);\n+@import url(resources/in-content/site-mozilla.css);\n+@import url(resources/in-content/site-subscene.css);\n @import url(resources/in-content/misc-content.css);\n+@import url(resources/in-content/custom-content.css);\n @import url(parts/onetab-darktheme.css);\n @import url(addons.css);\n-@import url(resources/in-content/site-mozilla.css);\n-@import url(resources/in-content/site-google.css);\n-@import url(resources/in-content/site-subscene.css);\n-@import url(resources/in-content/site-wiki.css);\n \n /*\n @import url(resources/in-content/site-github.css);\n @import url(resources/in-content/site-reddit.css);\n-@import url(resources/in-content/custom-content.css);\n @import url(resources/in-content/site-youtube.css);\n \n /* Removes the white loading page /\n @-moz-document url(\"about:blank\"){\n"
                 }
             ],
             "date": 1639491057687,
