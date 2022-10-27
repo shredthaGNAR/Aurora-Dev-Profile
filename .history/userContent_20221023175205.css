@@ -1,5 +1,5 @@
 /** @format */
-/*@import url(ETC/other_usercontent.css);*/
+@import url(ETC/other_usercontent.css);
 @import url(uc-globals.css);
 @import url(resources/in-content/root.css);
 @import url(resources/in-content/menus.css);
@@ -12,26 +12,26 @@
 @import url(resources/in-content/ext-darkreader.css);
 @import url(resources/in-content/ext-mdm.css);
 @import url(resources/in-content/ext-bitwarden.css);
+@import url(resources/in-content/ext-ublock.css);
+@import url(resources/in-content/ext-simpletranslate.css);
 @import url(resources/in-content/ext-tabnotes.css);
 @import url(resources/in-content/ext-firefoxnotes.css);
 @import url(resources/in-content/ext-sortbookmarks.css);
 @import url(resources/in-content/ext-privatebookmarks.css);
+@import url(resources/in-content/ext-rss.css);
 @import url(resources/in-content/site-google.css);
+@import url(resources/in-content/site-wiki.css);
 @import url(resources/in-content/site-mozilla.css);
 @import url(resources/in-content/site-subscene.css);
 @import url(resources/in-content/misc-content.css);
 @import url(resources/in-content/custom-content.css);
+@import url(resources/in-content/site-github.css);
 @import url(parts/onetab-darktheme.css);
 @import url(addons.css);
 
 /*
 @import url(resources/in-content/site-reddit.css);
 @import url(resources/in-content/site-youtube.css);
-@import url(resources/in-content/ext-rss.css);
-@import url(resources/in-content/ext-simpletranslate.css);
-@import url(resources/in-content/ext-ublock.css);
-@import url(resources/in-content/site-wiki.css);
-@import url(resources/in-content/site-github.css);
 
 /* Removes the white loading page /
 @-moz-document url("about:blank"){
@@ -1260,7 +1260,7 @@ url-prefix(about:home) {
 }
 
 
-/*colores al pasar el mouse sobre los sitios anclados en :hover*
+/*colores al pasar el mouse sobre los sitios anclados en :hover*/
 
     .top-site-outer:is(.active,
         :focus,

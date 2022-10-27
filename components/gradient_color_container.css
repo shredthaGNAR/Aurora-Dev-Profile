@@ -1,0 +1,36 @@
+/* Gradient color container line */
+.tabbrowser-tab[usercontextid]:not([selected="true"]):not([visuallyselected="true"], [multiselected])
+  > .tab-stack
+  > .tab-background
+  > .tab-context-line {
+  background-color: unset !important;
+  height: 1px !important;
+  border-radius: 0 !important;
+  margin: -1px 20px 0px 0px !important;
+  border-top: 1px solid var(--identity-icon-color) !important;
+  border-image: linear-gradient(
+      90deg,
+      var(--lwt-accent-color),
+      var(--identity-icon-color) 4.5% 80%,
+      var(--lwt-accent-color)
+    )
+    1 !important;
+}
+
+.tabbrowser-tab[usercontextid]:is([selected="true"], [visuallyselected="true"], [multiselected])
+  > .tab-stack
+  > .tab-background
+  > .tab-context-line {
+  background-color: unset !important;
+  height: 1px !important;
+  border-radius: 0 !important;
+  margin: -1px 20px 0px 0px !important;
+  border-top: 1px solid var(--identity-icon-color) !important;
+  border-image: linear-gradient(
+      90deg,
+      var(--tab-line-color),
+      var(--identity-icon-color) 4.5% 80%,
+      var(--tab-line-color)
+    )
+    1 !important;
+}

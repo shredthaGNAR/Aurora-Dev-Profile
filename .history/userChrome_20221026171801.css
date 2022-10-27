@@ -1412,7 +1412,7 @@ tab .tab-icon,
 }
 
 .tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]):not(:hover) .tab-icon-image {
-  opacity: 0.7 !important;
+  opacity: 0.8 !important;
 }
 
 /* favicon gray on inactive Tab */
@@ -1881,20 +1881,20 @@ else they'll end up being covered up or showing through things they shouldn't. *
 }
 
 .tabbrowser-tab {
-  z-index: 0 !important;
+  z-index: 0;
 }
 
 .tabbrowser-tab .tab-content {
-  z-index: 1 !important;
+  z-index: 1;
 }
 
 .tabbrowser-tab[pinned] .tab-stack::before,
 .tabbrowser-tab[pinned] .tab-stack::after {
-  z-index: 6 !important;
+  z-index: 6;
 }
 
 .tab-icon-stack {
-  z-index: -1 !important;
+  z-index: -1;
 }
 
 /*
@@ -1919,9 +1919,13 @@ else they'll end up being covered up or showing through things they shouldn't. *
   --tab-bg-current: hsl(233, 51%, 10%);
 }
 
-/* this is all the convoluted z-index stuff I was talking about how tab depth is controlled, so shadows are cast correctly. default position is for tabs to be stacked on top of the tab to their left. so shadows are cast to the left but not to the right. */
+/* this is all the convoluted z-index stuff I was talking about —
+how tab depth is controlled, so shadows are cast correctly. */
+
+/* default position is for tabs to be stacked on top of the tab to their left.
+so shadows are cast to the left but not to the right. */
 .tabbrowser-tab {
-  position: relative !important;
+  position: relative;
 }
 
 /* hovered tabs stack on top of normal tabs in either direction. so shadows are
@@ -2003,10 +2007,11 @@ cast in both directions, unless the neighboring tab is selected or something. */
   -webkit-filter: drop-shadow(16px 16px 10px black) !important;
 }
 
-/* Gray out the favicon icon on the inactive tab *
+/* Gray out the favicon icon on the inactive tab */
+
 .tabbrowser-tab .tab-icon-image:not([selected="true"]):not([pinned]) {
-  filter: opacity(70%) saturate(90%) blur(.5px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
-  -webkit-filter: opacity(70%) saturate(90%) blur(.5px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
+  filter: opacity(10%) saturate(90%) !important;
+  -webkit-filter: opacity(10%) saturate(90%) !important;
 }
 
 /***  Glowing line at bottom. */
@@ -2884,7 +2889,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   }
 }
 
-/* Make tab icons look kinda like symbolic icons */
+/* Make tab icons look kinda like symbolic icons *s
 tab .tab-icon-image {
   filter: var(--gnome-convert-icon-to-symbolic-hack-filter) !important;
   -webkit-filter: var(--gnome-convert-icon-to-symbolic-hack-filter) !important;

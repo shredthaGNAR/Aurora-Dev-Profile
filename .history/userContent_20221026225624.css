@@ -1260,7 +1260,7 @@ url-prefix(about:home) {
 }
 
 
-/*colores al pasar el mouse sobre los sitios anclados en :hover*
+/*colores al pasar el mouse sobre los sitios anclados en :hover*/
 
     .top-site-outer:is(.active,
         :focus,

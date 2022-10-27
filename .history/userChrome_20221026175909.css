@@ -2003,10 +2003,10 @@ cast in both directions, unless the neighboring tab is selected or something. */
   -webkit-filter: drop-shadow(16px 16px 10px black) !important;
 }
 
-/* Gray out the favicon icon on the inactive tab *
+/* Gray out the favicon icon on the inactive tab */
 .tabbrowser-tab .tab-icon-image:not([selected="true"]):not([pinned]) {
-  filter: opacity(70%) saturate(90%) blur(.5px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
-  -webkit-filter: opacity(70%) saturate(90%) blur(.5px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
+  filter: opacity(70%) saturate(90%) blur(0px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
+  -webkit-filter: opacity(70%) saturate(90%) blur(0px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
 }
 
 /***  Glowing line at bottom. */
@@ -2884,7 +2884,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   }
 }
 
-/* Make tab icons look kinda like symbolic icons */
+/* Make tab icons look kinda like symbolic icons *s
 tab .tab-icon-image {
   filter: var(--gnome-convert-icon-to-symbolic-hack-filter) !important;
   -webkit-filter: var(--gnome-convert-icon-to-symbolic-hack-filter) !important;
