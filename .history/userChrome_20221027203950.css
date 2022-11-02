@@ -1747,11 +1747,11 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
      once for a couple days due to an erroneous nightly patch. */
 
   background-image: url(chrome://userchrome/content/loading-spinner.svg) !important;
+}
 
+/* ---------------------------------- */
 
-  /* ---------------------------------- */
-
-  /* ANIMATION METHOD #2: the animation is written in a <style> tag
+/* ANIMATION METHOD #2: the animation is written in a <style> tag
      embedded inside the SVG code. it's visually identical to method #1, but
      in terms of performance it is slightly less efficient. the animation is
      applied to the compound vector path via the inline style attribute,
@@ -1759,8 +1759,7 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
      animation in the style tag. use this if method #1 randomly breaks,
      *temporarily*. mozilla should patch such a bug quickly. */
 
-  background-image: url(chrome://userchrome/content/loading-spinner-css.svg) !important;
-}
+/* background-image: url(chrome://userchrome/content/loading-spinner-css.svg) !important; */
 
 /* ---------------------------------- */
 
@@ -1793,7 +1792,7 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
 /* ANIMATION METHOD #4:
 :root[sessionrestored] .tab-throbber[throbber-loaded]:-moz-locale-dir(rtl)::before {
   animation-name: uc-tab-throbber-spinner-sprite-rtl !important;
-
+}
 
 /* all tabs menu & vertical tabs pane (script) */
 :root[uc-loading-spinner] .tab-throbber-tabslist:is([busy], [progress]) {
@@ -1873,27 +1872,28 @@ layering on top of each other, with rightmost tabs on top and leftmost tabs on
 bottom. this is the normal state but hovering, selecting, pinning, etc. needs to
 change the z-index so tabs can "pop out" of the stack. so because z-index is
 being modulated so heavily we need to do the same with our outside corners, or
-else they'll end up being covered up or showing through things they shouldn't. */
+else they'll end up being covered up or showing through things they shouldn't. *
 .tabbrowser-tab .tab-context-line {
   z-index: 3;
-  position: relative;
+  position: relative !important;
 }
 
 .tabbrowser-tab {
-  z-index: 0;
+  z-index: 0 !important;
 }
 
 .tabbrowser-tab .tab-content {
-  z-index: 1;
+  z-index: 1 !important;
 }
 
+/*
 .tabbrowser-tab[pinned] .tab-stack::before,
 .tabbrowser-tab[pinned] .tab-stack::after {
-  z-index: 6;
+  z-index: 6 !important;
 }
 
 .tab-icon-stack {
-  z-index: -1;
+  z-index: -1 !important;
 }
 
 /*
@@ -2920,74 +2920,4 @@ See the above repository for updates as well as full license text. */
 .tab-content>.tab-icon-stack,
 .tab-icon-stack:hover>.tab-icon-image {
   visibility: visible
-}
-
-/*Add Transparency | Comment out to remove transparency completely *
-:root:not(:-moz-window-inactive) #navigator-toolbox {
-  -moz-appearance: -moz-mac-source-list !important;
-}
-
-:root:-moz-window-inactive #navigator-toolbox {
-  -moz-appearance: -moz-mac-source-list !important;
-}
-
-/* Navigation Bar Separator */
-:root[lwt-default-theme-in-dark-mode] #navigator-toolbox {
-  border-color: rgba(37, 37, 37, 1) !important;
-}
-
-:root:not([lwt-default-theme-in-dark-mode]) #navigator-toolbox {
-  border-color: rgba(240, 240, 240, 1) !important;
-}
-
-/* Navigation bar Buttons */
-:root,
-toolbar {
-  --toolbarbutton-hover-background: rgba(255, 255, 255, .11) !important;
-}
-
-/* Show Tab close button on hover */
-.tabbrowser-tab:not([pinned]) .tab-close-button {
-  display: -moz-box !important;
-  opacity: 0;
-  visibility: collapse !important;
-  transition: opacity 0.25s, visibility 0.25s ease-in !important;
-}
-
-.tabbrowser-tab:not([pinned]):hover .tab-close-button {
-  opacity: 1;
-  visibility: visible !important;
-  border-radius: 10px !important;
-}
-
-/* Toolbar Buttons */
-#PersonalToolbar {
-  background-image: url(images/noise-512x512.png) !important;
-  background-color: #2a2a2ac0 !important;
-  -webkit-backdrop-filter: blur(32px) !important;
-  backdrop-filter: blur(32px) !important;
-}
-
-/* Toolbar Buttons */
-#PersonalToolbar {
-  background-image: url(image/noise-512x512.png) !important;
-  background-color: #2a2a2ac0 !important;
-  -webkit-backdrop-filter: blur(32px) !important;
-  backdrop-filter: blur(32px) !important;
-}
-
-navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-toolbox {
-  -moz-appearance: -moz-mac-source-list !important;
-}
-
-/* Remove selected tab shadow, darken the border to account for lighter background color */
-#TabsToolbar #firefox-view-button[open]>.toolbarbutton-icon,
-#tabbrowser-tabs .tab-background:is([selected], [multiselected]) {
-  border-color: color-mix(in srgb, currentColor 35%, transparent) !important;
-  /*box-shadow: unset !important;*/
-}
-
-/* Show new indicator with smaller icon but NO label private browsing,
-#private-browsing-indicator-with-label>label {
-  display: none;
 }

@@ -2922,7 +2922,16 @@ See the above repository for updates as well as full license text. */
   visibility: visible
 }
 
-/*Add Transparency | Comment out to remove transparency completely *
+/*Add Transparency | Comment out to remove transparency completely */
+:root:not(:-moz-window-inactive) #navigator-toolbox {
+  -moz-appearance: -moz-mac-source-list !important;
+}
+
+:root:-moz-window-inactive #navigator-toolbox {
+  -moz-appearance: -moz-mac-source-list !important;
+}
+
+/*Add Transparency | Comment out to remove transparency completely */
 :root:not(:-moz-window-inactive) #navigator-toolbox {
   -moz-appearance: -moz-mac-source-list !important;
 }
@@ -2957,7 +2966,7 @@ toolbar {
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
   opacity: 1;
   visibility: visible !important;
-  border-radius: 10px !important;
+  border-radius: 3px 3px 3px 3px !important;
 }
 
 /* Toolbar Buttons */
@@ -2978,16 +2987,4 @@ toolbar {
 
 navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-toolbox {
   -moz-appearance: -moz-mac-source-list !important;
-}
-
-/* Remove selected tab shadow, darken the border to account for lighter background color */
-#TabsToolbar #firefox-view-button[open]>.toolbarbutton-icon,
-#tabbrowser-tabs .tab-background:is([selected], [multiselected]) {
-  border-color: color-mix(in srgb, currentColor 35%, transparent) !important;
-  /*box-shadow: unset !important;*/
-}
-
-/* Show new indicator with smaller icon but NO label private browsing,
-#private-browsing-indicator-with-label>label {
-  display: none;
 }
