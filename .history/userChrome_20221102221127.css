@@ -3007,10 +3007,3 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 	mask-composite: exclude !important;
 	border-radius: 4px !important; */
 }
-
-/* highlighting tabs with sound playing */
-.tabbrowser-tab[soundplaying="true"]:not([selected]) .tab-background {
-  border: 2px solid !important;
-  border-color: rgba(255, 25, 95, .6) !important;
-  background-color: rgba(255, 255, 10, .09) !important;
-}

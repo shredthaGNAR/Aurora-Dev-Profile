@@ -1,12 +1,19 @@
 {
   "recommendations": [
     "tylerxwright.vscode-line-surfer",
-    "eyhn.vscode-vibrancy",
     "waleedj1699.css-dictionary",
     "oderwat.indent-rainbow",
     "mechatroner.rainbow-csv",
     "kamikillerto.vscode-colorize",
     "svipas.code-autocomplete",
-    "rxliuli.joplin-vscode-plugin"
+    "rxliuli.joplin-vscode-plugin",
+    "ms-vscode-remote.remote-containers",
+    "closemarketing.wp-development-toolbox",
+    "claudiosanches.woocommerce",
+    "thekalinga.bootstrap4-vscode",
+    "coderfoundry.bootstrap-5-snippets-by-coder-foundry",
+    "kalternate.vibrant-theme",
+    "prashantsaroj.monokai-vibrant-no-italic",
+    "illixion.vscode-vibrancy-continued"
   ]
 }
