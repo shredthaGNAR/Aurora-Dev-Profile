@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1640240435321,
@@ -20,6 +20,14 @@
                 {
                     "date": 1661588371905,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,8 @@\n     \"tylerxwright.vscode-line-surfer\",\n     \"eyhn.vscode-vibrancy\",\n     \"waleedj1699.css-dictionary\",\n     \"oderwat.indent-rainbow\",\n-    \"mechatroner.rainbow-csv\"\n+    \"mechatroner.rainbow-csv\",\n+    \"kamikillerto.vscode-colorize\"\n   ]\n }\n"
+                },
+                {
+                    "date": 1667429096557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,8 @@\n     \"eyhn.vscode-vibrancy\",\n     \"waleedj1699.css-dictionary\",\n     \"oderwat.indent-rainbow\",\n     \"mechatroner.rainbow-csv\",\n-    \"kamikillerto.vscode-colorize\"\n+    \"kamikillerto.vscode-colorize\",\n+    \"svipas.code-autocomplete\"\n   ]\n }\n"
+                },
+                {
+                    "date": 1667430109050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,8 @@\n     \"waleedj1699.css-dictionary\",\n     \"oderwat.indent-rainbow\",\n     \"mechatroner.rainbow-csv\",\n     \"kamikillerto.vscode-colorize\",\n-    \"svipas.code-autocomplete\"\n+    \"svipas.code-autocomplete\",\n+    \"rxliuli.joplin-vscode-plugin\"\n   ]\n }\n"
                 }
             ],
             "date": 1640240435321,

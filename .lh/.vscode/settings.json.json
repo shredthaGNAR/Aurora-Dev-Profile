@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1638603744161,
@@ -88,6 +88,14 @@
                 {
                     "date": 1638604008360,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"\",\n+    \"editor.fontFamily\": \"Victor Mono\",\n     \"editor.fontSize\": 18\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1667430947139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n-    \"editor.fontFamily\": \"Victor Mono\",\n-    \"editor.fontSize\": 18\n-}\n\\ No newline at end of file\n+  \"editor.fontSize\": 18,\n+  \"local-history.browser.descending\": false\n+}\n"
+                },
+                {
+                    "date": 1667430954933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {\n   \"editor.fontSize\": 18,\n-  \"local-history.browser.descending\": false\n+  \"local-history.browser.descending\": true\n }\n"
                 }
             ],
             "date": 1638603744161,
