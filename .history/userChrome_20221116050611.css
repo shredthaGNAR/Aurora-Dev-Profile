@@ -499,7 +499,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 .tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
   border-radius: 10px !important;
   margin-top: 3px !important;
-  height: 30px !important;
+  /*height: 30px !important;
   /*backdrop-filter: saturate(35%) brightness(10%) !important;*/
 }
 
@@ -1257,7 +1257,7 @@ menupopup>menuitem {
   opacity: 0.9 !important;
 }
 
-
+/**
 .tabbrowser-tab[usercontextid] .tab-content {
   border-bottom: 2px solid var(--identity-icon-color) !important;
 }
@@ -1265,7 +1265,7 @@ menupopup>menuitem {
 .tabbrowser-tab[usercontextid] .tab-content>* {
   margin-bottom: -2px !important;
 }
-
+**/
 tab .tab-icon,
 .tab-icon-image {
   filter: grayscale(0) contrast(0.2) !important;
@@ -1324,20 +1324,20 @@ tab .tab-icon,
   --moz-backdrop-filter: blur(32px) !important;
 }
 
-/* -------------------- Container Indicators -------------------- *
+/* -------------------- Container Indicators -------------------- */
 .tabbrowser-tab:not([pinned]) .tab-context-line {
   border-radius: 10px !important;
   margin-left: 3px !important;
   margin-right: 3px !important;
   /* margin-block: calc(var(--tab-min-height) - 2px) 0px !important;*/
-
+}
 
 .tabbrowser-tab[pinned] .tab-context-line {
-  height: 30px !important;
+  height: 2px !important;
   background: radial-gradient(circle at center,
       var(--identity-icon-color) 2px,
       transparent 2px) !important;
-  margin-block: calc(var(--tab-min-height) - 4px) 0px !important;
+  /* margin-block: calc(var(--tab-min-height) - 4px) 0px !important;*/
   margin-inline: 0px !important;
   border-radius: 10px !important;
 }
@@ -2919,7 +2919,7 @@ tab .tab-icon-image {
 /* Navigation bar Buttons */
 :root,
 toolbar {
-  --toolbarbutton-hover-background: rgba(118, 43, 239, 0.49) !important;
+  --toolbarbutton-hover-background: rgba(118, 43, 239, 0.77) !important;
 }
 
 /* Show Tab close button on hover */
@@ -2962,25 +2962,25 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 }
   /**** Audio Playing / Mute Button side-by-side when sound is playing ****
 
-/* Move the mute/unmute button to the right and enlarge it *
+/* Move the mute/unmute button to the right and enlarge it */
 .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
   width: var(--user-mute-button-height) !important;
   height: var(--user-mute-button-height) !important;
   margin-left: calc(var(--user-mute-button-height) / 2 + 2px) !important;
-  /* pushes icon to the right *
+  /* pushes icon to the right */
   margin-right: 2px !important;
-  /* closes up some space before the text *
+  /* closes up some space before the text */
   padding: 0 !important;
 }
 
-/* Move the site icon to the left a bit and adjust position *
+/* Move the site icon to the left a bit and adjust position */
 .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
   margin-left: -4px !important;
-  /* pushes icon to the left *
+  /* pushes icon to the left */
   margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;
 }
 
-/* Mute button *
+/* Mute button */
 .tabbrowser-tab:not(:hover) .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]),
 .tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay),
 :root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
@@ -2994,4 +2994,79 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 
 [lwthemetextcolor="bright"] .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]):hover {
   fill: lightgreen !important;
+}
+
+/* URL bar frame color changed to gradient */
+#urlbar[focused="true"]:not([suppress-focus-border])>#urlbar-background,
+#searchbar:focus-within {
+  outline-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(90deg, #6200a4 0%, #ff0039 50%, #ff9400 100%) 1 stretch !important;
+  /*	background:  linear-gradient(90deg, #6200a4 0%, #ff0039 50%, #ff9400 100%) border-box !important;
+	mask: -moz-linear-gradient(white 0 0) padding-box !important;
+	mask-composite: exclude !important;
+	border-radius: 4px !important; */
+}
+
+/* highlighting tabs with sound playing */
+.tabbrowser-tab[soundplaying="true"]:not([selected]) .tab-background {
+  border: 2px solid !important;
+  border-color: rgba(2, 72, 46, 0.577) !important;
+  background-color: rgba(4, 173, 103, 0.456) !important;
+}
+
+/*
+.tabbrowser-tab[usercontextid] .tab-background {
+  background-color: color-mix(in srgb, var(--identity-icon-color) 25%, transparent) !important;
+}
+
+.tabbrowser-tab[usercontextid] .tab-background::before,
+.tabbrowser-tab[usercontextid] .tab-background::after {
+  fill: color-mix(in srgb, var(--identity-icon-color) 25%, transparent) !important;
+}
+
+.tabbrowser-tab[usercontextid] .tab-stack::before,
+.tabbrowser-tab[usercontextid] .tab-stack::after,
+.tabbrowser-tab[usercontextid]+.tabbrowser-tab .tab-stack::before,
+.tabbrowser-tab[usercontextid]+.tabbrowser-tab[hidden]+.tabbrowser-tab .tab-stack::before {
+  opacity: 0 !important;
+}
+
+/* ---------------------------------------- Selected Tab Highlight / Container Indicators ---------------------------------------- */
+
+.tab-context-line {
+  background-color: transparent !important;
+  height: var(--tab-min-height) !important;
+  border-radius: 0px !important;
+  margin: 0px !important;
+  background-position: center top, center bottom !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+
+.tabbrowser-tab[pinned] .tab-context-line {
+  background-image: radial-gradient(circle at center, var(--tab-highlight, transparent) 2px, transparent 2px),
+    radial-gradient(circle at center, var(--identity-icon-color, transparent) 2px, transparent 2px) !important;
+  background-size: 4px 4px, 4px 4px !important;
+}
+
+.tabbrowser-tab:not([pinned]) .tab-context-line {
+  background-image: linear-gradient(to right, transparent, var(--tab-highlight, transparent), transparent),
+    linear-gradient(to right, transparent, var(--identity-icon-color, transparent), transparent) !important;
+  background-size: 100% 2px, 100% 2px !important;
+}
+
+/*= Icon Fill Color ==========================================================*
+:root:-moz-lwtheme {
+  /* Auto create --lwt-toolbarbutton-icon-fill-attention, fix for nightly default theme
+         Default Color: rgb(0,97,224) -> rgb(0, 120, 215) for more light
+
+  --lwt-toolbarbutton-icon-fill-attention: var(--button-primary-bgcolor, rgb(0, 120, 215)) !important;
+}*/
+
+#reader-mode-button {
+  display: none !important
+}
+
+#PlacesToolbarItems {
+  -moz-box-pack: center !important;
 }
