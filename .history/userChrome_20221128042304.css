@@ -62,7 +62,6 @@
   --my-gradient: linear-gradient(#9494943b 0%,
       #0404043b 20%,
       #9494943b 70%) !important;
-  --tabs-navbar-shadow-siz: 1px !important;
 }
 
 #tabbrowser-tabs:not([movingtab])>#tabbrowser-arrowscrollbox>.tabbrowser-tab>.tab-stack>.tab-background[selected="true"]:-moz-lwtheme,
@@ -560,7 +559,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
   box-shadow: 2px 0 0 0 rgba(0, 0, 0, 0.2) !important;
 }
 
-/** Tabs background color when using a lightweight theme*/
+/** Tabs background color when using a lightweight theme*
 
 #main-window:not([lwt-default-theme-in-dark-mode]) #tabbrowser-tabs:not([movingtab]) .tab-background[selected="true"]:-moz-lwtheme {
   background-color: var(--lwt-selected-tab-background-color) !important;
@@ -746,16 +745,24 @@ slot {
   box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;
 }
 
+/* white flash fix */
+
+browser[type="content-primary"],
+browser[type="content"] {
+  background: #1d1d3bfa !important;
+  /*#222355*/
+}
+
 /* Loaded but unread (not selected) */
 
 .tabbrowser-tab:not([selected="true"])[unread] .tab-label {
-  color: rgb(168, 128, 247) !important;
+  color: rgb(49, 14, 120) !important;
   font-style: italic !important;
   font-weight: bolder !important;
 }
 
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
-  background-color: rgb(85, 0, 255) !important;
+  background-color: rgba(124, 87, 197, 0.193) !important;
   border-radius: 10px !important;
 }
 
@@ -763,7 +770,7 @@ slot {
 
 .tabbrowser-tab:not([selected="true"])[pending] .tab-label,
 .tabbrowser-tab:not([selected="true"])[visited] .tab-label {
-  color: rgb(91, 33, 178) !important;
+  color: rgb(105, 105, 105) !important;
   font-style: italic !important;
   font-weight: thin !important;
 }
@@ -817,7 +824,7 @@ menupopup>menuitem {
 }
 
 .tabbrowser-tab:not([selected="true"])>.tab-stack>.tab-background {
-  border: 1px solid color-mix(in srgb, #171226 90%, transparent) !important;
+  border: 1px solid color-mix(in srgb, #261226 90%, transparent) !important;
   border-radius: 10px !important;
 }
 
@@ -2099,14 +2106,14 @@ More gradients to try out
 browser,
 browser.display.background_color,
 tabbrowser tabpanels {
-  background-color: #04000cfa !important;
+  background-color: #1d1d3bfa !important;
 }
 
 /* white flash fix */
 
 browser[type="content-primary"],
 browser[type="content"] {
-  background: #04000cfa !important;
+  background: #1d1d3bfa !important;
   /*#222355*/
 }
 
@@ -2125,7 +2132,7 @@ browser[type="content"] {
   font-weight: thin !important;
 }
 
-/*
+
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
@@ -2313,7 +2320,7 @@ window[privatebrowsingmode="temporary"] #tabbrowser-tabs {
   background-color: #820cffa4 !important;
 }
 
-/* Addon Buttons + Bookmark Buttons */
+/* Addon Buttons + Bookmark Buttons *
 toolbar toolbarbutton,
 toolbar toolbarbutton .toolbarbutton-badge-stack,
 toolbar toolbarbutton .toolbarbutton-icon {
@@ -2733,7 +2740,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   display: block;
   content: "";
   pointer-events: none;
-  box-shadow: 0 0px 14px 0px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 0px 14px 0px hsla(0, 0%, 0%, 0.32);
   width: 20px;
   margin-right: -20px;
   height: var(--tab-min-height);
@@ -2907,7 +2914,7 @@ tab .tab-icon-image {
 }
 
 :root:not([lwt-default-theme-in-dark-mode]) #navigator-toolbox {
-  border-color: rgb(107, 61, 234) !important;
+  border-color: rgba(240, 240, 240, 1) !important;
 }
 
 /* Navigation bar Buttons */
@@ -3050,6 +3057,14 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
   background-size: 100% 2px, 100% 2px !important;
 }
 
+/*= Icon Fill Color ==========================================================*
+:root:-moz-lwtheme {
+  /* Auto create --lwt-toolbarbutton-icon-fill-attention, fix for nightly default theme
+         Default Color: rgb(0,97,224) -> rgb(0, 120, 215) for more light
+
+  --lwt-toolbarbutton-icon-fill-attention: var(--button-primary-bgcolor, rgb(0, 120, 215)) !important;
+}*/
+
 #reader-mode-button {
   display: none !important
 }
@@ -3066,22 +3081,23 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover>.toolbarbutton-icon,
 toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover>.toolbarbutton-text,
 toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover>.toolbarbutton-badge-stack {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4) !important;
 }
 
 toolbar .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active)>.toolbarbutton-icon,
 toolbar .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active)>.toolbarbutton-text,
 toolbar .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active)>.toolbarbutton-badge-stack {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Design of the plus/newtab button */
 toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover>.toolbarbutton-icon,
 toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover>.toolbarbutton-icon {
   border: 0 !important;
+  border-radius: 100% !important;
   background-image: none !important;
   background-color: hsla(0, 0%, 78%, 0.152) !important;
-  box-shadow: 1px 1px 4px -1px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 1px 1px 4px -1px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Back button hover/active color */
@@ -3093,35 +3109,60 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   background-color: var(--toolbarbutton-active-background) !important;
 }
 
-/*
+/* Remove lefover window buttons from extra menu bar (Shows up when window inactive) */
+#titlebar #toolbar-menubar .titlebar-buttonbox-container {
+  display: none !important;
+}
+
 :root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
   list-style-image: url("image/firefox.svg") !important;
   fill: hsl(277, 70%, 64%) !important;
-}*/
+}
 
 #navigator-toolbox toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover>.toolbarbutton-icon,
 #navigator-toolbox toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover>.toolbarbutton-text,
 #navigator-toolbox toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover>.toolbarbutton-badge-stack {
   background-color: color-mix(in srgb, currentColor 15%, transparent) !important;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25) !important;
 }
 
 #navigator-toolbox toolbar .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active)>.toolbarbutton-icon,
 #navigator-toolbox toolbar .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active)>.toolbarbutton-text,
 #navigator-toolbox toolbar .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active)>.toolbarbutton-badge-stack {
   background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Blur your tabs and show on hover  */
+
+#tabbrowser-tabs .tabbrowser-tab .tab-stack .tab-content {
+  filter: blur(4px) !important;
+  transition: filter 200ms linear !important;
+}
+
+#tabbrowser-tabs .tabbrowser-tab:hover .tab-stack .tab-content {
+  filter: blur(0px) !important;
 }
 
 /* Avoids bright flash */
 #tabbrowser-tabpanels {
   background-color: hsl(240, 2%, 13%) !important;
 }
+}
 
-/*
+/* Fix the FUllscreen changing padding on other bars. */
+:root[tabsintitlebar][sizemode="maximized"] #titlebar {
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
 #navigator-toolbox {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
+}
+
+#urlbar-background {
+  display: none !important;
 }
 
 /* ----- Non active tabs have darker text ----- */
@@ -3130,12 +3171,12 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   transition: color 250ms ease !important;
 }
 
-/* ----- New tab icon size (16-default). Not change the rest of calc --- *
+/* ----- New tab icon size (16-default). Not change the rest of calc --- */
 #tabs-newtab-button .toolbarbutton-icon,
 #new-tab-button .toolbarbutton-icon {
   width: calc(2 * var(--toolbarbutton-inner-padding) + 12px) !important;
   height: calc(2 * var(--toolbarbutton-inner-padding) + 12px) !important;
-}*/
+}
 
 #tabbrowser-tabs .tabbrowser-tab .tab-background:is([selected]):is([multiselected]) {
   outline: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -3143,7 +3184,6 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   outline-width: 1px !important;
 }
 
-/*
 :root[sizemode="maximized"] .titlebar-buttonbox-container {
   padding-top: 0px !important;
 }
@@ -3157,119 +3197,4 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
 
 :root[privatebrowsingmode="temporary"] #PanelUI-menu-button .toolbarbutton-badge-stack .toolbarbutton-icon {
   filter: drop-shadow(0px 0px 1px #000000d5) !important;
-}*/
-.tabbrowser-tab[selected="true"][class*="identity-color-"] .tab-label {
-  color: var(--identity-tab-color) !important;
-  font-weight: bolder !important;
-}
-
-.tabbrowser-tab:not([selected="true"]):not([multiselected="true"]) .tab-background {
-  background-color: color-mix(in srgb, #2c2137 50%, transparent) !important;
-  border: 1px solid color-mix(in srgb, currentColor 11%, transparent) !important;
-  border-radius: 10px !important;
-}
-
-#navigator-toolbox {
-  margin-left: 0px !important;
-}
-
-.tab-content[selected="hover"] {
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-    1px 1px 1px rgba(0, 0, 0, 0.5) !important;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-  border-radius: 10px !important;
-}
-
-.tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]) {
-  background-color: color-mix(in srgb, #503daf9b 30%, transparent) !important;
-}
-
-/* different tab shadows in various states. to produce the illusion of modulated depth */
-
-.tabbrowser-tab .tab-content {
-  box-shadow: 0px 0px 15px 0px hsla(0, 0%, 0%, 0.2),
-    0px 0px 5px 0px hsla(0, 0%, 0%, 0.1) !important;
-}
-
-.tabbrowser-tab:not([selected], [multiselected]):is(:hover, .keyboard-focused-tab, [open]) .tab-content,
-.tabbrowser-tab:is([multiselected], [pinned]) .tab-content {
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1),
-    0px 0px 15px 0px hsla(0, 0%, 0%, 0.25) !important;
-}
-
-.tabbrowser-tab[selected] .tab-content,
-.tabbrowser-tab:is([multiselected], [pinned])[selected] .tab-content {
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1),
-    0px 0px 15px 0px hsla(0, 0%, 0%, 0.35) !important;
-}
-
-.tabbrowser-tab:focus:not([aria-activedescendant]) .tab-content {
-  box-shadow: 0px 0px 25px 3px rgba(0, 0, 0, 0.1),
-    0px 0px 15px 0px hsla(0, 0%, 0%, 0.35) !important;
-}
-
-/* highlight unread tabs; requires italicizeUnreadTabs.uc.js */
-
-:root[italic-unread-tabs] .tabbrowser-tab[notselectedsinceload]:not([pending]),
-:root[italic-unread-tabs] .tabbrowser-tab[notselectedsinceload][pending][busy] {
-  font-style: italic !important;
-}
-
-.tab-content[pinned] {
-  width: 36px !important;
-}
-
-/* non-active/non-selected tabs (container) */
-
-.tabbrowser-tab[usercontextid]:not([selected], [multiselected]):hover .tab-background::before {
-  background-color: color-mix(in srgb,
-      var(--identity-tab-color) 80%,
-      transparent) !important;
-  /*filter: brightness(20%) !important;*/
-}
-
-
-.tab-context-line {
-  -moz-box-ordinal-group: 2;
-  margin-block: 0 !important;
-  border-radius: 10px !important;
-}
-
-.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
-  background-image: linear-gradient(to right,
-      transparent 10%,
-      var(--identity-tab-color) 10%,
-      var(--identity-tab-color) 90%,
-      transparent 90%) !important;
-  height: 1px !important;
-  margin-bottom: 0px !important;
-  border-radius: 10px !important;
-}
-
-.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="“true”"], [multiselected]) {
-  background-color: #4d4dfe50 !important;
-  background-image: -var(--my-gradient) !important;
-  border-radius: 10px !important;
-}
-
-.tabbrowser-tab:not([selected="true"]):not([multiselected="true"]) .tab-background {
-  border-top: 1px solid rgba(130, 130, 130, 0.2) !important;
-  border-left: 1px solid rgba(130, 130, 130, 0.2) !important;
-  border-right: 1px solid rgba(130, 130, 130, 0.2) !important;
-  border-radius: 10px !important;
-}
-
-
-.tabbrowser-tab[usercontextid] .tab-background {
-  background: var(--identity-tab-color) !important;
-  border-left: 1px solid rgba(130, 130, 130, 0.5) !important;
-  border-right: 1px solid rgba(130, 130, 130, 0.5) !important;
-  border-bottom: var(--identity-tab-color) !important;
-  opacity: 1 !important;
-  border-radius: 10px !important;
-}
-
-.tab-content[selected="true"] {
-  border-radius: 10px !important;
 }

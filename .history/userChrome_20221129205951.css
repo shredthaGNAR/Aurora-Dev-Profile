@@ -3130,12 +3130,12 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   transition: color 250ms ease !important;
 }
 
-/* ----- New tab icon size (16-default). Not change the rest of calc --- *
+/* ----- New tab icon size (16-default). Not change the rest of calc --- */
 #tabs-newtab-button .toolbarbutton-icon,
 #new-tab-button .toolbarbutton-icon {
   width: calc(2 * var(--toolbarbutton-inner-padding) + 12px) !important;
   height: calc(2 * var(--toolbarbutton-inner-padding) + 12px) !important;
-}*/
+}
 
 #tabbrowser-tabs .tabbrowser-tab .tab-background:is([selected]):is([multiselected]) {
   outline: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -3159,7 +3159,7 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   filter: drop-shadow(0px 0px 1px #000000d5) !important;
 }*/
 .tabbrowser-tab[selected="true"][class*="identity-color-"] .tab-label {
-  color: var(--identity-tab-color) !important;
+  /* color: var(--identity-tab-color) !important;*/
   font-weight: bolder !important;
 }
 
@@ -3170,7 +3170,27 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
 }
 
 #navigator-toolbox {
-  margin-left: 0px !important;
+  margin-left: 2px !important;
+}
+
+/*
+.tabbrowser-tab[pinned] {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}*/
+
+menupopup>menu,
+menupopup>menuitem {
+  padding-block: 4px !important;
+}
+
+:root {
+  --arrowpanel-menuitem-padding: 4px !important;
+}
+
+.tabbrowser-tab:not([selected="true"])>.tab-stack>.tab-background {
+  border: 1px solid color-mix(in srgb, #171226 90%, transparent) !important;
+  border-radius: 10px !important;
 }
 
 .tab-content[selected="hover"] {
@@ -3179,6 +3199,13 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   border-radius: 10px !important;
+}
+
+/***inactive*/
+
+.tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]):not(:hover) .tab-icon-image {
+  opacity: 0.8 !important;
+  /*filter: grayscale(0.8), brightness(100%), contrast(20%) !important;*/
 }
 
 .tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]) {
@@ -3226,9 +3253,19 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   background-color: color-mix(in srgb,
       var(--identity-tab-color) 80%,
       transparent) !important;
-  /*filter: brightness(20%) !important;*/
+  filter: brightness(20%) !important;
 }
 
+/* Container tabs */
+
+.tabbrowser-tab[usercontextid] .tab-background::before {
+  background: var(--identity-tab-color) !important;
+}
+
+
+.tabbrowser-tab:not([visuallyselected="true"], [multiselected]):hover .tab-icon-image {
+  filter: drop-shadow(1px 1px 1px rgba (2, 2, 2, 0.74)) contrast(175%) brightness(113%) !important;
+}
 
 .tab-context-line {
   -moz-box-ordinal-group: 2;
@@ -3242,8 +3279,14 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
       var(--identity-tab-color) 10%,
       var(--identity-tab-color) 90%,
       transparent 90%) !important;
-  height: 1px !important;
+  height: 2px !important;
   margin-bottom: 0px !important;
+  border-radius: 10px !important;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line+.tab-loading-burst {
+  background-color: var(--identity-tab-color) !important;
+  opacity: 0.3 !important;
   border-radius: 10px !important;
 }
 

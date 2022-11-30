@@ -3220,14 +3220,14 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   width: 36px !important;
 }
 
-/* non-active/non-selected tabs (container) */
+/* non-active/non-selected tabs (container) *
 
 .tabbrowser-tab[usercontextid]:not([selected], [multiselected]):hover .tab-background::before {
   background-color: color-mix(in srgb,
       var(--identity-tab-color) 80%,
       transparent) !important;
-  /*filter: brightness(20%) !important;*/
-}
+  filter: brightness(20%) !important;
+}*/
 
 
 .tab-context-line {
@@ -3242,8 +3242,14 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
       var(--identity-tab-color) 10%,
       var(--identity-tab-color) 90%,
       transparent 90%) !important;
-  height: 1px !important;
+  height: 2px !important;
   margin-bottom: 0px !important;
+  border-radius: 10px !important;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line+.tab-loading-burst {
+  background-color: var(--identity-tab-color) !important;
+  opacity: 0.3 !important;
   border-radius: 10px !important;
 }
 

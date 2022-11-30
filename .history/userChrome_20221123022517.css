@@ -1440,19 +1440,20 @@ var(--webextension-toolbar-image-2x-light, inherit)*/
   --webextension-toolbar-image-2x-dark: url("icons/save.svg") !important;
 }
 
-/*
+
 #_6388c0f5-9b2f-4f99-9f65-a1f1dfefd1fb_-browser-action {
-	--webextension-toolbar-image-2x-dark: url("icons/home.svg") !important;
+  --webextension-toolbar-image-2x-dark: url("icons/home.svg") !important;
 }
 
 #_88664789-f91e-40e1-adb9-e4e9a8c48867_-browser-action {
-	--webextension-toolbar-image-2x-light: url("icons/folder.svg") !important;
+  --webextension-toolbar-image-2x-light: url("icons/folder.svg") !important;
 }
 
 #_88664789-f91e-40e1-adb9-e4e9a8c48867_-browser-action {
-	--webextension-toolbar-image-2x-light: url("icons/paste.svg") !important;
-}*/
+  --webextension-toolbar-image-2x-light: url("icons/paste.svg") !important;
+}
 
+/*
 toolbar[brighttext] .webextension-browser-action {
   list-style-image: var(--webextension-toolbar-image-2x-light,
       inherit) !important;
@@ -1989,7 +1990,7 @@ cast in both directions, unless the neighboring tab is selected or something. */
   filter: drop-shadow(0px 0px 2px black) !important;
 }
 
-/* Gray out the favicon icon on the inactive tab *
+/* Gray out the favicon icon on the inactive tab */
 .tabbrowser-tab .tab-icon-image:not([selected="true"]):not([pinned]) {
   filter: opacity(70%) saturate(90%) blur(.5px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
   -webkit-filter: opacity(70%) saturate(90%) blur(.5px) drop-shadow(0px 0px 2px black) contrast(175%) !important;
@@ -2013,7 +2014,7 @@ More gradients to try out
   opacity: 0.6 !important;
 }
 
-/*
+
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, 0.1),
@@ -2131,7 +2132,7 @@ browser[type="content"] {
   font-weight: thin !important;
 }
 
-/*
+
 .tabbrowser-tab:not([selected="true"])[unread] .tab-background {
   background-color: transparent !important;
 }
@@ -2376,7 +2377,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   --tab-line-color: transparent !important;
 }
 
-/* improve border visiblity for selected tab*
+/* improve border visiblity for selected tab*/
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
   border: none !important;
 }
@@ -2397,7 +2398,7 @@ toolbar toolbarbutton .toolbarbutton-icon {
   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .4) !important;
 }
 
-/* border between tab bar and navbar *
+/* border between tab bar and navbar */
 :root #nav-bar {
   box-shadow: 0 -1px 0 0 hsla(280, 6%, 0%, 0.1), 0 -4px 4px -5px hsla(280, 6%, 0%, 0.2) !important;
 }
@@ -2953,7 +2954,7 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 #TabsToolbar #firefox-view-button[open]>.toolbarbutton-icon,
 #tabbrowser-tabs .tab-background:is([selected], [multiselected]) {
   border-color: color-mix(in srgb, currentColor 35%, transparent) !important;
-  /*box-shadow: unset !important;*/
+  box-shadow: unset !important;
 }
 
 /* Show new indicator with smaller icon but NO label private browsing
@@ -2962,25 +2963,25 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 }
   /**** Audio Playing / Mute Button side-by-side when sound is playing ****
 
-/* Move the mute/unmute button to the right and enlarge it *
+/* Move the mute/unmute button to the right and enlarge it */
 .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
   width: var(--user-mute-button-height) !important;
   height: var(--user-mute-button-height) !important;
   margin-left: calc(var(--user-mute-button-height) / 2 + 2px) !important;
-  /* pushes icon to the right *
+  /* pushes icon to the right */
   margin-right: 2px !important;
-  /* closes up some space before the text *
+  /* closes up some space before the text */
   padding: 0 !important;
 }
 
-/* Move the site icon to the left a bit and adjust position *
+/* Move the site icon to the left a bit and adjust position */
 .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
   margin-left: -4px !important;
-  /* pushes icon to the left *
+  /* pushes icon to the left */
   margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;
 }
 
-/* Mute button *
+/* Mute button */
 .tabbrowser-tab:not(:hover) .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]),
 .tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay),
 :root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
@@ -3002,10 +3003,10 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
   outline-color: transparent !important;
   border: 1px solid transparent !important;
   border-image: linear-gradient(90deg, #6200a4 0%, #ff0039 50%, #ff9400 100%) 1 stretch !important;
-  /*	background:  linear-gradient(90deg, #6200a4 0%, #ff0039 50%, #ff9400 100%) border-box !important;
-	mask: -moz-linear-gradient(white 0 0) padding-box !important;
-	mask-composite: exclude !important;
-	border-radius: 4px !important; */
+  background: linear-gradient(90deg, #6200a4 0%, #ff0039 50%, #ff9400 100%) border-box !important;
+  mask: -moz-linear-gradient(white 0 0) padding-box !important;
+  mask-composite: exclude !important;
+  border-radius: 10px !important;
 }
 
 /* highlighting tabs with sound playing */
@@ -3014,6 +3015,7 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
   border-color: rgba(2, 72, 46, 0.577) !important;
   background-color: rgba(4, 173, 103, 0.456) !important;
 }
+
 
 .tabbrowser-tab[usercontextid] .tab-background {
   background-color: color-mix(in srgb, var(--identity-icon-color) 25%, transparent) !important;
@@ -3054,10 +3056,45 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
   background-size: 100% 2px, 100% 2px !important;
 }
 
-/*= Icon Fill Color ==========================================================*/
+/*= Icon Fill Color ==========================================================*
 :root:-moz-lwtheme {
   /* Auto create --lwt-toolbarbutton-icon-fill-attention, fix for nightly default theme
          Default Color: rgb(0,97,224) -> rgb(0, 120, 215) for more light
-       */
-  --lwt-toolbarbutton-icon-fill-attention: var(--button-primary-bgcolor, rgb(0, 120, 215));
+
+  --lwt-toolbarbutton-icon-fill-attention: var(--button-primary-bgcolor, rgb(0, 120, 215)) !important;
+}*/
+
+#reader-mode-button {
+  display: none !important
 }
+
+#PlacesToolbarItems {
+  -moz-box-pack: center !important;
+}
+
+/* {
+  88664789-f91e-40e1-adb9-e4e9a8c48867
+}
+
+moz-extension: //e1ffa24a-7e3b-4f1d-bcf1-18a97b4bbdf8/icons/icon.svg
+
+--webextension-toolbar-image --webextension-toolbar-image: url("moz-extension://e1ffa24a-7e3b-4f1d-bcf1-18a97b4bbdf8/icons/icon.svg");
+
+#tab-session-manager_sienori-browser-action {
+  --webextension-toolbar-image: url("file://...") !important;
+  --webextension-toolbar-image-light: url("file://...") !important;
+  --webextension-toolbar-image-dark: url("file://...") !important;
+}*/
+
+#_88664789-f91e-40e1-adb9-e4e9a8c48867_-browser-action {
+  --webextension-toolbar-image: url("icons/save.svg") !important;
+  --webextension-toolbar-image-light: url("icons/save.svg") !important;
+  --webextension-toolbar-image-dark: url("icons/save.svg") !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  #nav-bar {
+    -moz-appearance: -moz-mac-source-list !important;
+  }
+
+  html#main-window body box#navigator-toolbox-background toolbox#navigator-toolbox toolbar#nav-bar.browser-toolbar hbox#nav-bar-customization-target.customization-target toolbaritem#_88664789-f91e-40e1-adb9-e4e9a8c48867_-browser-action.toolbaritem-combined-buttons.unified-extensions-item.chromeclass-toolbar-additional

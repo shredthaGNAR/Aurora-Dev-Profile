@@ -16,12 +16,13 @@
 @import url(resources/in-content/ext-firefoxnotes.css);
 @import url(resources/in-content/ext-sortbookmarks.css);
 @import url(resources/in-content/ext-privatebookmarks.css);
-@import url(resources/in-content/site-google.css);
+@import url(resources/in-content/ext-rss.css);
+@import url(resources/in-content/site-github.css);
 @import url(resources/in-content/site-mozilla.css);
+@import url(resources/in-content/site-reddit.css);
 @import url(resources/in-content/site-subscene.css);
 @import url(resources/in-content/misc-content.css);
 @import url(resources/in-content/custom-content.css);
-@import url(parts/onetab-darktheme.css);
 @import url(addons.css);
 
 /*
@@ -46,7 +47,7 @@ url("about:home") {
     html:not(#ublock0-epicker),
     html:not(#ublock0-epicker) body,
     #newtab-customize-overlay {
-        background: #30325e70 !important;
+        background: #5532be70 !important;
     }
 
     /*var(bf-bg)*/
@@ -218,8 +219,8 @@ url("about:home") {
         }
 
         .home-section .section .selector {
-            background-color: #1d1d38 !important;
-            border: 1px solid #4a4a9b !important;
+            background-color: #330475 !important;
+            border: 1px solid #654a9b !important;
         }
 
         /*Button color "Close"*/
@@ -273,7 +274,7 @@ url("about:home") {
 /* Color of the three-point menu background*/
 
     .context-menu {
-        background: #1d1d38 !important;
+        background: #5726f6 !important;
     }
 
 
@@ -294,7 +295,7 @@ url("about:home") {
     @-moz-document url("about:preferences"),
     url("about:addons") {
         .dialogBox {
-            --in-content-page-background: #1d1d3bfa !important;
+            --in-content-page-background: #31137ffa !important;
         }
 
         /*Color of background  dialogWindow*/
@@ -344,7 +345,7 @@ url("about:home") {
     @-moz-document url("about:privatebrowsing") {
         :root {
             scrollbar-width: thin !important;
-            scrollbar-color: #38375580 transparent !important;
+            scrollbar-color: #7822e97d transparent !important;
         }
     }
 
@@ -464,7 +465,7 @@ url("about:home") {
     @-moz-document url("about:preferences"),
     url(about:addons) {
         .dialogBox {
-            --in-content-page-background: #1d1d3bfa !important;
+            --in-content-page-background: #340964fa !important;
         }
     }
 
@@ -473,7 +474,7 @@ url("about:home") {
 
         /* Customization of the NewTab page*/
         body {
-            background-color: #1d1d3bfa !important;
+            background-color: #31006dfa !important;
             background-repeat: no-repeat !important;
             background-position: center top !important;
             background-size: cover !important;
@@ -499,11 +500,11 @@ url("about:home") {
     /*------ ONETAB ADDON ------*/
     /* moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html */
 
-    @-moz-document url("moz-extension://230bbecf-4f03-ae44-b003-63054bbc7c0d/onetab.html") {
+    @-moz-document url("moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html") {
 
         html,
         body {
-            background: #1d1d3bfa !important;
+            background: #1e1e1efa !important;
         }
 
         #settingsDiv {
@@ -562,7 +563,7 @@ url("about:home") {
     /*** ONETAB dark mode */
     /* moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html */
 
-    @-moz-document url("moz-extension://3b404296-4156-1646-9241-115998b0d34b/onetab.html") {
+    @-moz-document url("moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html") {
 
         html,
         html[class],
@@ -571,7 +572,7 @@ url("about:home") {
         body[class],
         body[id],
         input {
-            background: #1d1d3bfa !important;
+            background: #2b153efa !important;
         }
 
         div:last-child,
@@ -617,7 +618,7 @@ url("about:home") {
         }
 
         a:hover {
-            color: #4a4a9b !important;
+            color: #cbcbff !important;
         }
 
         li {
@@ -733,7 +734,7 @@ url("about:home") {
     @-moz-document url("about:privatebrowsing") {
         :root {
             scrollbar-width: thin !important;
-            scrollbar-color: #8682fe transparent !important;
+            scrollbar-color: #9500ff76 transparent !important;
         }
     }
 
@@ -1028,12 +1029,12 @@ url("about:home") {
     }
 
 
-    /* Proton NewTab Page */
+    /* Proton NewTab Page *
 
     @-moz-document url("about:newtab"),
     url("about:home") {
 
-        /* Lightmode Colours */
+        /* Lightmode Colours *
         body:not([lwt-newtab],
             [lwt-newtab-brighttext]) {
             --newtab-background-color: #f5f5f5 !important;
@@ -1052,7 +1053,7 @@ url("about:home") {
             --newtab-card-hairline-color: rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* Darkmode Colours */
+        /* Darkmode Colours *
         body[style*="--newtab-background-color:rgba(42, 42, 46, 1); --newtab-text-primary-color:rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
         body[style*="--newtab-background-color: rgba(43, 42, 51, 1); --newtab-text-primary-color: rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
         body:not([style*="color"])[lwt-newtab-brighttext] {
@@ -1073,54 +1074,54 @@ url("about:home") {
         }
 
         /* Search Textbox */
-        .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button,
-        .outer-wrapper.newtab-experience .search-wrapper input {
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-            border-radius: 4px !important;
-            font-weight: 400 !important;
-            border: 0 !important;
-        }
+    .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button,
+    .outer-wrapper.newtab-experience .search-wrapper input {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 4px !important;
+        font-weight: 400 !important;
+        border: 0 !important;
+    }
 
-        .fake-textbox {
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-        }
+    .fake-textbox {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
 
-        .outer-wrapper.newtab-experience .search-wrapper .search-inner-wrapper {
-            min-height: 44px !important;
-        }
+    .outer-wrapper.newtab-experience .search-wrapper .search-inner-wrapper {
+        min-height: 44px !important;
+    }
 
-        .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button .fake-caret {
-            top: 14px !important;
-        }
+    .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button .fake-caret {
+        top: 14px !important;
+    }
 
-        .search-wrapper.search-disabled .search-handoff-button {
-            opacity: 0 !important;
-        }
+    .search-wrapper.search-disabled .search-handoff-button {
+        opacity: 0 !important;
+    }
 
-        body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            background-color: color-mix(in srgb, var(--newtab-background-color) 95%, transparent) !important;
-        }
+    body:not(.inline-onboarding) .fixed-search .search-wrapper {
+        background-color: color-mix(in srgb, var(--newtab-background-color) 95%, transparent) !important;
+    }
 
-        /* Topsite Tiles */
-        .outer-wrapper.newtab-experience .top-site-outer .tile {
-            border-radius: 10px !important;
-            -webkit-border-radius: 10px !important;
-            -moz-border-radius: 10px !important;
-            -ms-border-radius: 10px !important;
-            -o-border-radius: 10px !important;
-        }
+    /* Topsite Tiles */
+    .outer-wrapper.newtab-experience .top-site-outer .tile {
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+    }
 
-        .outer-wrapper.newtab-experience .top-site-outer {
-            border-radius: 10px !important;
-            -webkit-border-radius: 10px !important;
-            -moz-border-radius: 10px !important;
-            -ms-border-radius: 10px !important;
-            -o-border-radius: 10px !important;
-        }
+    .outer-wrapper.newtab-experience .top-site-outer {
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+    }
 
-        /* Topsite Tile Size Adjustments *
+    /* Topsite Tile Size Adjustments *
     .outer-wrapper.newtab-experience .top-site-outer .tile {
         height: 44px !important;
         width: 44px !important;
@@ -1156,95 +1157,95 @@ url("about:home") {
         fill: var(--newtab-icon-primary-color) !important;
     }
     */
-        .top-site-outer .title:not(.sponsored) .sponsored-label {
-            display: none !important;
-        }
-
-        /* Recommended by Pocket Cards */
-        .ds-card-grid {
-            gap: 12px !important;
-        }
-
-        .ds-card-grid .ds-card {
-            background-color: var(--newtab-card-background-color) !important;
-        }
-
-        .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
-            border-radius: 6px !important;
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-        }
-
-        .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
-            border-radius: 6px 6px 0 0 !important;
-        }
-
-        .ds-card .ds-card-link:hover .img-wrapper {
-            filter: brightness(0.9) !important;
-        }
-
-        .ds-card .meta .title {
-            font-size: 20px !important;
-            line-height: 24px !important;
-            font-weight: 600 !important;
-        }
-
-        .ds-card header {
-            color: var(--newtab-text-primary-color) !important;
-        }
-
-        .ds-card .ds-card-link:hover header {
-            text-decoration: underline !important;
-        }
-
-        .ds-card .meta .source {
-            font-weight: 400 !important;
-            line-height: 16px !important;
-            font-size: 12px !important;
-            color: var(--newtab-text-secondary-color) !important;
-        }
-
-        .ds-card .meta .excerpt {
-            margin-top: 2px !important;
-            font-size: 14px !important;
-            line-height: 20px !important;
-            color: var(--newtab-text-primary-color) !important;
-            opacity: 0.8 !important;
-        }
-
-        /* Recent Activity Cards */
-        .ds-highlights .section .section-list {
-            gap: 12px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer {
-            border-radius: 6px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer .card {
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-            border-radius: 6px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
-            border-radius: 6px 6px 0 0 !important;
-        }
-
-        .card-outer:is(:hover,
-            :focus,
-            .active):not(.placeholder) .card-title {
-            color: var(--newtab-text-primary-color) !important;
-            text-decoration: underline !important;
-        }
-
-        .card-outer:is(:hover,
-            :focus,
-            .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
-            filter: brightness(0.99) !important;
-        }
+    .top-site-outer .title:not(.sponsored) .sponsored-label {
+        display: none !important;
     }
 
+    /* Recommended by Pocket Cards */
+    .ds-card-grid {
+        gap: 12px !important;
+    }
 
-    /*
+    .ds-card-grid .ds-card {
+        background-color: var(--newtab-card-background-color) !important;
+    }
+
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
+        border-radius: 6px !important;
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .ds-card .ds-card-link:hover .img-wrapper {
+        filter: brightness(0.9) !important;
+    }
+
+    .ds-card .meta .title {
+        font-size: 20px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+    }
+
+    .ds-card header {
+        color: var(--newtab-text-primary-color) !important;
+    }
+
+    .ds-card .ds-card-link:hover header {
+        text-decoration: underline !important;
+    }
+
+    .ds-card .meta .source {
+        font-weight: 400 !important;
+        line-height: 16px !important;
+        font-size: 12px !important;
+        color: var(--newtab-text-secondary-color) !important;
+    }
+
+    .ds-card .meta .excerpt {
+        margin-top: 2px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: var(--newtab-text-primary-color) !important;
+        opacity: 0.8 !important;
+    }
+
+    /* Recent Activity Cards */
+    .ds-highlights .section .section-list {
+        gap: 12px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer {
+        border-radius: 6px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer .card {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 6px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .card-outer:is(:hover,
+        :focus,
+        .active):not(.placeholder) .card-title {
+        color: var(--newtab-text-primary-color) !important;
+        text-decoration: underline !important;
+    }
+
+    .card-outer:is(:hover,
+        :focus,
+        .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
+        filter: brightness(0.99) !important;
+    }
+}
+
+
+/*
 @-moz-document url-prefix(about:newtab),
 url-prefix(about:home) {
     .top-site-outer .tile .icon-wrapper {
@@ -1272,15 +1273,15 @@ url-prefix(about:home) {
 
     /*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
 
-    .top-site-outer:is(.active,
-        :focus,
-        :hover) {
-        box-shadow: none !important;
-        background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
-    }
+.top-site-outer:is(.active,
+    :focus,
+    :hover) .tile {
+    box-shadow: none !important;
+    background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+}
 
 
-    /*Colores de la sidebar para Personalizar la NewTab*
+/*Colores de la sidebar para Personalizar la NewTab*
 
 .customize-menu {
     color: var(--newtab-wordmark-color) !important;
