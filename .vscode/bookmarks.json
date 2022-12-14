@@ -1,0 +1,39 @@
+{
+	"files": [
+		{
+			"path": "userChrome.css",
+			"bookmarks": [
+				{
+					"line": 1327,
+					"column": 11,
+					"label": ""
+				},
+				{
+					"line": 2954,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 2974,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 3033,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 3440,
+					"column": 7,
+					"label": ""
+				},
+				{
+					"line": 3495,
+					"column": 2,
+					"label": ""
+				}
+			]
+		}
+	]
+}

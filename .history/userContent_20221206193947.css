@@ -16,12 +16,10 @@
 @import url(resources/in-content/ext-firefoxnotes.css);
 @import url(resources/in-content/ext-sortbookmarks.css);
 @import url(resources/in-content/ext-privatebookmarks.css);
-@import url(resources/in-content/site-google.css);
-@import url(resources/in-content/site-mozilla.css);
-@import url(resources/in-content/site-subscene.css);
+@import url(resources/in-content/ext-rss.css);
+@import url(resources/in-content/site-reddit.css);
 @import url(resources/in-content/misc-content.css);
 @import url(resources/in-content/custom-content.css);
-@import url(parts/onetab-darktheme.css);
 @import url(addons.css);
 
 /*
@@ -32,13 +30,21 @@
 @import url(resources/in-content/ext-ublock.css);
 @import url(resources/in-content/site-wiki.css);
 @import url(resources/in-content/site-github.css);
+@import url(resources/in-content/site-subscene.css);
+@import url(resources/in-content/site-mozilla.css);
 
-/* Removes the white loading page /
-@-moz-document url("about:blank"){
-	html:not(#ublock0-epicker), html:not(#ublock0-epicker) body, #newtab-customize-overlay {
-			background-color: #30325e70 !important; /*#232324
+/* Removes the white loading page */
+@-moz-document url("about:blank") {
 
-/*url(about:newtab), url(about:home)*/
+    html:not(#ublock0-epicker),
+    html:not(#ublock0-epicker) body,
+    #newtab-customize-overlay {
+        background-color: #30325e70 !important;
+    }
+
+    /*#232324
+
+/*url(about:newtab), url(about:home)
 @-moz-document url("about:blank"),
 url("about:newtab"),
 url("about:home") {
@@ -46,7 +52,7 @@ url("about:home") {
     html:not(#ublock0-epicker),
     html:not(#ublock0-epicker) body,
     #newtab-customize-overlay {
-        background: #30325e70 !important;
+        background: #5532be70 !important;
     }
 
     /*var(bf-bg)*/
@@ -218,8 +224,8 @@ url("about:home") {
         }
 
         .home-section .section .selector {
-            background-color: #1d1d38 !important;
-            border: 1px solid #4a4a9b !important;
+            background-color: #330475 !important;
+            border: 1px solid #654a9b !important;
         }
 
         /*Button color "Close"*/
@@ -273,7 +279,7 @@ url("about:home") {
 /* Color of the three-point menu background*/
 
     .context-menu {
-        background: #1d1d38 !important;
+        background: #5726f6 !important;
     }
 
 
@@ -294,7 +300,7 @@ url("about:home") {
     @-moz-document url("about:preferences"),
     url("about:addons") {
         .dialogBox {
-            --in-content-page-background: #1d1d3bfa !important;
+            --in-content-page-background: #31137ffa !important;
         }
 
         /*Color of background  dialogWindow*/
@@ -344,7 +350,7 @@ url("about:home") {
     @-moz-document url("about:privatebrowsing") {
         :root {
             scrollbar-width: thin !important;
-            scrollbar-color: #38375580 transparent !important;
+            scrollbar-color: #7822e97d transparent !important;
         }
     }
 
@@ -464,7 +470,7 @@ url("about:home") {
     @-moz-document url("about:preferences"),
     url(about:addons) {
         .dialogBox {
-            --in-content-page-background: #1d1d3bfa !important;
+            --in-content-page-background: #340964fa !important;
         }
     }
 
@@ -473,7 +479,7 @@ url("about:home") {
 
         /* Customization of the NewTab page*/
         body {
-            background-color: #1d1d3bfa !important;
+            background-color: #31006dfa !important;
             background-repeat: no-repeat !important;
             background-position: center top !important;
             background-size: cover !important;
@@ -499,11 +505,11 @@ url("about:home") {
     /*------ ONETAB ADDON ------*/
     /* moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html */
 
-    @-moz-document url("moz-extension://230bbecf-4f03-ae44-b003-63054bbc7c0d/onetab.html") {
+    @-moz-document url("moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html") {
 
         html,
         body {
-            background: #1d1d3bfa !important;
+            background: #1e1e1efa !important;
         }
 
         #settingsDiv {
@@ -562,7 +568,7 @@ url("about:home") {
     /*** ONETAB dark mode */
     /* moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html */
 
-    @-moz-document url("moz-extension://3b404296-4156-1646-9241-115998b0d34b/onetab.html") {
+    @-moz-document url("moz-extension://a1058ca2-1265-4bc9-8860-6b3e70f6042c/onetab.html") {
 
         html,
         html[class],
@@ -571,7 +577,7 @@ url("about:home") {
         body[class],
         body[id],
         input {
-            background: #1d1d3bfa !important;
+            background: #2b153efa !important;
         }
 
         div:last-child,
@@ -617,7 +623,7 @@ url("about:home") {
         }
 
         a:hover {
-            color: #4a4a9b !important;
+            color: #cbcbff !important;
         }
 
         li {
@@ -733,7 +739,7 @@ url("about:home") {
     @-moz-document url("about:privatebrowsing") {
         :root {
             scrollbar-width: thin !important;
-            scrollbar-color: #8682fe transparent !important;
+            scrollbar-color: #9500ff76 transparent !important;
         }
     }
 
@@ -1028,12 +1034,12 @@ url("about:home") {
     }
 
 
-    /* Proton NewTab Page */
+    /* Proton NewTab Page *
 
     @-moz-document url("about:newtab"),
     url("about:home") {
 
-        /* Lightmode Colours */
+        /* Lightmode Colours *
         body:not([lwt-newtab],
             [lwt-newtab-brighttext]) {
             --newtab-background-color: #f5f5f5 !important;
@@ -1052,7 +1058,7 @@ url("about:home") {
             --newtab-card-hairline-color: rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* Darkmode Colours */
+        /* Darkmode Colours *
         body[style*="--newtab-background-color:rgba(42, 42, 46, 1); --newtab-text-primary-color:rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
         body[style*="--newtab-background-color: rgba(43, 42, 51, 1); --newtab-text-primary-color: rgba(251, 251, 254, 1);"][lwt-newtab-brighttext],
         body:not([style*="color"])[lwt-newtab-brighttext] {
@@ -1073,54 +1079,54 @@ url("about:home") {
         }
 
         /* Search Textbox */
-        .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button,
-        .outer-wrapper.newtab-experience .search-wrapper input {
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-            border-radius: 4px !important;
-            font-weight: 400 !important;
-            border: 0 !important;
-        }
+    .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button,
+    .outer-wrapper.newtab-experience .search-wrapper input {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 4px !important;
+        font-weight: 400 !important;
+        border: 0 !important;
+    }
 
-        .fake-textbox {
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-        }
+    .fake-textbox {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
 
-        .outer-wrapper.newtab-experience .search-wrapper .search-inner-wrapper {
-            min-height: 44px !important;
-        }
+    .outer-wrapper.newtab-experience .search-wrapper .search-inner-wrapper {
+        min-height: 44px !important;
+    }
 
-        .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button .fake-caret {
-            top: 14px !important;
-        }
+    .outer-wrapper.newtab-experience .search-wrapper .search-handoff-button .fake-caret {
+        top: 14px !important;
+    }
 
-        .search-wrapper.search-disabled .search-handoff-button {
-            opacity: 0 !important;
-        }
+    .search-wrapper.search-disabled .search-handoff-button {
+        opacity: 0 !important;
+    }
 
-        body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            background-color: color-mix(in srgb, var(--newtab-background-color) 95%, transparent) !important;
-        }
+    body:not(.inline-onboarding) .fixed-search .search-wrapper {
+        background-color: color-mix(in srgb, var(--newtab-background-color) 95%, transparent) !important;
+    }
 
-        /* Topsite Tiles */
-        .outer-wrapper.newtab-experience .top-site-outer .tile {
-            border-radius: 10px !important;
-            -webkit-border-radius: 10px !important;
-            -moz-border-radius: 10px !important;
-            -ms-border-radius: 10px !important;
-            -o-border-radius: 10px !important;
-        }
+    /* Topsite Tiles */
+    .outer-wrapper.newtab-experience .top-site-outer .tile {
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+    }
 
-        .outer-wrapper.newtab-experience .top-site-outer {
-            border-radius: 10px !important;
-            -webkit-border-radius: 10px !important;
-            -moz-border-radius: 10px !important;
-            -ms-border-radius: 10px !important;
-            -o-border-radius: 10px !important;
-        }
+    .outer-wrapper.newtab-experience .top-site-outer {
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+    }
 
-        /* Topsite Tile Size Adjustments *
+    /* Topsite Tile Size Adjustments *
     .outer-wrapper.newtab-experience .top-site-outer .tile {
         height: 44px !important;
         width: 44px !important;
@@ -1156,95 +1162,95 @@ url("about:home") {
         fill: var(--newtab-icon-primary-color) !important;
     }
     */
-        .top-site-outer .title:not(.sponsored) .sponsored-label {
-            display: none !important;
-        }
-
-        /* Recommended by Pocket Cards */
-        .ds-card-grid {
-            gap: 12px !important;
-        }
-
-        .ds-card-grid .ds-card {
-            background-color: var(--newtab-card-background-color) !important;
-        }
-
-        .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
-            border-radius: 6px !important;
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-        }
-
-        .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
-            border-radius: 6px 6px 0 0 !important;
-        }
-
-        .ds-card .ds-card-link:hover .img-wrapper {
-            filter: brightness(0.9) !important;
-        }
-
-        .ds-card .meta .title {
-            font-size: 20px !important;
-            line-height: 24px !important;
-            font-weight: 600 !important;
-        }
-
-        .ds-card header {
-            color: var(--newtab-text-primary-color) !important;
-        }
-
-        .ds-card .ds-card-link:hover header {
-            text-decoration: underline !important;
-        }
-
-        .ds-card .meta .source {
-            font-weight: 400 !important;
-            line-height: 16px !important;
-            font-size: 12px !important;
-            color: var(--newtab-text-secondary-color) !important;
-        }
-
-        .ds-card .meta .excerpt {
-            margin-top: 2px !important;
-            font-size: 14px !important;
-            line-height: 20px !important;
-            color: var(--newtab-text-primary-color) !important;
-            opacity: 0.8 !important;
-        }
-
-        /* Recent Activity Cards */
-        .ds-highlights .section .section-list {
-            gap: 12px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer {
-            border-radius: 6px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer .card {
-            box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
-            border-radius: 6px !important;
-        }
-
-        .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
-            border-radius: 6px 6px 0 0 !important;
-        }
-
-        .card-outer:is(:hover,
-            :focus,
-            .active):not(.placeholder) .card-title {
-            color: var(--newtab-text-primary-color) !important;
-            text-decoration: underline !important;
-        }
-
-        .card-outer:is(:hover,
-            :focus,
-            .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
-            filter: brightness(0.99) !important;
-        }
+    .top-site-outer .title:not(.sponsored) .sponsored-label {
+        display: none !important;
     }
 
+    /* Recommended by Pocket Cards */
+    .ds-card-grid {
+        gap: 12px !important;
+    }
 
-    /*
+    .ds-card-grid .ds-card {
+        background-color: var(--newtab-card-background-color) !important;
+    }
+
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) {
+        border-radius: 6px !important;
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:not(.placeholder) .img-wrapper .img img {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .ds-card .ds-card-link:hover .img-wrapper {
+        filter: brightness(0.9) !important;
+    }
+
+    .ds-card .meta .title {
+        font-size: 20px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+    }
+
+    .ds-card header {
+        color: var(--newtab-text-primary-color) !important;
+    }
+
+    .ds-card .ds-card-link:hover header {
+        text-decoration: underline !important;
+    }
+
+    .ds-card .meta .source {
+        font-weight: 400 !important;
+        line-height: 16px !important;
+        font-size: 12px !important;
+        color: var(--newtab-text-secondary-color) !important;
+    }
+
+    .ds-card .meta .excerpt {
+        margin-top: 2px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: var(--newtab-text-primary-color) !important;
+        opacity: 0.8 !important;
+    }
+
+    /* Recent Activity Cards */
+    .ds-highlights .section .section-list {
+        gap: 12px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer {
+        border-radius: 6px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer .card {
+        box-shadow: 0 0 2.9px rgba(0, 0, 0, 0.11), 0 1.6px 3.6px rgba(0, 0, 0, 0.13) !important;
+        border-radius: 6px !important;
+    }
+
+    .outer-wrapper.newtab-experience .card-outer .card-preview-image-outer {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .card-outer:is(:hover,
+        :focus,
+        .active):not(.placeholder) .card-title {
+        color: var(--newtab-text-primary-color) !important;
+        text-decoration: underline !important;
+    }
+
+    .card-outer:is(:hover,
+        :focus,
+        .active):not(.placeholder) .card-preview-image-outer .card-preview-image {
+        filter: brightness(0.99) !important;
+    }
+}
+
+
+/*
 @-moz-document url-prefix(about:newtab),
 url-prefix(about:home) {
     .top-site-outer .tile .icon-wrapper {
@@ -1262,34 +1268,34 @@ url-prefix(about:home) {
 
 /*colores al pasar el mouse sobre los sitios anclados en :hover*/
 
-    .top-site-outer:is(.active,
-        :focus,
-        :hover) .tile {
-        box-shadow: -1px 0 var(--newtab-background-color), 1px 0 var(--newtab-background-color), 0 -1px var(--newtab-background-color), 0 1px var(--newtab-background-color) !important;
-        background-color: color-mix(in srgb, var(--newtab-background-color, Field) 65%, transparent) !important;
-    }
+.top-site-outer:is(.active,
+    :focus,
+    :hover) .tile {
+    box-shadow: -1px 0 var(--newtab-background-color), 1px 0 var(--newtab-background-color), 0 -1px var(--newtab-background-color), 0 1px var(--newtab-background-color) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color, Field) 65%, transparent) !important;
+}
 
 
-    /*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
+/*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
 
-    .top-site-outer:is(.active,
-        :focus,
-        :hover) {
-        box-shadow: none !important;
-        background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
-    }
+.top-site-outer:is(.active,
+    :focus,
+    :hover) .tile {
+    box-shadow: none !important;
+    background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+}
 
 
-    /*Colores de la sidebar para Personalizar la NewTab*
+/*Colores de la sidebar para Personalizar la NewTab*/
 
 .customize-menu {
     color: var(--newtab-wordmark-color) !important;
-    background-color: color-mix( in srgb, var(--newtab-background-color) 95%, var(--newtab-wordmark-color)) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color) 95%, var(--newtab-wordmark-color)) !important;
 }
 
 .home-section .section .selector {
-    background-color: color-mix( in srgb, var(--newtab-background-color) 98%, white) !important;
-    border: 1px solid color-mix( in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color)) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color) 98%, white) !important;
+    border: 1px solid color-mix(in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color)) !important;
     box-shadow: none !important;
 }
 
@@ -1306,15 +1312,409 @@ url-prefix(about:home) {
     #newtab-customize-overlay {
         background-color: #232324 !important;
         /*#232324*/
+    }
+
+
+    @-moz-document url("about:home"),
+    url("about:newtab") {
+
+        html:not(#ublock0-epicker),
+        html:not(#ublock0-epicker) body,
+        #newtab-customize-overlay {
+            background-color: #232324 !important;
+
+        }
+    }
+
+
+    /* ----- My Custom Colors ----- */
+    :root {
+        --firefoxcss-main-bg-color: hsl(240, 2%, 13%);
+        --firefoxcss-item-bg-color: hsl(240, 2%, 20%);
+        --firefoxcss-item-hover-bg-color: hsl(240, 2%, 25%);
+        --firefoxcss-text-color: hsl(0, 0%, 100%);
+        --firefoxcss-other-color: hsl(290, 21%, 20%);
+    }
+
+    * {
+        scrollbar-color: #afafaf #2c2c2c !important;
+    }
+
+    body {
+        --newtab-search-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
+    }
+
+    @-moz-document url("about:privatebrowsing") {
+        body {
+            background-color: var(--firefoxcss-main-bg-color) !important;
+            background-size: auto;
+            background-size: cover !important;
+        }
+    }
+
+    /* html.private {
+		background-color: #1e1e1e80 !important;
+		background-image: url(image/.jpg) !important ;
+		background-size: cover  !important;
+	} */
+
+    #search-handoff-button {
+        appearance: none !important;
+        background-color: hsla(275, 13%, 33%, 0.3) !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-top: 1px solid hsla(275, 13%, 40%, 0.3) !important;
+        border-radius: 10px 10px 10px 10px !important;
+        fill: hsl(275, 13%, 53%) !important;
+        box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+            0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+            0 6px 6px hsl(0deg 0% 0% / 0.075), 0 12px 12px hsl(0deg 0% 0% / 0.095) !important;
+        transition: background-color 100ms ease-in, border-color 100ms ease-in,
+            fill 100ms ease-in !important;
+        backdrop-filter: blur(24px) !important;
+    }
+
+    #search-handoff-button:hover,
+    #search-handoff-button:focus,
+    #search-handoff-button:active {
+        background-color: hsla(275, 13%, 43%, 0.3) !important;
+        border-top: 1px solid hsla(275, 13%, 50%, 0.3) !important;
+        fill: hsl(275, 13%, 63%) !important;
+    }
+
+    #search-handoff-button .fake-textbox {
+        color: hsl(275, 13%, 53%) !important;
+        opacity: 0.8 !important;
+        transition: color 100ms ease-in, opacity 100ms ease-in !important;
+    }
+
+    #search-handoff-button:active>.fake-textbox,
+    #search-handoff-button:hover>.fake-textbox,
+    #search-handoff-button:focus>.fake-textbox {
+        color: hsl(275, 13%, 63%) !important;
+    }
+
+    #search-handoff-button .fake-caret {
+        background: hsl(290, 21%, 80%) !important;
+    }
+
+    .logo-and-wordmark .wordmark {
+        fill: #8f25d1 !important;
+        opacity: 0.9 !important;
+    }
+
+    .showPrivate.showSearch.container .info {
+        display: none !important;
+    }
+
+    .private .search-inner-wrapper {
+        height: 42px !important;
+        /* 48px default */
+    }
+
+    .private .search-inner-wrapper .fake-caret {
+        top: 13px !important;
+        /* 16px default */
+    }
+
+    .private .search-inner-wrapper #search-handoff-button {
+        background-size: 20px !important;
+    }
 }
 
-/*
 @-moz-document url("about:home"),
 url("about:newtab") {
+    body {
+        --newtab-background-color: var(--firefoxcss-main-bg-color) !important;
+        background-size: cover !important;
+    }
+
+    /* For background blur */
+    .outer-wrapper {
+        background-color: #1e1e1e88 !important;
+        backdrop-filter: blur(24px) !important;
+    }
+
+    .search-wrapper .search-handoff-button {
+        appearance: none !important;
+        background-color: var(--firefoxcss-item-bg-color) !important;
+        color: rgba(251, 251, 254, 1) !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-top: 1px solid #ffffff26 !important;
+        border-radius: 10px !important;
+        backdrop-filter: blur(24px) !important;
+        box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+            0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+            0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.095) !important;
+        fill: #ffffff5e !important;
+        transition: background-color 250ms ease, border-color 250ms ease,
+            fill 250ms ease !important;
+        padding-inline-start: 48px !important;
+    }
+
+    .body-wrapper .tile {
+        background-color: var(--firefoxcss-item-bg-color) !important;
+        border-top: 1px solid #ffffff26 !important;
+        box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+            0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+            0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075) !important;
+        transition: background-color 250ms ease, border-color 250ms ease !important;
+        border-radius: 10px !important;
+    }
+
+    .body-wrapper .top-site-button:hover .tile {
+        /* background-color: rgba(230, 230, 230, 0.15) !important; */
+        background-color: var(--firefoxcss-item-hover-bg-color) !important;
+        border-top: 1px solid #97979791 !important;
+    }
+
+    #root .customize-menu {
+        background-image: url("image/noise-512x512.png") !important;
+        background-color: #1e1e1e8c !important;
+        backdrop-filter: blur(24px) !important;
+    }
+
+    .home-section .section .selector {
+        background-color: #1e1e1e80 !important;
+    }
+
+    .top-sites-list:not(.dnd-active) .top-site-outer:hover:not(.active),
+    .top-site-outer .top-site-icon {
+        background-color: transparent !important;
+    }
+
+    .search-wrapper input:focus {
+        color: white !important;
+    }
+
+    .top-site-outer .top-site-button .title {
+        opacity: 0.6 !important;
+        transition: opacity 0.4s !important;
+    }
+
+    .top-site-outer .top-site-button:hover .title {
+        opacity: 1 !important;
+    }
+
+    .top-site-outer .context-menu-button.icon:is(:active, :focus) {
+        fill: #f79743 !important;
+        background-color: transparent !important;
+        border: 0 !important;
+    }
+
+    .card-outer .context-menu-button.icon:is(:active, :focus) {
+        fill: #f79743 !important;
+        background-color: var(--firefoxcss-item-bg-color) !important;
+        border: 0 !important;
+    }
+
+    .card-outer .context-menu-button.icon {
+        background-color: var(--firefoxcss-item-bg-color) !important;
+        border: 0 !important;
+    }
+
+    .top-site-button .title.has-icon.pinned span .icon {
+        opacity: 0.6 !important;
+        display: none !important;
+    }
+
+    .top-site-button .title.has-icon.pinned span:hover .icon {
+        display: inline-block !important;
+    }
+
+    .top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus) {
+        background-color: hsla(0, 0%, 10%, 0.7) !important;
+    }
+
+    .top-site-outer .context-menu,
+    .card-outer .context-menu {
+        background-image: url("image/noise-512x512.png") !important;
+        background-color: #13131380 !important;
+        backdrop-filter: blur(32px) !important;
+        border: 1px solid hsla(0, 0%, 70%, 0.145);
+        border-radius: 8px !important;
+    }
+
+    .top-site-outer .context-menu>ul>li.separator,
+    .card-outer .context-menu>ul>li.separator {
+        border-bottom: 1px solid #ffffff29 !important;
+    }
+
+    .search-wrapper .search-handoff-button input {
+        border-radius: 10px 10px 10px 10px !important;
+    }
+
+    .search-wrapper .search-handoff-button .fake-caret {
+        top: 13px !important;
+        /*18 default. calculate=18-((52px - min-height)/2) */
+        inset-inline-start: 48px !important;
+    }
+
+    .search-wrapper .logo-and-wordmark {
+        opacity: 0.9 !important;
+        order: 1 !important;
+        margin-bottom: 0 !important;
+        flex: 1 !important;
+        flex-basis: 20% !important;
+    }
+
+    .search-wrapper .logo-and-wordmark .logo {
+        background-size: 60px !important;
+        height: 60px !important;
+        width: 60px !important;
+    }
+
+    .search-wrapper .logo-and-wordmark .wordmark {
+        background-size: 132px !important;
+        height: 42px !important;
+        margin-inline-start: 12px !important;
+        width: 144px !important;
+    }
+
+    .outer-wrapper .search-wrapper {
+        padding: 0px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        align-content: space-around !important;
+        gap: 20px 10px !important;
+    }
+
+    .outer-wrapper .non-collapsible-section {
+        padding: 0 35px !important;
+    }
+
+    .body-wrapper .collapsible-section {
+        padding: 20px 25px !important;
+    }
+
+    .search-wrapper .search-handoff-button,
+    .search-wrapper input {
+        background-size: 20px !important;
+    }
+
+    .search-wrapper .search-inner-wrapper {
+        min-height: 42px !important;
+        /* 52px default */
+        order: 2 !important;
+        flex: 3 !important;
+        flex-basis: 60% !important;
+        top: 4px !important;
+    }
+
+    /* When there is overflow because of the height, search bar gets fixed position */
+    .outer-wrapper.fixed-search .search-wrapper {
+        backdrop-filter: blur(18px) !important;
+        gap: 0px 0px !important;
+        min-height: 60px !important;
+    }
+
+    body:not(.inline-onboarding) .fixed-search.visible-logo main {
+        padding-top: 0px !important;
+    }
+
+    .outer-wrapper.fixed-search .search-wrapper .search-inner-wrapper {
+        top: 0 !important;
+    }
+
+    .outer-wrapper.fixed-search .search-wrapper .search-inner-wrapper button.search-handoff-button {
+        backdrop-filter: blur(22px) !important;
+        background-color: #1e1e1e8c !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0px 50px !important;
+    }
+
+    .search-wrapper .search-handoff-button .fake-textbox {
+        opacity: 0.4 !important;
+        color: rgba(251, 251, 254, 1) !important;
+        transition: opacity 0.4s !important;
+    }
+
+    .search-wrapper .search-handoff-button:active>.fake-textbox,
+    .search-wrapper .search-handoff-button:hover>.fake-textbox,
+    .search-wrapper .search-handoff-button:focus>.fake-textbox {
+        opacity: 0.8 !important;
+    }
+
+    .search-inner-wrapper:hover .search-handoff-button {
+        background-color: var(--firefoxcss-item-hover-bg-color) !important;
+        border-top: 1px solid #97979791 !important;
+        fill: rgba(251, 251, 254, 0.8) !important;
+    }
+
+    .collapsible-section .card-outer {
+        background-color: var(--firefoxcss-item-bg-color) !important;
+    }
+
+    .collapsible-section .card-outer .card-preview-image-outer {
+        background-color: var(--firefoxcss-item-hover-bg-color) !important;
+    }
+
+    .compact-cards .card-outer .card-context {
+        background-color: var(--firefoxcss-item-bg-color) !important;
+    }
+
+    @media only screen and (max-width: 609px) {
+        .ds-outer-wrapper-breakpoint-override main {
+            width: 386px !important;
+        }
+    }
+
+    @media only screen and (max-width: 385px) {
+        .search-wrapper .search-inner-wrapper .search-handoff-button {
+            padding-top: 4px !important;
+            padding-bottom: 6px !important;
+        }
+
+        .ds-outer-wrapper-breakpoint-override main {
+            width: 266px !important;
+        }
+    }
+
+    .outer-wrapper .search-wrapper .search-handoff-button {
+        /* background-image: url("image/search-glass.svg") !important; */
+        /* background-size: 16px !important;  */
+    }
+}
+
+@-moz-document url("about:firefoxview") {
+    body {
+        --newtab-background-color: var(--firefoxcss-main-bg-color) !important;
+        max-width: 80rem !important;
+    }
+
+    body>main {
+        grid-template-columns: 1fr !important;
+    }
+
+    main aside.content-container {
+        display: none !important;
+    }
+
+    #colorways {
+        display: none !important;
+    }
+
+    #tabpickup-tabs-container #synced-tabs-placeholder {
+        background-color: var(--firefoxcss-item-bg-color) !important;
+        border-radius: 8px !important;
+    }
+
+    #collapsible-tabs-container .closed-tabs-list .closed-tab-li:hover {
+        background-color: var(--firefoxcss-item-hover-bg-color) !important;
+        border-radius: 4px !important;
+    }
+}
+
+@-moz-document url("about:blank") {
 
     html:not(#ublock0-epicker),
     html:not(#ublock0-epicker) body,
     #newtab-customize-overlay {
-        background-color: #232324 !important;
+        background-color: var(--firefoxcss-main-bg-color) !important;
     }
 }
