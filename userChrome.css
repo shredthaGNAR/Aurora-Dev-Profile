@@ -430,13 +430,13 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 
 .tabbrowser-tab[multiselected]>.tab-stack>.tab-background:is([multiselected]),
 .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
-  background-color: #4d4dfec7 !important;
+  background-color: #2d016ec7 !important;
   /*#4d4dfe*/
   border-radius: 10px !important;
 }
 
 .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"], [multiselected]) {
-  background-color: #4d4dfe50 !important;
+  background-color: #3d008c84 !important;
   border-radius: 10px !important;
 }
 
@@ -462,7 +462,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 .tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
   background-image: var(--my-gradient) !important;
   border-radius: 10px !important;
-  background-color: #4d4dfe50 !important;
+  background-color: #25004550 !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
@@ -476,7 +476,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 
 .tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
   border-radius: 10px !important;
-  background-color: #4d4dfe50 !important;
+  background-color: #25015050 !important;
   margin-top: 3px !important;
   transition-duration: 0ms !important;
 }
@@ -488,7 +488,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 
 .tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
   background-image: var(--my-gradient) !important;
-  background-color: #4d4dfe50 !important;
+  background-color: #25004a64 !important;
   border-radius: 10px !important;
 }
 
@@ -516,7 +516,7 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 }
 
 .tab-close-button:hover {
-  background-color: var(--toolbarbutton-active-background) !important;
+  background-color: rgba(20, 1, 42, 0.809) !important;
 }
 
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
@@ -743,7 +743,7 @@ slot {
       transparent 90%) !important;
   height: 2px !important;
   border-radius: 10px !important;
-  box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;
+  box-shadow: 0 0 2px var(--identity-icon-color) !important;
 }
 
 /* Loaded but unread (not selected) */
@@ -920,7 +920,7 @@ menupopup>menuitem {
 
 .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="“true”"], [multiselected]) {
   background-color: #4d4dfe50 !important;
-  background-image: -var(--my-gradient) !important;
+  background-image: var(--my-gradient) !important;
   border-radius: 10px !important;
 }
 
@@ -936,7 +936,7 @@ menupopup>menuitem {
   background: var(--identity-tab-color) !important;
   border-left: 1px solid rgba(130, 130, 130, 0.5) !important;
   border-right: 1px solid rgba(130, 130, 130, 0.5) !important;
-  border-bottom: var(--identity-tab-color) !important;
+  /*  border-bottom: var(--identity-tab-color) !important;*/
   opacity: 1 !important;
   border-radius: 10px !important;
 }
@@ -1772,9 +1772,10 @@ thing with the all-tabs-menu loading icons in the next ruleset below. */
 
 }
 
-/* ANIMATION METHOD #4:*
+/* ANIMATION METHOD #4:*/
 :root[sessionrestored] .tab-throbber[throbber-loaded]:-moz-locale-dir(rtl)::before {
-  animation-name: uc-tab-throbber-spinner-sprite-rtl !important;}
+  animation-name: uc-tab-throbber-spinner-sprite-rtl !important;
+}
 
 
 /* all tabs menu & vertical tabs pane (script) */
@@ -2825,18 +2826,20 @@ toolbar toolbarbutton .toolbarbutton-icon {
   background-color: var(--toolbarbutton-active-background) !important;
 }
 
-/* Put tab close button and icon sound to the right *
+/* Put tab close button and icon sound to the right */
 .tab-icon-sound[soundplaying="true"],
 .tab-icon-sound[activemedia-blocked="true"] {
   margin-left: auto !important;
 }
 
 /* In case firefox changes, muted icon fix can be changed here */
-/* .tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button,
+.tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button,
 .tabbrowser-tab[soundplaying-scheduledremoval="true"] .tab-icon-stack,
 .tabbrowser-tab .tab-icon-stack[muted="true"]:not([soundplaying-scheduledremoval="true"]) {
-	margin-left: auto !important;
-} */
+  margin-left: auto !important;
+}
+
+*/
 
 /* Icons light/dark fix coloring hack filters */
 :root {
@@ -2933,21 +2936,21 @@ toolbar {
 /* Personal Toolbar Buttons */
 #PersonalToolbar {
   background-image: url(image/noise-512x512.png) !important;
-  background-color: #2a2a2ac0 !important;
+  background-color: #2a2a2a72 !important;
   -webkit-backdrop-filter: blur(32px) !important;
   backdrop-filter: blur(32px) !important;
 }
 
 
 navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-toolbox {
-  -moz-appearance: -moz-mac-source-list !important;
+  -moz-appearance: none !important;
 }
 
 /* Remove selected tab shadow, darken the border to account for lighter background color */
 #TabsToolbar #firefox-view-button[open]>.toolbarbutton-icon,
 #tabbrowser-tabs .tab-background:is([selected], [multiselected]) {
   border-color: color-mix(in srgb, currentColor 35%, transparent) !important;
-  /* box-shadow: unset !important;*/
+  box-shadow: unset !important;
 }
 
 /* Show new indicator with smaller icon but NO label private browsing
@@ -2956,21 +2959,21 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 }
   /**** Audio Playing / Mute Button side-by-side when sound is playing ****
 
-/* Move the mute/unmute button to the right and enlarge it *
+/* Move the mute/unmute button to the right and enlarge it */
 .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
   width: var(--user-mute-button-height) !important;
   height: var(--user-mute-button-height) !important;
   margin-left: calc(var(--user-mute-button-height) / 2 + 2px) !important;
-  /* pushes icon to the right *
+  /* pushes icon to the right */
   margin-right: 2px !important;
-  /* closes up some space before the text *
+  /* closes up some space before the text */
   padding: 0 !important;
 }
 
-/* Move the site icon to the left a bit and adjust position *
+/* Move the site icon to the left a bit and adjust position */
 .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
   margin-left: -4px !important;
-  /* pushes icon to the left *
+  /* pushes icon to the left */
   margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;
 }
 
@@ -3006,7 +3009,7 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
 /* highlighting tabs with sound playing */
 .tabbrowser-tab[soundplaying="true"]:not([selected]) .tab-background {
   border: 2px solid !important;
-  border-color: rgba(106, 255, 0, 0.931) !important;
+  border-color: rgba(0, 255, 149, 0.931) !important;
   background-color: rgba(7, 255, 185, 0.568) !important;
 }
 
@@ -3050,7 +3053,7 @@ navigator-toolbox[inFullscreen="true"] :root:-moz-window-inactive #navigator-too
   background-size: 100% 2px, 100% 2px !important;
 }
 
-#reader-mode-button {
+*/ #reader-mode-button {
   display: none !important
 }
 
@@ -3135,7 +3138,7 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
 #new-tab-button .toolbarbutton-icon {
   width: calc(2 * var(--toolbarbutton-inner-padding) + 12px) !important;
   height: calc(2 * var(--toolbarbutton-inner-padding) + 12px) !important;
-}*/
+}
 
 #tabbrowser-tabs .tabbrowser-tab .tab-background:is([selected]):is([multiselected]) {
   outline: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -3174,7 +3177,7 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
 }
 
 .tab-content[selected="hover"] {
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.3),
     1px 1px 1px rgba(0, 0, 0, 0.5) !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
@@ -3188,8 +3191,8 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
 /* different tab shadows in various states. to produce the illusion of modulated depth */
 
 .tabbrowser-tab .tab-content {
-  box-shadow: 0px 0px 15px 0px hsla(0, 0%, 0%, 0.2),
-    0px 0px 5px 0px hsla(0, 0%, 0%, 0.1) !important;
+  box-shadow: 0px 0px 15px 0px hsla(0, 0%, 0%, 0.3),
+    0px 0px 5px 0px hsla(0, 0%, 0%, 0.4) !important;
 }
 
 .tabbrowser-tab:not([selected], [multiselected]):is(:hover, .keyboard-focused-tab, [open]) .tab-content,
@@ -3248,7 +3251,7 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
 }
 
 .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="“true”"], [multiselected]) {
-  background-color: #4d4dfe50 !important;
+  background-color: #20025077 !important;
   background-image: -var(--my-gradient) !important;
   border-radius: 10px !important;
 }
@@ -3265,11 +3268,245 @@ toolbar #new-tab-button:not([disabled="true"]):not([checked]):not([open]):not(:a
   background: var(--identity-tab-color) !important;
   border-left: 1px solid rgba(130, 130, 130, 0.5) !important;
   border-right: 1px solid rgba(130, 130, 130, 0.5) !important;
-  border-bottom: var(--identity-tab-color) !important;
+  border-bottom: none !important;
+  /*var(--identity-tab-color) !important;*/
   opacity: 1 !important;
   border-radius: 10px !important;
 }
 
 .tab-content[selected="true"] {
   border-radius: 10px !important;
+}
+
+/* Pinned Tab - Titlechanged Indicator override *
+.tabbrowser-tab:is([image], [pinned])[usercontextid]>.tab-stack>.tab-content[attention]:not([selected="true"]),
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-content[pinned][titlechanged]:not([selected="true"]) {
+  /* Original: radial-gradient(circle, var(--attention-icon-color), var(--attention-icon-color) 2px, transparent 2px);
+  --dotted-identity-image: radial-gradient(circle,
+      var(--identity-icon-color),
+      var(--identity-icon-color) 2px,
+      transparent 2px);
+  background-image: var(--dotted-identity-image), var(--dotted-identity-image), var(--dotted-identity-image) !important;
+  background-position-x: var(--uc-titlechanged-container-position-x) !important;
+}*/
+
+.tab-label-container {
+  display: grid;
+  justify-content: safe center;
+  align-items: safe center;
+}
+
+#PlacesToolbarItems {
+  display: flex !important;
+  justify-content: safe center !important;
+}
+
+.tab-content[pinned] {
+  --inline-tab-padding: 0px !important;
+  /* Prevent overflow pinned tab's divide line not aligned */
+  padding-inline: var(--inline-tab-padding) !important;
+}
+
+:root[uidensity="compact"] .tab-content[pinned] {
+  --inline-tab-padding: 8px !important;
+}
+
+.tabbrowser-tab .tab-label-container {
+  --tab-label-mask-size: 2em !important;
+  /* Original: 2em */
+}
+
+#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab .tab-label-container {
+  --tab-label-mask-size: 90% !important;
+}
+
+#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:is([visuallyselected="true"], [multiselected="true"]) .tab-label-container {
+  --tab-label-mask-size: 95% !important;
+}
+
+.tabbrowser-tab[visuallyselected="true"]:not([labelendaligned]):hover .tab-label-container,
+#tabbrowser-tabs:not([closebuttons="activetab"])>#tabbrowser-arrowscrollbox>.tabbrowser-tab:not([visuallyselected="true"], [labelendaligned]):hover .tab-label-container {
+  --tab-label-mask-size: 1em !important;
+  /* Original: 1em */
+}
+
+/* Smaller identity/permission boxes */
+#identity-box>box {
+  padding: 0 2px !important;
+}
+
+#identity-box>box>image {
+  width: 13.6px !important;
+  margin: 0 auto !important;
+}
+
+/* Remove white line between Vertical tabs and browser content */
+#sidebar-splitter {
+  display: none !important;
+}
+
+/*
+#navigator-toolbox-background {
+  background: linear-gradient(to right, black 260px, transparent 0) !important;
+}*/
+/*Vibrancy-for-macOS*/
+
+#main-window {
+  background: transparent !important;
+}
+
+#TabsToolbar,
+.table-widget-empty-text {
+  appearance: -moz-mac-source-list !important;
+}
+
+#TabsToolbar:-moz-lwtheme-brighttext,
+.table-widget-empty-text:-moz-lwtheme-brighttext {
+  appearance: -moz-mac-source-list !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-label:-moz-lwtheme-brighttext {
+  color: white !important;
+}
+
+.tabbrowser-tab .tab-label:-moz-lwtheme-brighttext {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-background:-moz-lwtheme-brighttext {
+  box-shadow: inset 0em -4em 0em var(--toolbar-bgcolor) !important;
+}
+
+/*
+.tabbrowser-tab[usercontextid] .tab-content {
+  border-bottom: 2px solid var(--identity-icon-color) !important;
+}
+
+.tabbrowser-tab[usercontextid] .tab-content>* {
+  margin-bottom: -2px !important;
+}
+
+/***  Glowing line at bottom. */
+
+.tabbrowser-tab>.tab-stack>.tab-background>.tab-context-line {
+  background-color: var(--identity-icon-color) !important;
+  height: 2px !important;
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 18px 2px var(--identity-icon-color) !important;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
+  background-image: linear-gradient(to right,
+      transparent 10%,
+      var(--identity-tab-color) 10%,
+      var(--identity-tab-color) 90%,
+      transparent 90%) !important;
+  height: 1px !important;
+  margin-bottom: 0px !important;
+  border-radius: 10px !important;
+}
+
+#navigator-toolbox {
+  background-color: transparent !important;
+}
+
+/* Glowing line at top. *
+
+.tabbrowser-tab>.tab-stack>.tab-background>.tab-context-line {
+  background-color: var(--identity-icon-color) !important;
+  height: 1px !important;
+  box-shadow: 0px 3px 9px 0px var(--identity-icon-color) !important;
+  border-radius: 10px !important;
+}
+*/
+
+
+/* non-active/non-selected tabs (container) */
+
+.tabbrowser-tab[usercontextid]:not([selected], [multiselected]):hover .tab-background::before {
+  background: color-mix(in srgb,
+      var(--identity-tab-color) 80%,
+      transparent) !important;
+  /*filter: brightness(70%) !important;*/
+}
+
+/* Container tabs *
+
+.tabbrowser-tab[usercontextid] .tab-background::before {
+  background: var(--identity-tab-color) !important;
+}
+
+/****  ****/
+.tab-context-line {
+  -moz-box-ordinal-group: 2 !important;
+  margin-block: 0 !important;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
+  background-image: linear-gradient(to right,
+      transparent 10px,
+      var(--identity-tab-color) 10px,
+      var(--identity-tab-color) 90%,
+      transparent 90%) !important;
+  height: 2px !important;
+  margin-bottom: 0px !important;
+  border-radius: 10px !important;
+}
+
+.tabbrowser-tab[multiselected]:-moz-lwtheme {
+  color: var(--lwt-tab-text) !important;
+  --lwt-tab-line-color: transparent !important;
+}
+
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
+  background-image: linear-gradient(to right,
+      transparent 10%,
+      var(--identity-tab-color) 10%,
+      var(--identity-tab-color) 90%,
+      transparent 90%) !important;
+  height: 2px !important;
+  margin-bottom: 0px !important;
+  border-radius: 10px !important;
+}
+
+/*
+.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="“true”"], [multiselected]) {
+  background-color: #1b1b568c !important;
+  border-radius: 10px !important;
+}
+*/
+.tabbrowser-tab:not([selected="true"]):not([multiselected="true"]) .tab-background {
+  border-top: 1px solid rgba(130, 130, 130, 0.2) !important;
+  border-left: 1px solid rgba(130, 130, 130, 0.2) !important;
+  border-right: 1px solid rgba(130, 130, 130, 0.2) !important;
+  border-radius: 10px !important;
+}
+
+.tab-content[selected="true"] {
+  border-radius: 10px !important;
+}
+
+/* Dim discarded tabs*/
+
+.tabbrowser-tab[pending] .tab-content:not(:hover) .tab-label {
+  opacity: 0.6 !important;
+}
+
+/* Hide Firefox View Line on left *
+#tabbrowser-tabs {
+  border-inline-start: none !important;
+}
+
+/***  Glowing line at bottom. *
+
+.tabbrowser-tab>.tab-stack>.tab-background>.tab-context-line {
+  background-image: linear-gradient(to right,
+      transparent 10%,
+      var(--identity-tab-color) 10%,
+      var(--identity-tab-color) 90%,
+      transparent 90%) !important;
+  height: 2px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 2px var(--identity-icon-color) !important;
 }
