@@ -4,7 +4,13 @@
  * file, You can obtain one at http://creativecommons.org/licenses/by-nc-sa/4.0/
  * or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA. */
 
-/* this stylesheet mainly changes icons for specific extensions or websites in order to make them look more consistent with the firefox UI and/or fit better on a dark theme, e.g. white on a dark background. however, this shouldn't disrupt a light theme either,it just replaces PNG or explicitly-colored icons with SVGs that respond to CSS' "fill" and "stroke" properties. individual extensions' popups and other content documents are styled in userContent.css. */
+/* this stylesheet mainly changes icons for specific extensions or websites
+in order to make them look more consistent with the firefox UI
+and/or fit better on a dark theme, e.g. white on a dark background.
+however, this shouldn't disrupt a light theme either,
+it just replaces PNG or explicitly-colored icons with SVGs
+that respond to CSS' "fill" and "stroke" properties.
+individual extensions' popups and other content documents are styled in userContent.css. */
 
 /* extension icon appearance */
 
@@ -125,7 +131,7 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu_tr
   display: none !important;
 }
 
-menupopup:not(#contentAreaContextMenu)>#nordvpnproxy_nordvpn_com-menuitem-_nordvpn_extension_context_menu_group:not(.menuitem-iconic, .menu-iconic)::before {
+menupopup:not(#contentAreaContextMenu) > #nordvpnproxy_nordvpn_com-menuitem-_nordvpn_extension_context_menu_group:not(.menuitem-iconic, .menu-iconic)::before {
   background-image: url(chrome://userchrome/content/material/nord.svg);
 }
 
@@ -141,7 +147,7 @@ menupopup:not(#contentAreaContextMenu)>#nordvpnproxy_nordvpn_com-menuitem-_nordv
 
 /* Tab Stash */
 :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="tab-stash@condordes.net"i] .toolbarbutton-icon,
-#sidebar-box[sidebarcommand="tab-stash_condordes_net-sidebar-action"] #sidebar-switcher-target>#sidebar-icon,
+#sidebar-box[sidebarcommand="tab-stash_condordes_net-sidebar-action"] #sidebar-switcher-target > #sidebar-icon,
 #sidebarMenu-popup #button_tab-stash_condordes_net-sidebar-action:not([checked="true"]),
 menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu_tab-stash_condordes_net-sidebar-action[style]:is([type="checkbox"], [type="radio"]):not([checked="true"]) {
   list-style-image: url(chrome://userchrome/content/material/tabstash-logo.svg) !important;
@@ -151,7 +157,7 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu_ta
   list-style-image: url(chrome://userchrome/content/material/tabstash-one.svg) !important;
 }
 
-:is(.customization-target, .widget-overflow-list) .webextension-browser-action[data-extensionid="jid1-KKzOGWgsW3Ao4Q@jetpack"i]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
+:is(.customization-target, .widget-overflow-list) .webextension-browser-action[data-extensionid="jid1-KKzOGWgsW3Ao4Q@jetpack"i] > .toolbarbutton-badge-stack > .toolbarbutton-badge {
   background-color: transparent !important;
   background-size: 12px !important;
   width: 12px !important;
@@ -181,7 +187,7 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu_ta
   list-style-image: url(chrome://userchrome/content/skin/secure-bookmark.svg) !important;
 }
 
-:is(.customization-target, .widget-overflow-list) .webextension-browser-action[data-extensionid="private-bookmarks@rharel"i]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
+:is(.customization-target, .widget-overflow-list) .webextension-browser-action[data-extensionid="private-bookmarks@rharel"i] > .toolbarbutton-badge-stack > .toolbarbutton-badge {
   background-color: transparent !important;
   background-size: 12px !important;
   width: 12px !important;
@@ -211,12 +217,12 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu__6
 }
 
 :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{6540f1c5-ab3d-4eff-9ad2-79a95aec93d5}"],
-#sidebar-box[sidebarcommand="_6540f1c5-ab3d-4eff-9ad2-79a95aec93d5_-sidebar-action"] #sidebar-switcher-target>#sidebar-icon {
+#sidebar-box[sidebarcommand="_6540f1c5-ab3d-4eff-9ad2-79a95aec93d5_-sidebar-action"] #sidebar-switcher-target > #sidebar-icon {
   list-style-image: url(chrome://userchrome/content/material/pushbullet-hollow.svg) !important;
 }
 
 /* bitwarden, the password manager */
-#sidebar-box[sidebarcommand="_446900e4-71c2-419f-a6a7-df9c091e268b_-sidebar-action"] #sidebar-switcher-target>#sidebar-icon,
+#sidebar-box[sidebarcommand="_446900e4-71c2-419f-a6a7-df9c091e268b_-sidebar-action"] #sidebar-switcher-target > #sidebar-icon,
 #sidebarMenu-popup #button__446900e4-71c2-419f-a6a7-df9c091e268b_-sidebar-action:not([checked="true"]),
 :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{446900e4-71c2-419f-a6a7-df9c091e268b}"] .toolbarbutton-icon,
 menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu__446900e4-71c2-419f-a6a7-df9c091e268b_-sidebar-action[style]:is([type="checkbox"], [type="radio"]):not([checked="true"]) {
@@ -305,7 +311,7 @@ elaborate/compiled stylesheets */
 
 /* Notes by Firefox */
 :is(.webextension-browser-action, .eom-addon-button)[data-extensionid="notes@mozilla.com"i],
-#sidebar-box[sidebarcommand="notes_mozilla_com-sidebar-action"] #sidebar-switcher-target>#sidebar-icon,
+#sidebar-box[sidebarcommand="notes_mozilla_com-sidebar-action"] #sidebar-switcher-target > #sidebar-icon,
 #sidebarMenu-popup #button_notes_mozilla_com-sidebar-action:not([checked="true"]),
 menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu_notes_mozilla_com-sidebar-action[style]:is([type="checkbox"], [type="radio"]):not([checked="true"]) .menu-iconic-left {
   list-style-image: url(chrome://userchrome/content/material/notepad-large.svg) !important;
@@ -353,7 +359,7 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menu_no
 /* hide the ad for premium */
 #private-relay_firefox_com-menuitem-_fx-private-relay-get-unlimited-aliases,
 #private-relay_firefox_com-menuitem-_fx-private-relay-get-unlimited-aliases-separator,
-#private-relay_firefox_com-menuitem-_fx-private-relay-get-unlimited-aliases:first-child+menuseparator {
+#private-relay_firefox_com-menuitem-_fx-private-relay-get-unlimited-aliases:first-child + menuseparator {
   display: none;
 }
 
@@ -510,24 +516,24 @@ do nothing for other languages since idk if the item is too long in other langua
 }
 
 /* fix inconsistent string casing of menuitems in Multithreaded Download Manager */
-:is(menu, menuitem)[id^="multithreaded-download-manager"]:is([label="Open in new tab"], [label="Open in new window"], [label="Open in sidebar"])>label {
+:is(menu, menuitem)[id^="multithreaded-download-manager"]:is([label="Open in new tab"], [label="Open in new window"], [label="Open in sidebar"]) > label {
   display: none !important;
 }
 
-:is(menu, menuitem)[id^="multithreaded-download-manager"]:is([label="Open in new tab"], [label="Open in new window"], [label="Open in sidebar"])>.menu-accel-container::before {
+:is(menu, menuitem)[id^="multithreaded-download-manager"]:is([label="Open in new tab"], [label="Open in new window"], [label="Open in sidebar"]) > .menu-accel-container::before {
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-:is(menu, menuitem)[id^="multithreaded-download-manager"][label="Open in new tab"]>.menu-accel-container::before {
+:is(menu, menuitem)[id^="multithreaded-download-manager"][label="Open in new tab"] > .menu-accel-container::before {
   content: "Open in New Tab";
 }
 
-:is(menu, menuitem)[id^="multithreaded-download-manager"][label="Open in new window"]>.menu-accel-container::before {
+:is(menu, menuitem)[id^="multithreaded-download-manager"][label="Open in new window"] > .menu-accel-container::before {
   content: "Open in New Window";
 }
 
-:is(menu, menuitem)[id^="multithreaded-download-manager"][label="Open in sidebar"]>.menu-accel-container::before {
+:is(menu, menuitem)[id^="multithreaded-download-manager"][label="Open in sidebar"] > .menu-accel-container::before {
   content: "Open in Sidebar";
 }
 
@@ -550,16 +556,16 @@ do nothing for other languages since idk if the item is too long in other langua
 }
 
 /* fix inconsistent string casing of menuitems in Sort Bookmarks */
-menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"]>label {
+menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"] > label {
   display: none !important;
 }
 
-menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"]>.menu-accel-container::before {
+menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"] > .menu-accel-container::before {
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"]>.menu-accel-container::before {
+menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"] > .menu-accel-container::before {
   content: "Sort this Folder…";
 }
 
@@ -601,33 +607,33 @@ menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"]>.men
 }
 
 /* fix inconsistent string casing of menuitems in Simple Translate */
-:is(#simple-translate_sienori-menuitem-_translatePage, #simple-translate_sienori-menuitem-_translatePageOnTab)[label^="Translate this page"]>label,
-#simple-translate_sienori-menuitem-_translateLink[label="Translate selected link"]>label,
-#simple-translate_sienori-menuitem-_translateText[label="Translate selected text"]>label {
+:is(#simple-translate_sienori-menuitem-_translatePage, #simple-translate_sienori-menuitem-_translatePageOnTab)[label^="Translate this page"] > label,
+#simple-translate_sienori-menuitem-_translateLink[label="Translate selected link"] > label,
+#simple-translate_sienori-menuitem-_translateText[label="Translate selected text"] > label {
   display: none !important;
 }
 
-:is(#simple-translate_sienori-menuitem-_translatePage, #simple-translate_sienori-menuitem-_translatePageOnTab)[label^="Translate this page"]>.menu-accel-container::before,
-#simple-translate_sienori-menuitem-_translateLink[label="Translate selected link"]>.menu-accel-container::before,
-#simple-translate_sienori-menuitem-_translateText[label="Translate selected text"]>.menu-accel-container::before {
+:is(#simple-translate_sienori-menuitem-_translatePage, #simple-translate_sienori-menuitem-_translatePageOnTab)[label^="Translate this page"] > .menu-accel-container::before,
+#simple-translate_sienori-menuitem-_translateLink[label="Translate selected link"] > .menu-accel-container::before,
+#simple-translate_sienori-menuitem-_translateText[label="Translate selected text"] > .menu-accel-container::before {
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-:is(#simple-translate_sienori-menuitem-_translatePage, #simple-translate_sienori-menuitem-_translatePageOnTab)[label^="Translate this page"]>.menu-accel-container::before {
+:is(#simple-translate_sienori-menuitem-_translatePage, #simple-translate_sienori-menuitem-_translatePageOnTab)[label^="Translate this page"] > .menu-accel-container::before {
   content: "Translate Page";
 }
 
-#simple-translate_sienori-menuitem-_translateLink[label="Translate selected link"]>.menu-accel-container::before {
+#simple-translate_sienori-menuitem-_translateLink[label="Translate selected link"] > .menu-accel-container::before {
   content: "Translate Selected Link";
 }
 
-#simple-translate_sienori-menuitem-_translateText[label="Translate selected text"]>.menu-accel-container::before {
+#simple-translate_sienori-menuitem-_translateText[label="Translate selected text"] > .menu-accel-container::before {
   content: "Translate Selected Text";
 }
 
 /* hide translate this page menuitem when right-clicking text input */
-#contentAreaContextMenu #context-cut:not([hidden])~ :is(.menu-iconic, .menuitem-iconic):is([label^="Translate this page"], [label="Simple Translate"]) {
+#contentAreaContextMenu #context-cut:not([hidden]) ~ :is(.menu-iconic, .menuitem-iconic):is([label^="Translate this page"], [label="Simple Translate"]) {
   display: none;
 }
 
@@ -657,13 +663,13 @@ menuitem[id^="sort-bookmarks_heftig-menuitem"][label="Sort this folder…"]>.men
 pushbullet kinda overstays its welcome, you can just use the toolbar button to
 send the current page, there's no need for a context menu item except when
 right-clicking something particular *on* the page. */
-#contentAreaContextMenu #context-navigation:not([hidden])~ :is(.menu-iconic, .menuitem-iconic)[label="Pushbullet"] {
+#contentAreaContextMenu #context-navigation:not([hidden]) ~ :is(.menu-iconic, .menuitem-iconic)[label="Pushbullet"] {
   display: none;
 }
 
 /* multi-account containers menu icon */
 #contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"] .menu-iconic-left::before,
-#_testpilot-containers-menuitem-_open-bookmark-in-container-tab>.menu-iconic-left::before {
+#_testpilot-containers-menuitem-_open-bookmark-in-container-tab > .menu-iconic-left::before {
   width: 16px;
   height: 16px;
   margin-inline: var(--context-iconic-margin);
@@ -677,26 +683,26 @@ right-clicking something particular *on* the page. */
 }
 
 #contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"] .menu-iconic-icon,
-#_testpilot-containers-menuitem-_open-bookmark-in-container-tab>.menu-iconic-left .menu-iconic-icon {
+#_testpilot-containers-menuitem-_open-bookmark-in-container-tab > .menu-iconic-left .menu-iconic-icon {
   display: none;
 }
 
-#_testpilot-containers-menuitem-_open-bookmark-in-container-tab>.menu-iconic-left::before {
+#_testpilot-containers-menuitem-_open-bookmark-in-container-tab > .menu-iconic-left::before {
   background-image: url(chrome://userchrome/content/skin/container-go.svg);
 }
 
 /* shorten the multi-account containers label */
-#contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"]>.menu-iconic-left {
+#contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"] > .menu-iconic-left {
   -moz-box-flex: 1;
 }
 
-#contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"]>.menu-iconic-left::after {
+#contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"] > .menu-iconic-left::after {
   content: "Multi-Account Containers";
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-#contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"]>.menu-iconic-text {
+#contentAreaContextMenu :is(.menu-iconic, .menuitem-iconic)[label="Firefox Multi-Account Containers"] > .menu-iconic-text {
   display: none;
 }
 
@@ -751,21 +757,21 @@ right-clicking something particular *on* the page. */
 }
 
 /* fix the inconsistent casing for uBlock Origin's "Block element…" menuitem (in English) */
-#ublock0_raymondhill_net-menuitem-_uBlock0-blockElement[label="Block element…"]>label {
+#ublock0_raymondhill_net-menuitem-_uBlock0-blockElement[label="Block element…"] > label {
   display: none !important;
 }
 
-#ublock0_raymondhill_net-menuitem-_uBlock0-blockElement[label="Block element…"]>.menu-accel-container::before {
+#ublock0_raymondhill_net-menuitem-_uBlock0-blockElement[label="Block element…"] > .menu-accel-container::before {
   content: "Block Element…";
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-#ublock0_raymondhill_net-menuitem-_uBlock0-blockElementInFrame[label="Block element in frame…"]>label {
+#ublock0_raymondhill_net-menuitem-_uBlock0-blockElementInFrame[label="Block element in frame…"] > label {
   display: none !important;
 }
 
-#ublock0_raymondhill_net-menuitem-_uBlock0-blockElementInFrame[label="Block element in frame…"]>.menu-accel-container::before {
+#ublock0_raymondhill_net-menuitem-_uBlock0-blockElementInFrame[label="Block element in frame…"] > .menu-accel-container::before {
   content: "Block Element in Frame…";
   display: -moz-inline-box;
   -moz-box-flex: 1;
@@ -811,33 +817,33 @@ right-clicking something particular *on* the page. */
   display: none !important;
 }
 
-menupopup:not(#contentAreaContextMenu)>#addon_darkreader_org-menuitem-_DarkReader-top:not(.menuitem-iconic, .menu-iconic)::before {
+menupopup:not(#contentAreaContextMenu) > #addon_darkreader_org-menuitem-_DarkReader-top:not(.menuitem-iconic, .menu-iconic)::before {
   background-image: url(chrome://userchrome/content/material/darkmode.svg);
 }
 
 /* fix inconsistent string casing of menuitems in Dark Reader */
-#addon_darkreader_org-menuitem-_toggle[label="Toggle extension"]>label,
-#addon_darkreader_org-menuitem-_addSite[label="Toggle current site"]>label,
-#addon_darkreader_org-menuitem-_switchEngine[label="Theme generation mode"]>label {
+#addon_darkreader_org-menuitem-_toggle[label="Toggle extension"] > label,
+#addon_darkreader_org-menuitem-_addSite[label="Toggle current site"] > label,
+#addon_darkreader_org-menuitem-_switchEngine[label="Theme generation mode"] > label {
   display: none !important;
 }
 
-#addon_darkreader_org-menuitem-_toggle[label="Toggle extension"]>.menu-accel-container::before,
-#addon_darkreader_org-menuitem-_addSite[label="Toggle current site"]>.menu-accel-container::before,
-#addon_darkreader_org-menuitem-_switchEngine[label="Theme generation mode"]>.menu-accel-container::before {
+#addon_darkreader_org-menuitem-_toggle[label="Toggle extension"] > .menu-accel-container::before,
+#addon_darkreader_org-menuitem-_addSite[label="Toggle current site"] > .menu-accel-container::before,
+#addon_darkreader_org-menuitem-_switchEngine[label="Theme generation mode"] > .menu-accel-container::before {
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-#addon_darkreader_org-menuitem-_toggle[label="Toggle extension"]>.menu-accel-container::before {
+#addon_darkreader_org-menuitem-_toggle[label="Toggle extension"] > .menu-accel-container::before {
   content: "Toggle Extension";
 }
 
-#addon_darkreader_org-menuitem-_addSite[label="Toggle current site"]>.menu-accel-container::before {
+#addon_darkreader_org-menuitem-_addSite[label="Toggle current site"] > .menu-accel-container::before {
   content: "Toggle Current Site";
 }
 
-#addon_darkreader_org-menuitem-_switchEngine[label="Theme generation mode"]>.menu-accel-container::before {
+#addon_darkreader_org-menuitem-_switchEngine[label="Theme generation mode"] > .menu-accel-container::before {
   content: "Theme Generation Mode";
 }
 
@@ -850,37 +856,37 @@ menupopup:not(#contentAreaContextMenu)>#addon_darkreader_org-menuitem-_DarkReade
   background-image: url(chrome://userchrome/content/settings.svg);
 }
 
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_show-badge[label="Show active style count"]>label,
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_disableAll[label="Turn all styles off"]>label,
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-manager[label="Open styles manager"]>label {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_show-badge[label="Show active style count"] > label,
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_disableAll[label="Turn all styles off"] > label,
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-manager[label="Open styles manager"] > label {
   display: none !important;
 }
 
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_show-badge[label="Show active style count"]>.menu-accel-container::before,
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_disableAll[label="Turn all styles off"]>.menu-accel-container::before,
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-manager[label="Open styles manager"]>.menu-accel-container::before {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_show-badge[label="Show active style count"] > .menu-accel-container::before,
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_disableAll[label="Turn all styles off"] > .menu-accel-container::before,
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-manager[label="Open styles manager"] > .menu-accel-container::before {
   display: -moz-inline-box;
   -moz-box-flex: 1;
 }
 
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_show-badge[label="Show active style count"]>.menu-accel-container::before {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_show-badge[label="Show active style count"] > .menu-accel-container::before {
   content: "Active Style Count";
 }
 
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_disableAll[label="Turn all styles off"]>.menu-accel-container::before {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_disableAll[label="Turn all styles off"] > .menu-accel-container::before {
   content: "Disable All Styles";
 }
 
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-manager[label="Open styles manager"]>.menu-accel-container::before {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-manager[label="Open styles manager"] > .menu-accel-container::before {
   content: "Open Style Manager";
 }
 
 /* make the "Options" menuitem's label more specific */
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-options[label="Options"]:not(.menuitem-iconic, .menu-iconic)>.menu-text {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-options[label="Options"]:not(.menuitem-iconic, .menu-iconic) > .menu-text {
   display: none !important;
 }
 
-#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-options[label="Options"]:not(.menuitem-iconic, .menu-iconic)>.menu-accel-container::before {
+#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-menuitem-_open-options[label="Options"]:not(.menuitem-iconic, .menu-iconic) > .menu-accel-container::before {
   content: "Stylus Options";
   display: -moz-inline-box;
   -moz-box-flex: 1;
@@ -1028,7 +1034,7 @@ border on extension panels (see userChrome.au.css) */
 }
 
 /* a possible way to make sidebar border more theme responsive */
-#sidebar-box:not([sidebarcommand="viewBookmarksSidebar"], [sidebarcommand="viewHistorySidebar"], [sidebarcommand="viewTabsSidebar"], [sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]) {
+/* #sidebar-box:not([sidebarcommand="viewBookmarksSidebar"], [sidebarcommand="viewHistorySidebar"], [sidebarcommand="viewTabsSidebar"], [sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]) {
   --sidebar-border-color: var(--uc-content-box-background-odd) !important;
 }
 
@@ -1046,4 +1052,4 @@ border on extension panels (see userChrome.au.css) */
 
 #sidebar-box {
   border: none !important;
-}
+} */

@@ -2196,9 +2196,7 @@
  /** Multi selection **/
 
  .tabbrowser-tab[multiselected]:-moz-lwtheme {
-   color:
-     /*var(--lwt-tab-text)*/
-     transparent !important;
+   color:/*var(--lwt-tab-text)*/ transparent !important;
    --lwt-tab-line-color: transparent !important;
  }
 
@@ -2284,8 +2282,8 @@
    background-color: rgb(144, 89, 255, 1) !important;
    color: #fff !important;
  }
-
- */ #urlbar-background,
+ */
+ #urlbar-background,
  #searchbar {
    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.337),
      1px 1px 1px rgba(0, 0, 0, 0.5) !important;
@@ -2879,7 +2877,7 @@
    display: -moz-box
  }
 
- /* These exist for compatibility with combined_favicon_and_tab_close_button.css *
+ /* These exist for compatibility with combined_favicon_and_tab_close_button.css */
  .tab-icon-overlay {
    pointer-events: auto
  }

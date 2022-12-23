@@ -430,7 +430,7 @@
 
  .tabbrowser-tab[multiselected]>.tab-stack>.tab-background:is([multiselected]),
  .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
-   background-color: #7878f1c7 !important;
+   background-color: #4d4dfec7 !important;
    /*#4d4dfe*/
    border-radius: 10px !important;
  }
@@ -749,7 +749,7 @@
  /* Loaded but unread (not selected) */
 
  .tabbrowser-tab:not([selected="true"])[unread] .tab-label {
-   color: rgb(30, 12, 65) !important;
+   color: rgb(73, 26, 168) !important;
    font-style: italic !important;
    font-weight: bolder !important;
  }
@@ -763,7 +763,7 @@
 
  .tabbrowser-tab:not([selected="true"])[pending] .tab-label,
  .tabbrowser-tab:not([selected="true"])[visited] .tab-label {
-   color: rgb(60, 48, 78) !important;
+   color: rgb(91, 33, 178) !important;
    font-style: italic !important;
    font-weight: thin !important;
  }
@@ -1353,7 +1353,7 @@
 
  .tabbrowser-tab[titlechanged]:not([selected="true"]) {
    font-style: italic !important;
-   color: rgb(93, 81, 151) !important;
+   color: rgb(52, 44, 90) !important;
  }
 
  /* TAB ICONS - none-selected tab icons are grey, 1px white glow to see dark icons on dark*/
@@ -2092,15 +2092,15 @@
  browser,
  browser.display.background_color,
  tabbrowser tabpanels {
-   background-color: #232324 !important;
-   background: #232324 !important;
+   background-color: #2f166cfa !important;
+   background: #2f166cfa !important;
  }
 
  /* white flash fix */
 
  browser[type="content-primary"],
  browser[type="content"] {
-   background: #232324 !important;
+   background: #2f166cfa !important;
    /*#222355*/
  }
 
@@ -2128,7 +2128,7 @@
 
  .tabbrowser-tab:not([selected="true"])[pending] .tab-label,
  .tabbrowser-tab:not([selected="true"])[visited] .tab-label {
-   color: rgb(118, 105, 148) !important;
+   color: rgb(101, 38, 247) !important;
    font-style: italic !important;
    font-weight: thin !important;
  }
@@ -2196,18 +2196,16 @@
  /** Multi selection **/
 
  .tabbrowser-tab[multiselected]:-moz-lwtheme {
-   color:
-     /*var(--lwt-tab-text)*/
-     transparent !important;
+   color: var(--lwt-tab-text) !important;
    --lwt-tab-line-color: transparent !important;
  }
 
  .tabbrowser-tab>.tab-stack>.tab-background:is([multiselected]),
  .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
-   background-color: #925bf3 !important;
+   background-color: #5d00ff !important;
  }
 
-
+ /*
  .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"], [multiselected]) {
    background-color: color-mix(in srgb,
        var(--button-hover-bgcolor) 60%,
@@ -2278,14 +2276,14 @@
    transition: background-color 0.3s ease-in;
  }
 
- /* change urlbar highlight text color */
+ /* change urlbar highlight text color *
 
  #urlbar-input::-moz-selection {
    background-color: rgb(144, 89, 255, 1) !important;
    color: #fff !important;
  }
-
- */ #urlbar-background,
+ */
+ #urlbar-background,
  #searchbar {
    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.337),
      1px 1px 1px rgba(0, 0, 0, 0.5) !important;
@@ -3115,7 +3113,7 @@
    background-color: hsl(240, 2%, 13%) !important;
  }
 
- /*z
+ /*
  #navigator-toolbox {
    padding-top: 0px !important;
    padding-bottom: 0px !important;
