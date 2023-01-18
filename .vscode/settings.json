@@ -1,8 +1,30 @@
 {
-    "editor.fontSize": 18,
     "local-history.browser.descending": true,
     "workbench.colorCustomizations": {
+        "editor.bracketPairColorization.enabled": true,
+        "workbench.colorCustomizations": {
+            "editorBracketHighlight.foreground1": "#B48EAD",
+            "editorBracketHighlight.foreground2": "#A3BE8C",
+            "editorBracketHighlight.foreground3": "#EBCB8B",
+            "editorBracketHighlight.foreground4": "#D08770",
+            "editorBracketHighlight.foreground5": "#BF616A",
+            "editorBracketHighlight.foreground6": "#abb2c0",
+            "editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
+        },
         "iLoveWorkSpaceColors": true,
         "iLoveWorkSpaceRandom": false
-    }
+    },
+    "prettier.bracketSameLine": true,
+    "editor.fontSize": 18,
+    "editor.fontFamily": "FiraCode-Retina,firacode nf, Anonymous Pro, Victor Mono, 'Courier New', monospaceoperator mono,operator mono for powerline, firacode nf, Anonymous Pro, Victor Mono, 'Courier New', monospace",
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "bracket-pair-colorizer-2.forceIterationColorCycle": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "bracket-pair-colorizer-2.highlightActiveScope": true,
+    "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+    "editor.guides.bracketPairs": "active",
+    "bracket-pair-colorizer-2.colorMode": "Consecutive",
+    "bracket-pair-colorizer-2.showBracketsInGutter": true,
+    "bracket-pair-colorizer-2.showBracketsInRuler": true,
+    "editor.bracketPairColorization.enabled": true
 }

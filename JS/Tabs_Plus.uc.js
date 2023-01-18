@@ -1,4 +1,4 @@
-// ==UserScript==
+	// ==UserScript==
 // @name           TabPlus.uc.js
 // @description    Enhance the Tabs.
 // @charset        UTF-8

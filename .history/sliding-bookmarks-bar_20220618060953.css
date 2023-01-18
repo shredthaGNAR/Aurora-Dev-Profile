@@ -1,0 +1,46 @@
+/* BOOKMARK MENU AUTOHIDE */
+
+#PersonalToolbar {
+    --uc-bm-height: 24px;
+    /* Might need to adjust if the toolbar has other buttons */
+    --uc-bm-padding: 6px;
+    /* Vertical padding to be applied to bookmarks */
+    padding: 1px 6px !important;
+    position: absolute;
+}
+
+:root[uidensity="touch"] #PersonalToolbar {
+    --uc-bm-padding: 6px;
+}
+
+#PersonalToolbar:not([customizing]) {
+    margin-bottom: calc(2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
+    transform: rotateX(90deg);
+    transform-origin: top;
+    transition: transform 135ms linear 500ms !important;
+    z-index: 2;
+}
+
+#PlacesToolbarItems>.bookmark-item {
+    padding-block: var(--uc-bm-padding) !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+
+/* Show when cursor is over the toolbar area */
+
+#navigator-toolbox:hover>#PersonalToolbar {
+    transition-delay: 100ms !important;
+    transform: rotateX(0);
+}
+
+
+/* Bookmarks bar with BLUR need layout.css.backdrop-filter.enabled = true rgba(50, 50, 52, 0.85)*/
+
+#PersonalToolbar {
+    background-image: url(image/noise-512x512.png) !important;
+    background-color: #2a2a2ac0 !important;
+    -webkit-backdrop-filter: blur(32px) !important;
+    backdrop-filter: blur(32px) !important;
+}

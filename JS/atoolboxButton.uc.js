@@ -1,34 +1,15 @@
 // ==UserScript==
 // @name           Toolbox Button
-// @version        1.3.1
+// @version        1.3.4
 // @author         aminomancer
-// @homepage       https://github.com/aminomancer/uc.css.js
-// @description    Adds a new toolbar button that 1) opens the content toolbox on left click;
-// 2) opens the browser toolbox on right click; 3) toggles "Popup Auto-Hide" on middle click.
-// Left click will open the toolbox for the active tab, or close it if it's already open. Right click
-// will open the elevated browser toolbox if it's not already open. If it is already open, then
-// instead of trying to start a new process and spawning an irritating dialog, it'll just show a
-// brief notification saying the toolbox is already open. The button also shows a badge while a
-// toolbox window is open. Middle click will toggle the preference for popup auto-hide:
-// "ui.popup.disable_autohide". This does the same thing as the "Disable Popup Auto-Hide" option in
-// the menu at the top right of the browser toolbox, prevents popups from closing so you can debug
-// them. If you want to change which mouse buttons execute which functions, search for
-// "userChrome.toolboxButton.mouseConfig" in about:config. Change the 0, 1, and 2 values. 0 = left
-// click, 1 = middle, and 2 = right. By default, when you open a browser toolbox window, the script
-// will disable popup auto-hide, and then re-enable it when you close the toolbox. I find that I
-// usually want popup auto-hide disabled when I'm using the toolbox, and never want it disabled when
-// I'm not using the toolbox, so I made it automatic, instead of having to right click and then
-// immediately middle click every time. If you don't like this automatic feature, you can turn it
-// off by setting "userChrome.toolboxButton.popupAutohide.toggle-on-toolbox-launch" to false in
-// about:config. When you middle click, the button will show a notification telling you the current
-// status of popup auto-hide, e.g. "Holding popups open." This is just so that people who use the
-// feature a lot won't lose track of whether it's on or off, and won't need to open a popup and try
-// to close it to test it. (The toolbar button also changes appearance while popup auto-hide is
-// disabled. It becomes blue like the downloads button and the icon changes into a popup icon. This
-// change is animated, as long as the user doesn't have reduced motion enabled) All of these
-// notifications use the native confirmation hint custom element, since it looks nice. That's the
-// one that appears when you save a bookmark, #confirmation-hint. So you can customize them with
-// that selector.
+// @homepageURL    https://github.com/aminomancer/uc.css.js
+// @description    Adds a new toolbar button that 1) opens the content toolbox on left click; 2) opens the browser toolbox on right click; 3) toggles "Popup Auto-Hide" on middle click. Left click will open the toolbox for the active tab, or close it if it's already open. Right click will open the elevated browser toolbox if it's not already open. If it is already open, then instead of trying to start a new process and spawning an irritating dialog, it'll just show a brief notification saying the toolbox is already open. The button also shows a badge while a toolbox window is open. Middle click will toggle the preference for popup auto-hide: `ui.popup.disable_autohide`. This does the same thing as the "Disable Popup Auto-Hide" option in the menu at the top right of the browser toolbox, prevents popups from closing so you can debug them.
+//
+// If you want to change which mouse buttons execute which functions, search for `userChrome.toolboxButton.mouseConfig` in [about:config](about:config). Change the 0, 1, and 2 values. 0 = left click, 1 = middle, and 2 = right. By default, when you open a browser toolbox window, the script will disable popup auto-hide, and then re-enable it when you close the toolbox. I find that I usually want popup auto-hide disabled when I'm using the toolbox, and never want it disabled when I'm not using the toolbox, so I made it automatic, instead of having to right click and then immediately middle click every time. If you don't like this automatic feature, you can turn it off by setting `userChrome.toolboxButton.popupAutohide.toggle-on-toolbox-launch` to false in about:config.
+//
+// When you middle click, the button will show a notification telling you the current status of popup auto-hide, e.g. "Holding popups open." This is just so that people who use the feature a lot won't lose track of whether it's on or off, and won't need to open a popup and try to close it to test it. (The toolbar button also changes appearance while popup auto-hide is disabled. It becomes blue like the downloads button and the icon changes into a popup icon. This change is animated, as long as the user doesn't have reduced motion enabled) All of these notifications use the native confirmation hint custom element, since it looks nice. That's the one that appears when you save a bookmark, `#confirmation-hint`. So you can customize them with that selector.
+// @downloadURL    https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/atoolboxButton.uc.js
+// @updateURL      https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/atoolboxButton.uc.js
 // @license        This Source Code Form is subject to the terms of the Creative Commons Attribution-NonCommercial-ShareAlike International License, v. 4.0. If a copy of the CC BY-NC-SA 4.0 was not distributed with this file, You can obtain one at http://creativecommons.org/licenses/by-nc-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 // ==/UserScript==
 
@@ -71,8 +52,11 @@
       this.strings.set(name, string);
       return string;
     },
+    getFluentValue(id, args) {
+      return this.fluentStrings.formatValueSync(id, args);
+    },
     get defaultLabel() {
-      return this.getString("browserContentToolboxMenu.label", "menu");
+      return this.getString("toolbox.label", "toolbox");
     },
     get defaultTooltip() {
       return this.defaultLabel;
@@ -83,6 +67,11 @@
   );
   XPCOMUtils.defineLazyGetter(l10n.bundles, "toolbox", () =>
     Services.strings.createBundle("chrome://devtools/locale/toolbox.properties")
+  );
+  XPCOMUtils.defineLazyGetter(
+    l10n,
+    "fluentStrings",
+    () => new Localization(["devtools/client/toolbox.ftl"], true)
   );
 
   if (
@@ -175,6 +164,7 @@
               this._animationBox.setAttribute("hidden", "true");
               this._panel.setAttribute("data-message-id", "hideCheckHint");
             } else {
+              this._animationBox.removeAttribute("hidden");
               this._panel.setAttribute("data-message-id", "checkmarkHint");
             }
 
@@ -183,10 +173,10 @@
               "popupshown",
               () => {
                 this._animationBox.setAttribute("animate", "true");
-                this._timerID = setTimeout(() => {
-                  this._panel.hidePopup(true);
-                  this._animationBox.removeAttribute("hidden");
-                }, DURATION + 120);
+                this._timerID = setTimeout(
+                  () => this._panel.hidePopup(true),
+                  DURATION + 120
+                );
               },
               { once: true }
             );
@@ -267,6 +257,7 @@
         }
 
         let prefSvc = Services.prefs;
+        let defaultPrefs = prefSvc.getDefaultBranch("");
         let obSvc = Services.obs;
         let toolboxBranch = "userChrome.toolboxButton";
         let autoHide = "ui.popup.disable_autohide";
@@ -461,10 +452,7 @@
             if (val === 0) {
               switch (key) {
                 case "contentToolbox":
-                  labelString = l10n.getString(
-                    "browserContentToolboxMenu.label",
-                    "menu"
-                  );
+                  labelString = l10n.getString("toolbox.label", "toolbox");
                   hotkey = aDoc.ownerGlobal.key_toggleToolbox;
                   break;
                 case "browserToolbox":
@@ -475,9 +463,8 @@
                   hotkey = aDoc.ownerGlobal.key_browserToolbox;
                   break;
                 case "popupHide":
-                  labelString = l10n.getString(
-                    "toolbox.meatballMenu.noautohide.label",
-                    "toolbox"
+                  labelString = l10n.getFluentValue(
+                    "toolbox-meatball-menu-noautohide-label"
                   );
                   break;
               }
@@ -512,15 +499,11 @@
           toolboxObserver(null, "initial-load");
         }
 
-        if (!prefSvc.prefHasUserValue(autoTogglePopups)) {
-          prefSvc.setBoolPref(autoTogglePopups, true);
-        }
-        if (!prefSvc.prefHasUserValue(mouseConfig)) {
-          prefSvc.setStringPref(
-            mouseConfig,
-            `{"contentToolbox": 0, "browserToolbox": 2, "popupHide": 1}`
-          );
-        }
+        defaultPrefs.setBoolPref(autoTogglePopups, true);
+        defaultPrefs.setStringPref(
+          mouseConfig,
+          `{"contentToolbox": 0, "browserToolbox": 2, "popupHide": 1}`
+        );
         window.addEventListener("unload", uninit);
         prefSvc.addObserver(autoHide, prefObserver);
         prefSvc.addObserver(toolboxBranch, prefObserver);
