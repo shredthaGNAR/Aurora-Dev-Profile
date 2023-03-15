@@ -1,18 +1,24 @@
 // ==UserScript==
 // @name           Restore pre-Proton Tab Sound Button
-// @version        2.3.9
+// @version        2.4.1
 // @author         aminomancer
 // @homepageURL    https://github.com/aminomancer/uc.css.js
-// @description    Proton makes really big changes to tabs, in particular removing the tab sound button in favor of the overlay button and a whole row of text. This script keeps the new tab tooltip enabled by the pref `browser.proton.places-tooltip.enabled` but allows it to work with the old `.tab-icon-sound`. So you get the nice parts of the proton tab changes without the second row of text about the audio playing. Instead it will show the mute/unmute tooltip inside the normal tab tooltip.
-//
-// It also changes the tooltip a bit so that it's always anchored to the tab rather than floating around tethered to the exact mouse position. This makes it easier to modify the tooltip appearance without the tooltip getting in your way. It also lets the insecure tooltip icon show other security states, like mixed passive content or error page. This way the tooltip icon should usually match the identity icon for the tab you're hovering.
-//
-// This script _requires_ that you either 1) use my theme, complete with [chrome.manifest][] and the resources folder, or 2) download [tabMods.uc.js][] and put it in your `chrome/resources/script-override/` folder, then edit your [chrome.manifest][] file to add the following line:
-//
-// `override chrome://browser/content/tabbrowser-tab.js ../resources/tabMods.uc.js`
-//
-// [chrome.manifest]: https://github.com/aminomancer/uc.css.js/blob/master/utils/chrome.manifest
-// [tabMods.uc.js]: https://github.com/aminomancer/uc.css.js/blob/master/resources/script-override/tabMods.uc.js
+// @long-description
+// @description
+/*
+Proton makes really big changes to tabs, in particular removing the tab sound button in favor of the overlay button and a whole row of text. This script creates a more advanced tab tooltip. Instead of showing the mute/unmute tooltip inside a row of text in the tab itself, it will show this information in the normal tab tooltip.
+
+It also changes the tooltip a bit so that it's always anchored to the tab rather than floating around tethered to the exact mouse position. This makes it easier to modify the tooltip appearance without the tooltip getting in your way. It also lets the insecure tooltip icon show other security states, like mixed passive content or error page. This way the tooltip icon should usually match the identity icon for the tab you're hovering.
+
+This script _requires_ that you either 1) use my theme, complete with [chrome.manifest][] and the resources folder, or 2) download [tabMods.uc.js][] and put it in your `chrome/resources/script-override/` folder, then edit your [chrome.manifest][] file to add the following line:
+
+```
+override chrome://browser/content/tabbrowser-tab.js ../resources/tabMods.uc.js
+```
+
+[chrome.manifest]: https://github.com/aminomancer/uc.css.js/blob/master/utils/chrome.manifest
+[tabMods.uc.js]: https://github.com/aminomancer/uc.css.js/blob/master/resources/script-override/tabMods.uc.js
+*/
 // @downloadURL    https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/restoreTabSoundButton.uc.js
 // @updateURL      https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/restoreTabSoundButton.uc.js
 // @license        This Source Code Form is subject to the terms of the Creative Commons Attribution-NonCommercial-ShareAlike International License, v. 4.0. If a copy of the CC BY-NC-SA 4.0 was not distributed with this file, You can obtain one at http://creativecommons.org/licenses/by-nc-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
@@ -173,20 +179,23 @@
     icon.hidden = true;
     icon.setAttribute("type", pending ? "pending" : "secure");
   }
-  gBrowser.createTooltip = function(e) {
-    e.stopPropagation();
-    let tab = e.target.triggerNode ? e.target.triggerNode.closest("tab") : null;
+  gBrowser.createTooltip = function(event) {
+    event.stopPropagation();
+    let tab = event.target.triggerNode?.closest("tab");
     if (!tab) {
-      e.preventDefault();
+      event.preventDefault();
       return;
     }
+
+    const tooltip = event.target;
+    tooltip.removeAttribute("data-l10n-id");
+
     let tabRect = windowUtils.getBoundsWithoutFlushing(tab);
-    let id, args;
+    let id, args, raw;
     let align = true;
     let { linkedBrowser } = tab;
-    const selectedTabs = this.selectedTabs;
-    const contextTabInSelection = selectedTabs.includes(tab);
-    const tabCount = contextTabInSelection ? selectedTabs.length : 1;
+    const contextTabInSelection = this.selectedTabs.includes(tab);
+    const tabCount = contextTabInSelection ? this.selectedTabs.length : 1;
     if (tab.mOverCloseButton) {
       let rect = windowUtils.getBoundsWithoutFlushing(tab.closeButton);
       id = "tabbrowser-close-tabs-tooltip";
@@ -211,16 +220,17 @@
       }
       align = rect.right - tabRect.left < 250;
     } else {
-      id = "tabbrowser-tab-tooltip";
-      args = { title: this.getTabTooltip(tab, true) };
+      raw = this.getTabTooltip(tab, true);
     }
     if (align) {
-      e.target.setAttribute("position", "after_start");
-      e.target.moveToAnchor(tab, "after_start");
+      tooltip.setAttribute("position", "after_start");
+      tooltip.moveToAnchor(tab, "after_start");
     }
-    let title = e.target.querySelector(".places-tooltip-title");
+    let title = tooltip.querySelector(".places-tooltip-title");
     let localized = {};
-    if (id) {
+    if (raw) {
+      localized.label = raw;
+    } else if (id) {
       let [msg] = this.tabLocalization.formatMessagesSync([{ id, args }]);
       localized.value = msg.value;
       if (msg.attributes) {
@@ -229,19 +239,17 @@
     }
     title.textContent = localized.label ?? "";
     if (tab.getAttribute("customizemode") === "true") {
-      e.target
+      tooltip
         .querySelector(".places-tooltip-box")
         .setAttribute("desc-hidden", "true");
       return;
     }
-    let url = e.target.querySelector(".places-tooltip-uri");
+    let url = tooltip.querySelector(".places-tooltip-uri");
     url.value = linkedBrowser?.currentURI?.spec.replace(/^https:\/\//, "");
     setIdentityIcon(
-      e.target.querySelector("#places-tooltip-insecure-icon"),
+      tooltip.querySelector("#places-tooltip-insecure-icon"),
       tab
     );
-    e.target
-      .querySelector(".places-tooltip-box")
-      .removeAttribute("desc-hidden");
+    tooltip.querySelector(".places-tooltip-box").removeAttribute("desc-hidden");
   };
 })();

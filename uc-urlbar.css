@@ -41,8 +41,14 @@ toolbarpaletteitem[place="palette"] > #search-container {
 
 .widget-overflow-list #searchbar {
   box-shadow: none !important;
+  border-color: transparent !important;
   min-height: var(--subviewbutton-height) !important;
   font-size: revert !important;
+}
+
+#customization-panel-container toolbarpaletteitem > #search-container > #searchbar > .searchbar-textbox {
+	visibility: revert !important;
+  pointer-events: none !important;
 }
 
 .widget-overflow-list #searchbar:not(:focus-within) {
@@ -312,6 +318,11 @@ toolbarpaletteitem[mousedown] > #urlbar-container > #urlbar > #urlbar-background
 
 #contextual-feature-recommendation {
   --cfr-active-color: var(--button-hover-bgcolor) !important;
+}
+
+#urlbar[cfr-recommendation-state="expanded"] #contextual-feature-recommendation {
+	margin-inline-start: calc((var(--cfr-label-width) * -1) - 29px) !important;
+	transition: margin-inline-start step-start var(--cfr-animation-duration);
 }
 
 #cfr-label-container {

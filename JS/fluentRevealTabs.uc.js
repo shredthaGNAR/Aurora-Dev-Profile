@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name           Fluent Reveal Tabs
-// @version        1.1.2
+// @version        1.1.3
 // @author         aminomancer
 // @homepage       https://github.com/aminomancer/uc.css.js
-// @description    Adds a visual effect to tabs similar to the spotlight gradient effect on Windows 10's start menu tiles. When hovering a tab, a subtle radial gradient is applied under the mouse. Inspired by this [proof of concept][].
-//
-// [proof of concept]: https://www.reddit.com/r/FirefoxCSS/comments/ng5lnt/proof_of_concept_legacy_edge_like_interaction/
+// @description    Adds a visual effect to tabs similar to the spotlight gradient effect on Windows 10's start menu tiles. When hovering a tab, a subtle radial gradient is applied under the mouse. Inspired by this [proof of concept](https://www.reddit.com/r/FirefoxCSS/comments/ng5lnt/proof_of_concept_legacy_edge_like_interaction/) by black7375.
 // @downloadURL    https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/fluentRevealTabs.uc.js
 // @updateURL      https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/fluentRevealTabs.uc.js
 // @license        This Source Code Form is subject to the terms of the Creative Commons Attribution-NonCommercial-ShareAlike International License, v. 4.0. If a copy of the CC BY-NC-SA 4.0 was not distributed with this file, You can obtain one at http://creativecommons.org/licenses/by-nc-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
@@ -25,11 +23,11 @@
 
       // the color of the gradient. default is sort of a faint baby blue.
       // you may prefer just white, e.g. hsla(0, 0%, 100%, 0.05)
-      lightColor: "hsla(0, 0%, 100%, 0.30)",
+      lightColor: "hsla(0, 0%, 100%, 0.35)",
 
       // how wide the radial gradient is. 50px looks best with my theme, but
       // default proton tabs are larger so you may want to try 60 or even 70.
-      gradientSize: 50,
+      gradientSize: 70,
 
       // whether to show an additional light burst when clicking a tab. I don't
       // recommend this since it doesn't play nicely with dragging & dropping if

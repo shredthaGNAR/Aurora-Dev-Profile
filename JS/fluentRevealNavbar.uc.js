@@ -20,7 +20,7 @@
       lightColor: "hsla(0, 0%, 100%, 0.30)",
 
       // how wide the radial gradient is.
-      gradientSize: 50,
+      gradientSize: 70,
 
       // whether to show an additional light burst when clicking an element. (not recommended)
       clickEffect: false,

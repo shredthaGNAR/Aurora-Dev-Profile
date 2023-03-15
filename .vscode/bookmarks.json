@@ -4,6 +4,51 @@
 			"path": "userChrome.css",
 			"bookmarks": [
 				{
+					"line": 338,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 401,
+					"column": 3,
+					"label": ""
+				},
+				{
+					"line": 432,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 480,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 490,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 506,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 560,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 688,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 752,
+					"column": 1,
+					"label": ""
+				},
+				{
 					"line": 788,
 					"column": 0,
 					"label": ""
@@ -11,6 +56,11 @@
 				{
 					"line": 812,
 					"column": 12,
+					"label": ""
+				},
+				{
+					"line": 834,
+					"column": 1,
 					"label": ""
 				},
 				{
@@ -24,8 +74,103 @@
 					"label": ""
 				},
 				{
+					"line": 1929,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 2199,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 2357,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 2869,
+					"column": 3,
+					"label": ""
+				},
+				{
+					"line": 2917,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 2930,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 2954,
+					"column": 5,
+					"label": ""
+				},
+				{
+					"line": 3014,
+					"column": 53,
+					"label": ""
+				},
+				{
+					"line": 3063,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 3123,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 3138,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 3148,
+					"column": 3,
+					"label": ""
+				},
+				{
+					"line": 3166,
+					"column": 5,
+					"label": ""
+				},
+				{
+					"line": 3305,
+					"column": 2,
+					"label": ""
+				},
+				{
 					"line": 3360,
 					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 3369,
+					"column": 2,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "userchrome-test2.css",
+			"bookmarks": [
+				{
+					"line": 3126,
+					"column": 2,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "userContent.css",
+			"bookmarks": [
+				{
+					"line": 1687,
+					"column": 7,
 					"label": ""
 				}
 			]

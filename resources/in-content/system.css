@@ -354,6 +354,13 @@
     --message-bar-text-color: var(--text-color) !important;
   }
 
+  @-moz-document regexp("^(about:|chrome:|moz-extension:).*") {
+    mark {
+      background-color: var(--solid-selection-bgcolor, hsl(340, 73%, 58%)) !important;
+      color: white !important;
+    }
+  }
+
   @-moz-document url-prefix("about:addons") {
     .addon-badge {
       border: 1px solid transparent !important;
@@ -433,6 +440,15 @@
   .onboardingContainer.featureCallout.callout-arrow::before {
     background-color: var(--newtab-background-color-secondary) !important;
     border-color: var(--fxview-contrast-border) !important;
+  }
+
+  .toggle-button:not([aria-pressed="true"])::before {
+    background-color: currentColor !important;
+  }
+
+  .toggle-button[aria-pressed="true"]::before {
+    background-color: var(--in-content-primary-button-text-color) !important;
+    outline-color: var(--in-content-primary-button-text-color) !important;
   }
 
   @-moz-document regexp("^about:blocked.*") {
@@ -1100,15 +1116,9 @@
     border: 1px solid var(--uc-content-button-background) !important;
   }
 
-  :root[uc-extension-id="screenshots@mozilla.org"] .hover-highlight {
-    background: rgba(255, 255, 255, 0.1) !important;
-    z-index: 2147483646 !important;
-  }
-
   :root[uc-extension-id="screenshots@mozilla.org"] .pixel-dimensions {
     margin-block-start: -5px;
     margin-inline-start: -5px;
-    z-index: 2147483647 !important;
     color: #fff !important;
     text-shadow: 0.5px 0.5px 0.5px black, 0 0 1px black, 0 0 1px black !important;
   }

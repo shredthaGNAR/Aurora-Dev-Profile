@@ -1,13 +1,25 @@
 // ==UserScript==
 // @name           Navbar Toolbar Button Slider
-// @version        2.8.8
+// @version        2.9.1
 // @author         aminomancer
 // @homepageURL    https://github.com/aminomancer
-// @description    Wrap all toolbar buttons in a scrollable container. It can scroll horizontally through the buttons by scrolling up/down with a mousewheel, like the tab bar. By default, it wraps all toolbar buttons that come after the urlbar (to the right of the urlbar for left-to-right languages). You can edit `userChrome.toolbarSlider.wrapButtonsRelativeToUrlbar` in [about:config][] to change this: a value of `before` will wrap all buttons that come before the urlbar, and `all` will wrap all buttons. You can change `userChrome.toolbarSlider.width` to make the container wider or smaller. If you choose 8, the slider will be 8 buttons long. When the window gets *really* small, the slider disappears and the toolbar buttons are placed into the normal widget overflow panel. (this can be disabled with `userChrome.toolbarSlider.collapseSliderOnOverflow`)
-//
-// You can specify more buttons to exclude from the slider by adding their IDs (in quotes, separated by commas) to `userChrome.toolbarSlider.excludeButtons`. For example you might type `["bookmarks-menu-button", "downloads-button"]` if you want those to stay outside of the slider. You can also decide whether to exclude flexible space springs from the slider by toggling `userChrome.toolbarSlider.excludeFlexibleSpace`. By default, springs are excluded. To scroll faster you can add a multiplier right before `scrollByPixels` is called, like `scrollAmount = scrollAmount * 1.5` or something like that.
-//
-// [about:config]: about:config
+// @long-description
+// @description
+/*
+Wrap all toolbar buttons in a scrollable container. It can scroll horizontally through the buttons by scrolling up/down with a mousewheel, like the tab bar. By default, it wraps all toolbar buttons that come after the urlbar (to the right of the urlbar for left-to-right languages).
+
+You can edit the pref `userChrome.toolbarSlider.wrapButtonsRelativeToUrlbar` in <about:config> to change this: a value of `before` will wrap all buttons that come before the urlbar, and `all` will wrap all buttons.
+
+You can change `userChrome.toolbarSlider.width` to make the container wider or smaller. If you choose 8, the slider will be 8 buttons long. When the window gets *really* small, the slider disappears and the toolbar buttons are placed into the normal widget overflow panel. (this can be disabled with `userChrome.toolbarSlider.collapseSliderOnOverflow`)
+
+You can specify more buttons to exclude from the slider by adding their IDs (in quotes, separated by commas) to `userChrome.toolbarSlider.excludeButtons`. For example you might enter the following if you want those to stay outside of the slider:
+
+```json
+["bookmarks-menu-button", "downloads-button"]
+```
+
+You can also decide whether to exclude flexible space springs from the slider by toggling `userChrome.toolbarSlider.excludeFlexibleSpace`. By default, springs are excluded. To scroll faster you can add a multiplier right before `scrollByPixels` is called, like `scrollAmount = scrollAmount * 1.5` or something like that.
+*/
 // @downloadURL    https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/navbarToolbarButtonSlider.uc.js
 // @updateURL      https://cdn.jsdelivr.net/gh/aminomancer/uc.css.js@master/JS/navbarToolbarButtonSlider.uc.js
 // @license        This Source Code Form is subject to the terms of the Creative Commons Attribution-NonCommercial-ShareAlike International License, v. 4.0. If a copy of the CC BY-NC-SA 4.0 was not distributed with this file, You can obtain one at http://creativecommons.org/licenses/by-nc-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
@@ -696,7 +708,7 @@ class NavbarToolbarSlider {
       clicktoscroll: true,
       orient: "horizontal",
       style:
-        "-moz-box-align: stretch; -moz-box-orient: vertical; scrollbar-width: none; box-sizing: border-box; scroll-behavior: smooth; overflow: hidden; transition: max-width 0.2s ease-out;",
+        "align-items: stretch; flex-flow: column nowrap; scrollbar-width: none; box-sizing: border-box; scroll-behavior: smooth; overflow: hidden; transition: max-width 0.2s ease-out;",
     })) {
       outer.setAttribute(key, val);
     }
@@ -705,7 +717,7 @@ class NavbarToolbarSlider {
     for (const [key, val] of Object.entries({
       class: "slider-inner-container",
       id: "nav-bar-toolbarbutton-slider",
-      style: "-moz-box-flex: 1;",
+      style: "flex: 1;",
     })) {
       inner.setAttribute(key, val);
     }
@@ -830,6 +842,10 @@ class NavbarToolbarSlider {
   // don't show the confirmation hint on the bookmarks menu
   // or library button if they're scrolled out of view
   handleConfirmationHint() {
+    this.handleGSyncHint();
+    this.handleStarUIHint();
+  }
+  handleStarUIHint() {
     // don't change this method if we're using restorePreProtonLibraryButton.uc.js,
     // since that script also changes it
     if ("LibraryUI" in window) return;
@@ -857,6 +873,138 @@ class NavbarToolbarSlider {
       }
       if (!anchor) anchor = document.getElementById("PanelUI-menu-button");
       ConfirmationHint.show(anchor, "confirmation-hint-page-bookmarked");
+    };
+  }
+  handleGSyncHint() {
+    if (!window.gSync?._appendSendTabDeviceList) return;
+    window.gSync._appendSendTabDeviceList = function(
+      targets,
+      fragment,
+      createDeviceNodeFn,
+      url,
+      title,
+      multiselected,
+      isFxaMenu = false
+    ) {
+      let tabsToSend = multiselected
+        ? gBrowser.selectedTabs.map(t => {
+            return {
+              url: t.linkedBrowser.currentURI.spec,
+              title: t.linkedBrowser.contentTitle,
+            };
+          })
+        : [{ url, title }];
+
+      const send = to => {
+        Promise.all(
+          tabsToSend.map(t =>
+            // sendTabToDevice does not reject.
+            this.sendTabToDevice(t.url, to, t.title)
+          )
+        ).then(results => {
+          // Show the Sent! confirmation if any of the sends succeeded.
+          if (results.includes(true)) {
+            // FxA button could be hidden with CSS since the user is logged out,
+            // although it seems likely this would only happen in testing...
+            let fxastatus = document.documentElement.getAttribute("fxastatus");
+            let fxaButton = document.getElementById("fxa-toolbar-menu-button");
+            let anchorNode =
+              (fxastatus &&
+                fxastatus != "not_configured" &&
+                fxaButton?.parentNode?.id != "widget-overflow-list" &&
+                isElementVisible(fxaButton) &&
+                !NavbarToolbarSlider.scrolledOutOfView(
+                  fxaButton,
+                  ".slider-container"
+                ) &&
+                fxaButton) ||
+              document.getElementById("PanelUI-menu-button");
+            ConfirmationHint.show(
+              anchorNode,
+              "confirmation-hint-send-to-device"
+            );
+          }
+          fxAccounts.flushLogFile();
+        });
+      };
+      const onSendAllCommand = event => {
+        send(targets);
+      };
+      const onTargetDeviceCommand = event => {
+        const targetId = event.target.getAttribute("clientId");
+        const target = targets.find(t => t.id == targetId);
+        send([target]);
+      };
+
+      function addTargetDevice(targetId, name, targetType, lastModified) {
+        const targetDevice = createDeviceNodeFn(
+          targetId,
+          name,
+          targetType,
+          lastModified
+        );
+        targetDevice.addEventListener(
+          "command",
+          targetId ? onTargetDeviceCommand : onSendAllCommand,
+          true
+        );
+        targetDevice.classList.add("sync-menuitem", "sendtab-target");
+        targetDevice.setAttribute("clientId", targetId);
+        targetDevice.setAttribute("clientType", targetType);
+        targetDevice.setAttribute("label", name);
+        fragment.appendChild(targetDevice);
+      }
+
+      for (let target of targets) {
+        let type, lastModified;
+        if (target.clientRecord) {
+          type = Weave.Service.clientsEngine.getClientType(
+            target.clientRecord.id
+          );
+          lastModified = new Date(
+            target.clientRecord.serverLastModified * 1000
+          );
+        } else {
+          // For phones, FxA uses "mobile" and Sync clients uses "phone".
+          type = target.type == "mobile" ? "phone" : target.type;
+          lastModified = target.lastAccessTime
+            ? new Date(target.lastAccessTime)
+            : null;
+        }
+        addTargetDevice(target.id, target.name, type, lastModified);
+      }
+
+      if (targets.length > 1) {
+        // "Send to All Devices" menu item
+        const separator = createDeviceNodeFn();
+        separator.classList.add("sync-menuitem");
+        fragment.appendChild(separator);
+        const allDevicesLabel = isFxaMenu
+          ? this.fluentStrings.formatValueSync("account-send-to-all-devices")
+          : this.fxaStrings.GetStringFromName("sendToAllDevices.menuitem");
+        addTargetDevice("", allDevicesLabel, "");
+
+        // "Manage devices" menu item
+        const manageDevicesLabel = isFxaMenu
+          ? this.fluentStrings.formatValueSync("account-manage-devices")
+          : this.fxaStrings.GetStringFromName("manageDevices.menuitem");
+        // We piggyback on the createDeviceNodeFn implementation,
+        // it's a big disgusting.
+        const targetDevice = createDeviceNodeFn(
+          null,
+          manageDevicesLabel,
+          null,
+          null
+        );
+        targetDevice.addEventListener(
+          "command",
+          () => gSync.openDevicesManagementPage("sendtab"),
+          true
+        );
+        targetDevice.classList.add("sync-menuitem", "sendtab-target");
+        targetDevice.setAttribute("label", manageDevicesLabel);
+        fragment.appendChild(targetDevice);
+      }
     };
   }
   registerSheet() {
